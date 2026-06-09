@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<!-- saved from url=(0029)https://spacex.dialectic.com/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SpaceX Thesis &amp; Valuation</title>
-  <link rel="preload" as="image" href="https://spacex.dialectic.com/assets/hero/orbit-reentry.jpg">
+  <link rel="preload" as="image" href="./assets/hero/orbit-reentry.jpg">
   <style>
 @font-face {
   font-family: 'Dialectic';
@@ -14,11 +14,6 @@
 @font-face {
   font-family: 'DialecticText';
   src: url('./assets/fonts/dialectic.woff2') format('woff2');
-  font-weight: normal; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: 'DialecticMMM';
-  src: url('./assets/fonts/dialectic-type-mmm-09.otf') format('opentype');
   font-weight: normal; font-style: normal; font-display: swap;
 }
 @font-face {
@@ -37,7 +32,7 @@
       --red-soft:rgba(233,44,44,.18);
       --shadow:0 30px 90px rgba(0,0,0,.42);
       --radius:8px;
-      --font-display:'DialecticMMM','Dialectic','Arial',sans-serif;
+      --font-display:'Dialectic','Arial',sans-serif;
       --font-body:'DialecticText',Arial,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       --font-prose:'BrittiSansLight',Arial,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       --font:var(--font-body);
@@ -132,7 +127,8 @@
       z-index:45;
       flex:0 0 auto;
     }
-    .language-switcher{position:relative}
+    /* Language switcher temporarily disabled (per-language pages not present in this build). */
+    .language-switcher{position:relative;display:none}
     .language-trigger{
       appearance:none;
       border:1px solid rgba(245,242,238,.20);
@@ -275,10 +271,6 @@
     #conclusion{--section-art:url("./assets/hero/falcon-heavy-launch.jpg");--section-art-position:center 48%;--section-glow:rgba(233,44,44,.16);--section-glow-x:58%;--section-glow-y:36%;--section-pan-x:-1.2%;--section-pan-y:-.8%}
     #annexes{--section-art:url("./assets/hero/orbit-reentry.jpg");--section-art-position:center 52%;--section-glow:rgba(255,184,82,.18);--section-glow-x:58%;--section-glow-y:44%;--section-pan-x:-1.4%;--section-pan-y:-.8%}
     .landing::before{opacity:.10}
-    .landing{--page-bg:url('./assets/backgrounds/hero-rotator-01.jpg');--page-bg-position:center 70%}
-    #executive-summary,#valuation-analysis,#conclusion{--page-bg:url('./assets/backgrounds/starship-pad-overhead.jpg');--page-bg-position:center 38%}
-    #investment-thesis,#risks{--page-bg:url('./assets/backgrounds/launch-trail-night.jpg');--page-bg-position:center bottom}
-    #companies,#annexes{--page-bg:url('./assets/backgrounds/launch-plume-close.jpg');--page-bg-position:center 55%}
     .landing{
       min-height:100vh;
       align-items:flex-start;
@@ -347,8 +339,6 @@
     .hero-photo:nth-of-type(7){animation-delay:42s}
     .hero-photo:nth-of-type(8){animation-delay:49s}
     .hero-photo:nth-of-type(9){animation-delay:56s}
-    .hero-photo:nth-of-type(10){animation-delay:63s}
-    .hero-photo:nth-of-type(11){animation-delay:70s}
     .hero-video::after{
       background:
         linear-gradient(90deg,rgba(3,4,9,.72) 0%,rgba(3,4,9,.22) 48%,rgba(3,4,9,.28) 100%),
@@ -373,7 +363,6 @@
     }
     h1,h2,h3,p{margin:0}
     h1,h2,h3,.expand-title,.metric-square strong,.hero-metric-card strong,.btn,.card-index,.expand-action,.detail-label,.metric-square span,.hero-metric-card span,.company-map-heading,.company-map-button,.spacex-wordmark,.hero-subtitle{font-family:var(--font-display)}
-    strong,b{font-family:var(--font-display);font-weight:400}
     h1{
       max-width:960px;
       font-size:clamp(36px,5.3vw,82px);
@@ -457,6 +446,13 @@
       justify-content:space-between;
       gap:10px;
       overflow:hidden;
+    }
+    .hero-metric-card::before{
+      content:"";
+      width:34px;
+      height:3px;
+      background:var(--red);
+      box-shadow:0 0 18px rgba(233,44,44,.45);
     }
     .hero-metric-card strong{
       color:#fff;
@@ -714,7 +710,7 @@
     }
     .interactive-grid{
       display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
+      grid-template-columns:minmax(0,1fr);
       gap:14px;
       margin-top:36px;
       align-items:stretch;
@@ -752,14 +748,6 @@
     }
     .thesis-copy p{
       margin:0 0 16px;
-    }
-    .thesis-copy .dialectic-emphasis,
-    .expand-body-inner .dialectic-emphasis{
-      font-family:var(--font-display);
-      color:rgba(245,242,238,.84);
-      font-size:clamp(14px,1vw,17px);
-      line-height:1.6;
-      letter-spacing:0;
     }
     .thesis-copy p:last-child{
       margin-bottom:0;
@@ -897,10 +885,10 @@
       background:#f6f5f3;
     }
     .interactive-chart-grid[data-panel-count="2"]{
-      grid-template-columns:repeat(2,minmax(0,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
     }
     .interactive-chart-grid[data-panel-count="3"]{
-      grid-template-columns:repeat(3,minmax(0,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     }
     .interactive-chart-panel{
       min-width:0;
@@ -1185,26 +1173,29 @@
     @keyframes pdfPulse{to{opacity:.44;transform:translateY(-1px)}}
     .pdf-export-overlay{
       position:fixed;
-      right:24px;
-      bottom:82px;
-      z-index:90;
-      width:min(320px,calc(100vw - 48px));
-      padding:14px 16px;
-      border:1px solid rgba(245,242,238,.18);
-      border-radius:8px;
-      background:rgba(13,13,17,.92);
-      color:rgba(245,242,238,.88);
-      box-shadow:0 18px 54px rgba(0,0,0,.45);
-      backdrop-filter:blur(18px);
+      inset:0;
+      z-index:9999;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:16px;
+      padding:24px;
+      background:var(--bg);
+      color:rgba(245,242,238,.92);
       font-family:var(--font-display);
-      font-size:11px;
-      letter-spacing:.08em;
-      line-height:1.35;
+      font-size:13px;
+      letter-spacing:.12em;
+      line-height:1.4;
       text-transform:uppercase;
+      text-align:center;
     }
     .pdf-export-overlay[hidden]{display:none}
+    /* While exporting, hide the live page behind the overlay and center content blocks for the capture. */
+    body.pdf-exporting .page-inner > *{margin-left:auto !important;margin-right:auto !important}
     .pdf-export-progress{
       display:block;
+      width:min(280px,70vw);
       height:3px;
       margin-top:10px;
       border-radius:999px;
@@ -1272,114 +1263,6 @@
       font-weight:700;
     }
     .detail-chart-grid.is-single{grid-template-columns:minmax(0,1fr)}
-    body.chart-modal-open{overflow:hidden}
-    .chart-modal{
-      position:fixed;
-      inset:0;
-      z-index:120;
-      display:grid;
-      place-items:center;
-      padding:clamp(14px,2vw,28px);
-    }
-    .chart-modal[hidden]{display:none}
-    .chart-modal-backdrop{
-      position:absolute;
-      inset:0;
-      background:rgba(3,4,8,.82);
-      backdrop-filter:blur(16px);
-    }
-    .chart-modal-panel{
-      position:relative;
-      z-index:1;
-      width:min(1500px,96vw);
-      height:min(920px,92vh);
-      border:1px solid rgba(245,242,238,.22);
-      border-radius:12px;
-      background:linear-gradient(145deg,rgba(15,16,20,.98),rgba(6,7,10,.98));
-      box-shadow:0 36px 120px rgba(0,0,0,.58);
-      display:flex;
-      flex-direction:column;
-      overflow:hidden;
-    }
-    .chart-modal-header{
-      min-height:66px;
-      padding:18px 22px;
-      border-bottom:1px solid rgba(245,242,238,.12);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-    }
-    .chart-modal-title{
-      margin:0;
-      color:#fff;
-      font-family:var(--font-display);
-      font-size:clamp(18px,1.8vw,26px);
-      line-height:1.05;
-      letter-spacing:0;
-      font-weight:400;
-    }
-    .chart-modal-close{
-      appearance:none;
-      border:1px solid rgba(245,242,238,.18);
-      background:rgba(245,242,238,.08);
-      color:#fff;
-      width:42px;
-      height:42px;
-      border-radius:999px;
-      cursor:pointer;
-      display:grid;
-      place-items:center;
-      font-family:Arial,sans-serif;
-      font-size:24px;
-      line-height:1;
-      transition:background .18s ease,border-color .18s ease,transform .18s ease;
-    }
-    .chart-modal-close:hover{background:rgba(245,242,238,.14);border-color:rgba(245,242,238,.32);transform:translateY(-1px)}
-    .chart-modal-body{
-      flex:1 1 auto;
-      overflow:auto;
-      padding:clamp(16px,2vw,28px);
-    }
-    .chart-modal-grid{
-      display:grid;
-      grid-template-columns:minmax(0,1fr);
-      gap:clamp(18px,2vw,28px);
-      max-width:1360px;
-      margin:0 auto;
-    }
-    .chart-modal-figure{
-      margin:0;
-      border:1px solid rgba(245,242,238,.18);
-      border-radius:10px;
-      background:#f6f5f3;
-      overflow:hidden;
-      box-shadow:0 24px 80px rgba(0,0,0,.34);
-    }
-    .chart-modal-figure img{
-      display:block;
-      width:100%;
-      max-height:78vh;
-      object-fit:contain;
-      background:#fff;
-    }
-    .chart-modal-caption{
-      padding:13px 16px 15px;
-      color:#202126;
-      background:#f6f5f3;
-      font-family:Arial,sans-serif;
-      font-size:14px;
-      font-weight:700;
-      line-height:1.35;
-    }
-    .chart-modal-card{
-      margin-top:18px;
-      overflow:hidden;
-    }
-    .chart-modal-card .expand-trigger{
-      min-height:auto;
-      padding:18px;
-    }
     .detail-heading{
       font-family:var(--font-display);
       color:#fff;
@@ -1717,80 +1600,78 @@
 <body>
   <div class="page-transition" aria-hidden="true"></div>
   <nav class="nav" aria-label="Primary navigation">
-    <a class="brand" href="https://spacex.dialectic.com/#landing" data-nav=""><span>SpaceX</span><span aria-hidden="true">-</span><span class="brand-dialectic">Dialectic</span></a>
+    <a class="brand" href="#landing" data-nav><span>SpaceX</span><span aria-hidden="true">-</span><span class="brand-dialectic">Dialectic</span></a>
     <div class="nav-links">
-      <a href="https://spacex.dialectic.com/#executive-summary" data-nav="" class="active">Executive Summary</a>
-      <a href="https://spacex.dialectic.com/#investment-thesis" data-nav="">Investment Thesis</a>
-      <a href="https://spacex.dialectic.com/#companies" data-nav="">Business Units</a>
-      <a href="https://spacex.dialectic.com/#valuation-analysis" data-nav="">Valuation Analysis</a>
-      <a href="https://spacex.dialectic.com/#risks" data-nav="">Risks</a>
-      <a href="https://spacex.dialectic.com/#conclusion" data-nav="">Conclusion</a>
-      <a href="https://spacex.dialectic.com/#annexes" data-nav="">Annexes</a>
+      <a href="#executive-summary" data-nav>Executive Summary</a>
+      <a href="#investment-thesis" data-nav>Investment Thesis</a>
+      <a href="#companies" data-nav>Business Units</a>
+      <a href="#valuation-analysis" data-nav>Valuation Analysis</a>
+      <a href="#risks" data-nav>Risks</a>
+      <a href="#conclusion" data-nav>Conclusion</a>
+      <a href="#annexes" data-nav>Annexes</a>
     </div>
     <div class="nav-actions">
-      <div class="language-switcher" data-language-switcher="">
-        <button class="language-trigger" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Select language" data-language-trigger="">
+      <div class="language-switcher" data-language-switcher>
+        <button class="language-trigger" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Select language" data-language-trigger>
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <circle cx="12" cy="12" r="9" stroke-width="1.8"></circle>
             <path d="M3.5 12h17M12 3c2.2 2.4 3.3 5.4 3.3 9S14.2 18.6 12 21M12 3C9.8 5.4 8.7 8.4 8.7 12s1.1 6.6 3.3 9" stroke-width="1.8" stroke-linecap="round"></path>
           </svg>
-          <span data-language-current="">EN</span>
+          <span data-language-current>EN</span>
         </button>
-        <div class="language-menu" role="menu" aria-label="Language options" data-language-menu="" hidden="">
-          <button type="button" role="menuitemradio" aria-checked="true" data-lang-option="" data-lang="en" data-html-lang="en" data-lang-code="EN">English</button>
-          <button type="button" role="menuitemradio" aria-checked="false" data-lang-option="" data-lang="fr" data-html-lang="fr" data-lang-code="FR">French</button>
-          <button type="button" role="menuitemradio" aria-checked="false" data-lang-option="" data-lang="de" data-html-lang="de" data-lang-code="DE">German</button>
-          <button type="button" role="menuitemradio" aria-checked="false" data-lang-option="" data-lang="zh" data-html-lang="zh-Hans" data-lang-code="ZH">Mandarin</button>
-          <button type="button" role="menuitemradio" aria-checked="false" data-lang-option="" data-lang="pt-BR" data-html-lang="pt-BR" data-lang-code="PT-BR">Portuguese (BR)</button>
-          <button type="button" role="menuitemradio" aria-checked="false" data-lang-option="" data-lang="es" data-html-lang="es" data-lang-code="ES">Spanish</button>
+        <div class="language-menu" role="menu" aria-label="Language options" data-language-menu hidden>
+          <button type="button" role="menuitemradio" aria-checked="true" data-lang-option data-lang="en" data-html-lang="en" data-lang-code="EN">English</button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang-option data-lang="fr" data-html-lang="fr" data-lang-code="FR">French</button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang-option data-lang="de" data-html-lang="de" data-lang-code="DE">German</button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang-option data-lang="zh" data-html-lang="zh-Hans" data-lang-code="ZH">Mandarin</button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang-option data-lang="pt-BR" data-html-lang="pt-BR" data-lang-code="PT-BR">Portuguese (BR)</button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang-option data-lang="es" data-html-lang="es" data-lang-code="ES">Spanish</button>
         </div>
       </div>
     </div>
   </nav>
-  <button class="pdf-export-button" type="button" data-pdf-export="" data-html2canvas-ignore="true" aria-label="Download unified PDF">
+  <button class="pdf-export-button" type="button" data-pdf-export data-html2canvas-ignore="true" aria-label="Download unified PDF">
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M7 3h7l4 4v14H7z" stroke-width="1.8" stroke-linejoin="round"></path>
       <path d="M14 3v5h5M9.5 13h5M9.5 16h3" stroke-width="1.8" stroke-linecap="round"></path>
     </svg>
-    <span data-pdf-label="">PDF</span>
+    <span data-pdf-label>PDF</span>
   </button>
 
-  <div class="global-photo-backdrop hero-video" style="--poster: url(&#39;./assets/backgrounds/hero-rotator-01.jpg&#39;); --hero-lift: 0px; --hero-scale: 1;" data-video-placeholder="Local launch photo rotator. Replace assets/backgrounds/hero-rotator-*.jpg or re-enable hero video with licensed launch/orbit footage 1:1.">
-    <span class="hero-photo" style="--photo:url(&#39;./assets/backgrounds/hero-rotator-01.jpg&#39;);--photo-position:center 72%" aria-hidden="true"></span>
-    <span class="hero-photo" style="--photo:url(&#39;./assets/backgrounds/hero-rotator-02.jpg&#39;);--photo-position:center 62%" aria-hidden="true"></span>
-    <span class="hero-photo" style="--photo:url(&#39;./assets/backgrounds/hero-rotator-03.jpg&#39;);--photo-position:center 60%" aria-hidden="true"></span>
-    <span class="hero-photo" style="--photo:url(&#39;./assets/backgrounds/hero-rotator-04.jpg&#39;);--photo-position:center 76%" aria-hidden="true"></span>
-    <span class="hero-photo" style="--photo:url(&#39;./assets/backgrounds/hero-rotator-05.jpg&#39;);--photo-position:center 74%" aria-hidden="true"></span>
-    <span class="hero-photo" style="--photo:url(&#39;./assets/backgrounds/hero-rotator-06.jpg&#39;);--photo-position:66% 52%" aria-hidden="true"></span>
-    <span class="hero-photo" style="--photo:url(&#39;./assets/backgrounds/hero-rotator-07.jpg&#39;);--photo-position:center 66%" aria-hidden="true"></span>
-    <span class="hero-photo" style="--photo:url(&#39;./assets/backgrounds/hero-rotator-08.jpg&#39;);--photo-position:center 74%" aria-hidden="true"></span>
-    <span class="hero-photo" style="--photo:url(&#39;./assets/backgrounds/hero-rotator-09.jpg&#39;);--photo-position:center 68%" aria-hidden="true"></span>
-    <span class="hero-photo" style="--photo:url(&#39;./assets/backgrounds/hero-rotator-10.jpg&#39;);--photo-position:center 70%" aria-hidden="true"></span>
-    <span class="hero-photo" style="--photo:url(&#39;./assets/backgrounds/hero-rotator-11.jpg&#39;);--photo-position:center 64%" aria-hidden="true"></span>
-    <video autoplay="" muted="" loop="" playsinline="" preload="auto" poster="./assets/backgrounds/hero-rotator-01.jpg" aria-hidden="true">
+  <div class="global-photo-backdrop hero-video" style="--poster:url('./assets/backgrounds/hero-rotator-01.jpg')" data-video-placeholder="Local launch photo rotator. Replace assets/backgrounds/hero-rotator-*.jpg or re-enable hero video with licensed launch/orbit footage 1:1.">
+    <span class="hero-photo" style="--photo:url('./assets/backgrounds/hero-rotator-01.jpg');--photo-position:center 72%" aria-hidden="true"></span>
+    <span class="hero-photo" style="--photo:url('./assets/backgrounds/hero-rotator-02.jpg');--photo-position:center 62%" aria-hidden="true"></span>
+    <span class="hero-photo" style="--photo:url('./assets/backgrounds/hero-rotator-03.jpg');--photo-position:center 60%" aria-hidden="true"></span>
+    <span class="hero-photo" style="--photo:url('./assets/backgrounds/hero-rotator-04.jpg');--photo-position:center 76%" aria-hidden="true"></span>
+    <span class="hero-photo" style="--photo:url('./assets/backgrounds/hero-rotator-05.jpg');--photo-position:center 74%" aria-hidden="true"></span>
+    <span class="hero-photo" style="--photo:url('./assets/backgrounds/hero-rotator-06.jpg');--photo-position:66% 52%" aria-hidden="true"></span>
+    <span class="hero-photo" style="--photo:url('./assets/backgrounds/hero-rotator-07.jpg');--photo-position:center 66%" aria-hidden="true"></span>
+    <span class="hero-photo" style="--photo:url('./assets/backgrounds/hero-rotator-08.jpg');--photo-position:center 74%" aria-hidden="true"></span>
+    <span class="hero-photo" style="--photo:url('./assets/backgrounds/hero-rotator-09.jpg');--photo-position:center 68%" aria-hidden="true"></span>
+    <video autoplay muted loop playsinline preload="auto" poster="./assets/backgrounds/hero-rotator-01.jpg" aria-hidden="true">
       <source src="./video/placeholder-launch-loop.mp4" type="video/mp4">
     </video>
   </div>
 
   <main class="site-shell">
-    <section class="page landing scroll-scene" id="landing">
+    <section class="page landing" id="landing">
       <div class="page-inner hero-grid">
         <div>
-          <div class="page-kicker reveal reveal-kicker is-visible" style="--reveal-delay: 0ms;">Dialectic | Perpetual Fund | June 2026</div>
-          <div class="spacex-wordmark reveal flow-from-bottom is-visible" aria-label="SpaceX" style="--reveal-delay: 45ms;"><img src="./SpaceX Thesis &amp; Valuation_files/spacex-logo.svg" alt="" aria-hidden="true"></div>
-          <h1 class="reveal reveal-title is-visible" style="--reveal-delay: 90ms;">SpaceX Thesis and Valuation Memorandum</h1>
-          <p class="hero-subtitle reveal reveal-copy is-visible" style="--reveal-delay: 135ms;">Probabilistic Sum-of-the-Parts Valuation</p>
-          <div class="hero-metric-grid reveal flow-from-bottom is-visible" aria-label="Valuation Analysis" style="--reveal-delay: 180ms;">
-            <div class="hero-metric-card"><strong>$2.24T-$3.47T</strong><span>Opening Week Valuation Target Range</span></div>
+          <div class="page-kicker reveal">Dialectic Group / Perpetual / June 2026 / Pre-IPO</div>
+          <div class="spacex-wordmark reveal" aria-label="SpaceX"><img src="./assets/spacex-logo.svg" alt="" aria-hidden="true"></div>
+          <h1 class="reveal">Dialectic Thesis &amp; Valuation<br>Memorandum</h1>
+          <p class="hero-subtitle reveal">Probabilistic sum-of-the-parts valuation <span aria-hidden="true">·</span> Q2 2026 <span aria-hidden="true">·</span> Pre-IPO</p>
+          <div class="hero-metric-grid reveal" aria-label="Opening valuation metrics">
+            <div class="hero-metric-card"><strong>$2.24-$3.47T</strong><span>Opening Week Valuation Target Range</span></div>
             <div class="hero-metric-card"><strong>$166-$258<small>/share</small></strong><span>Entry Price Range</span></div>
-            <div class="hero-metric-card"><strong>$55.6B</strong><span>2026E Total Revenue</span></div>
+            <div class="hero-metric-card"><strong>$55.6B</strong><span>FY2026E Revenue (Forecast)</span></div>
           </div>
-          <div class="landing-company-map reveal flow-from-bottom is-visible" aria-label="Business Unit Analysis" style="--reveal-delay: 180ms;">
+          <div class="landing-company-map reveal" aria-label="Business unit quick links">
             <div class="company-map-group">
-              <span class="company-map-heading">Space Exploration</span>
+              <span class="company-map-heading">Space</span>
               <div class="company-map-list">
                 <button class="company-map-button" type="button" data-company-target="Launch Services">Launch Services</button>
-                <button class="company-map-button" type="button" data-company-target="Crewed Spaceflight">Crewed Trips</button>
+                <button class="company-map-button" type="button" data-company-target="Crewed Spaceflight">Crewed Spaceflight</button>
                 <button class="company-map-button" type="button" data-company-target="Other Space Services">Other Space Services</button>
                 <button class="company-map-button" type="button" data-company-target="Starshield &amp; Golden Dome">Starshield &amp; Golden Dome</button>
                 <button class="company-map-button" type="button" data-company-target="Orbital Data Centers">Orbital Data Centers</button>
@@ -1805,12 +1686,12 @@
               </div>
             </div>
             <div class="company-map-group">
-              <span class="company-map-heading">AI + Digital</span>
+              <span class="company-map-heading">AI &amp; Digital</span>
               <div class="company-map-list">
-                <button class="company-map-button" type="button" data-company-target="xAI Software (Grok + API)">xAI Software (Grok + API)</button>
-                <button class="company-map-button" type="button" data-company-target="Colossus Data Centers">Colossus Terrestrial Data Centers</button>
+                <button class="company-map-button" type="button" data-company-target="xAI Software (Grok + API)">xAI Software</button>
+                <button class="company-map-button" type="button" data-company-target="Colossus Data Centers">Colossus Data Centers</button>
                 <button class="company-map-button" type="button" data-company-target="X Platform &amp; XMoney">X Platform &amp; XMoney</button>
-                <button class="company-map-button" type="button" data-company-target="Terafab — Semiconductor Mfg">Terafab</button>
+                <button class="company-map-button" type="button" data-company-target="Terafab — Semiconductor Mfg">Terafab Semiconductor</button>
               </div>
             </div>
           </div>
@@ -1818,423 +1699,59 @@
       </div>
     </section>
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-  <section class="page scroll-scene is-current" id="executive-summary">
+    <section class="page" id="executive-summary">
       <div class="page-inner">
-        <div class="page-kicker reveal reveal-kicker is-visible" style="--reveal-delay: 0ms;">Page 02</div>
-        <h2 class="reveal reveal-title is-visible" style="--reveal-delay: 45ms;">Executive Summary</h2>
-        <article class="copy-panel reveal flow-from-bottom is-visible" style="--reveal-delay: 90ms;">
-          <p>SpaceX is the most important company of this century as its combined ambitions address the largest TAM of in history, far beyond the S1 estimation of 28.5T. SpaceX is growing at an unprecedented rate for a trillion-dollar tech conglomerate and is rapidly converging an array of highly synergistic businesses in its quest to make consciousness multi-planetary, deliver superior connectivity infrastructure and accelerate mankind via a maximally truth-seeking generalized artificial intelligence.</p>
-          <p>Valuation Summary: Dialectic herein posits a near-term valuation target of $179/share (blended equity value $2.408T) with a long-term valuation target (10yr+) of 10T. Our first-principles, scenario-weighted, sum-of-the-parts DCF across the estimated twelve business units produces a P50 enterprise value of $166/share ($2.241 trillion), with meaningful right-skew to $292/share $4.733 trillion at P90.</p>
-          <p>We will continue to accumulate SPCX up to our P55 of $179/share, continue opportunistically adding via proprietary strategies up to our P75 of $258/share and favour holding while employing our advanced yielding strategies on top of the asset there above until more information becomes clear. Our probabilistic sum of the parts DCF is complemented by a comparables analysis that considers a moderate 'Elon Premium' against peers, as well as current market signals.</p>
-          <p>We note that there is considerable upside potential from this base given the dominant market position in the various emerging markets that are tangential to space exploration, AI, and connectivity. We observe accelerating network effects across the approximately twelve (12) business lines currently operated under the SpaceX brand. While this document does not contemplate a pending highly strategic and synergistic merger with Tesla, we do note additional upside potential therein. At Dialectic, one of our principles is that 'the future is far more Sci-Fi than you think'. SpaceX is pulling mankind towards a literal Sci-Fi future, more than any other company on the planet (or off planet) and we consider exposure to this asset fundamental for our future-forward investment portfolio.</p>
+        <div class="page-kicker reveal">Page 02</div>
+        <h2 class="reveal">Executive Summary</h2>
+        <article class="copy-panel reveal">
+          <p>SpaceX is the most important company of this century as its combined ambitions address one of the largest total addressable markets in history, far beyond the S-1 estimation of $28.5T. It is growing at an unprecedented rate for a trillion-dollar tech conglomerate and is rapidly converging an array of highly synergistic businesses in its quest to make consciousness multi-planetary, deliver superior connectivity infrastructure, and accelerate mankind through maximally truth-seeking superintelligence.</p>
+          <p>Dialectic herein posits a near-term valuation target of $179/share, with blended equity value of approximately $2.408T, and a long-term valuation target above $10T. Our bottom-up, scenario-weighted, sum-of-the-parts DCF across the estimated twelve business units produces a base-case enterprise value of approximately $2.421T, or $179.72/share. The Monte Carlo simulation produces a P50 enterprise value of $2.241T, with meaningful right-skew to $4.733T at P90.</p>
+          <p>We intend to aggressively accumulate SPCX up to our P55 of $179/share, continue opportunistically adding via proprietary strategies over the coming years up to our P75 of $258/share, and favor holding while employing advanced yielding strategies on top of the asset thereafter. Our probabilistic sum-of-the-parts DCF is complemented by a comparables analysis that considers a moderate Elon Premium against peers, as well as current market signals.</p>
+          <p>We note considerable upside potential from this base given SpaceX's dominant market position across emerging markets adjacent to space exploration, AI, and connectivity. Observable network effects are accelerating across approximately twelve business lines currently operated under the SpaceX brand. While this document does not contemplate a pending highly strategic and synergistic merger with Tesla, we note additional upside potential therein. At Dialectic, one of our principles is that the future is far more Sci-Fi than you think. SpaceX is pulling mankind toward that literal Sci-Fi future more than any other company on the planet, or off it, and we consider exposure to this asset fundamental for a future-forward investment portfolio.</p>
+          <div class="model-output-box">
+            <h4>Key Model Outputs (Base Case, 10-Year Horizon)</h4>
+            <p>Blended Enterprise Value: ~$2.421T | Blended Equity: ~$2.408T | Per Share: ~$179.72</p>
+            <p>Opening Week Valuation Target Range: $2.24T-$3.47T | Entry Price Range: $166-$258/share</p>
+            <p>Monte Carlo P10 / P50 / P90 equity: $0.809T / $2.287T / $4.614T (5,000 trials)</p>
+            <p>S-1 Anchors: FY2025 Revenue $18.7B | EBITDA $6.6B | Starlink margin 62.9%</p>
+          </div>
         </article>
       </div>
-    </section><section class="page scroll-scene" id="investment-thesis">
+    </section>
+
+    <section class="page" id="valuation-analysis">
       <div class="page-inner">
-        <div class="page-kicker reveal reveal-kicker" style="--reveal-delay: 0ms;">Page 03</div>
-        <h2 class="reveal reveal-title" style="--reveal-delay: 45ms;">Investment Thesis</h2>
-        <p class="lede reveal reveal-copy" style="--reveal-delay: 90ms;">SpaceX is rapidly accelerating its strategic advantages across the different business units in the primary categories 3 categories of 1- Space exploration, 2- connectivity, and 3- AI + Digital, with special consideration to the synergistic convergence of these businesses and resultant network effects.</p>
-        <div class="interactive-grid reveal flow-from-bottom" id="pillarGrid" aria-label="Investment thesis pillars" style="--reveal-delay: 135ms;">
-          <article class="expand-card thesis-card reveal flow-from-bottom" style="--reveal-delay: 0ms;">
-            <span class="card-index">Pillar 01</span>
-            <h3 class="thesis-title">Space</h3>
-            <div class="thesis-copy">
-              <h3 class="detail-heading">Network Effects &amp; Moat in Access to Orbit</h3>
-              <p>SpaceX has fundamentally repriced access to orbit, reducing commercial launch costs by over 90% since Falcon 9's introduction. With 140-145 Falcon 9 launches expected in 2026 and Starship approaching commercial readiness in the later part of the year, SpaceX holds an incredibly advantageous competitive position and accounts for a significant majority of all launches globally by count and by weight-to-orbit. No competitor can match SpaceX on cadence, reliability, and price as Starship's sheer scale drops the cost-to-orbit below $100/kg, driving under $10/kg by 2030. We are witnessing the SpaceX transcend Wright's Law and push us towards a Space Age version of Moore's Law. A fully operational Starship opens a $150B+ cargo-as-a-service near-term TAM.</p>
-            </div>
-            
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 35ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-0">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Space charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article>
-          </article>
-          <article class="expand-card thesis-card reveal flow-from-bottom" style="--reveal-delay: 70ms;">
-            <span class="card-index">Pillar 02</span>
-            <h3 class="thesis-title">Connectivity</h3>
-            <div class="thesis-copy">
-              <h3 class="detail-heading">Starlink as a Global Telecom &amp; Internet Infra + D2C</h3>
-              <p>Starlink is not just a satellite internet company. It is a global telecommunications network that will pass terrestrial communications infrastructure in cost, reliability and eventually latency/performance. It is an internet infrastructure business with recurring subscription-based revenue, low marginal cost per additional subscriber, and structural advantages over every terrestrial and geostationary competitor. At 12+ million subscribers across 164 countries and growing over 100% annual CAGR, Starlink generates $11.4 billion of annual revenue with a 63% EBITDA margin. Direct-to-Cell extends the Starlink franchise to mobile devices globally and should capture some of the approximately $400 billion in cellular telecom annual profits.</p>
-            </div>
-            
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 105ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-1">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Connectivity charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article>
-          </article>
-          <article class="expand-card thesis-card reveal flow-from-bottom" style="--reveal-delay: 140ms;">
-            <span class="card-index">Pillar 03</span>
-            <h3 class="thesis-title">Maximally Truth-Seeking AI</h3>
-            <div class="thesis-copy">
-              <h3 class="detail-heading">The AI Infrastructure Stack</h3>
-              <p>The winner in AI Foundation Models - which we often refer to within Dialectic as "the Sport of Kings" (Bill Gurley, 2024) for its extraordinary capex vs TAM dynamic - will be decided on 3 fronts: 1- Data, 2- Compute, and 3- Algorithmic innovations. The 2025 merger with xAI created a unique vertically integrated AI company: the only entity that simultaneously trains frontier AI models (Grok), operates its own GPU cluster at unprecedented scale and speed of execution (Colossus), distributes models to 600+ million users (X.com) which generates exclusive proprietary training data and financial transactions (Xmoney), while building orbital compute infrastructure supported by fabrication of semiconductor chips for both terrestrial edge-nodes and orbital training, all connected via its own global communications network.</p><p class="dialectic-emphasis">An important but misunderstood advantage of Grok/xAI is the principle to develope a maximally truth-seeking AI -- this allows Grok to learn and develop at a different pace than models that have an ideological throttle placed on them. A maximally truth-seeking AI also builds deep trust with users and will ultimately deliver superior performance in recursive learning environments.</p><p>Colossus I recently closed $26 billion in agreements with Anthropic and Google demonstrating significant growth potential of Colossus in the short term, while SpaceX prepares for the future of Orbital Data Centers.</p>
-            </div>
-            
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 175ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-2">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Maximally Truth-Seeking AI charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article>
-          </article>
-          <article class="expand-card thesis-card reveal flow-from-bottom" style="--reveal-delay: 210ms;">
-            <span class="card-index">Pillar 04</span>
-            <h3 class="thesis-title">The Convergence Flywheel</h3>
-            <div class="thesis-copy">
-              
-              <p>It will become more obvious over time that the true value of SpaceX is not merely the sum of its parts -- it is their synergistic intersection and resultant growth. SpaceX manufactures satellites, launches them on its own rockets, and produces the full global connectivity stack, connecting with its own manufactured edge-nodes with Tesla robots and potential internally developed edge-node devices. X's 600M+ users generate exclusive training data for Grok, a maximally truth-seeking AI. XMoney (launched April 2026 with Visa integration across 41 US states) monetizes those interactions with embedded fintech. Starshield and Golden Dome contracts ($6.45 billion awarded in 2026 alone) leverage the same orbital expertise built for Starlink as the defining 'defense neo-prime' in a time of significant geopolitical uncertainty. ODCs present medium-term advantages with respect to energy, cooling, networking, and permitting. These businesses support off-planet resource extraction, manufacturing and eventually interplanetary colonization. We often ask ourselves, 'what is the TAM of the boundless potential of space?'. Every business unit strengthens every other and is unified under a singularly ambitious mission and common culture often referred to "as a zone of shocking competence" (Marc Andreesen, 2026), where the pace of work and growth is unmatched globally.</p>
-            </div>
-            
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 210ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-3">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">The Convergence Flywheel charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article>
-          </article></div>
-      </div>
-    </section><section class="page scroll-scene" id="companies">
-      <div class="page-inner">
-        <div class="page-kicker reveal reveal-kicker" style="--reveal-delay: 0ms;">Page 04</div>
-        <h2 class="reveal reveal-title" style="--reveal-delay: 45ms;">Business Unit Analysis</h2>
-        <p class="lede reveal reveal-copy" id="businessUnitLead" style="--reveal-delay: 90ms;">SpaceX is a somewhat complex conglomerate operating across a range of current and near-term. For the sake of simplicity in this first iteration of our analysis, we have divided the business into 12 segments, worked through revenue and profitability potential on 3 different horizons, while heavily weighting near-term potential for the sake of conservatism. By some internal accounts SpaceX is actually more than two dozen different businesses and we built up revenue projections by looking at each one from first principles, using public sources. We expect public figures to become more widely known post the 2026-Q2 reporting and intend to update this analysis as new information becomes available. This is an incredibly dynamic business.</p>
-        <div class="company-grid reveal flow-from-bottom" id="companyGrid" aria-label="Space sector company grid" style="--reveal-delay: 135ms;">
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" data-company-name="Launch Services" style="--reveal-delay: 0ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Business Unit 01</span>
-              <span>
-                <span class="expand-title">Launch Services</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>The Orbital launch segment generated $4.086 billion of revenue in FY2025 at roughly $653 million of adjusted EBITDA — a ~16% margin that has been depressed during the Starship development cycle. SpaceX accounts for roughly 85% of all global satellite launches, having repriced access to orbit; we expect 140-150 Falcon 9 launches this year at roughly $74 million per launch. Our model update revises the 2026 base revenue to $11.5 billion. The bull case requires some Starship commercial revenue to materialize in 2026-2027. Given competitor challenges in recent months, this seems. We accounted for lower EBITDA margins in the near term by Starship R&amp;D (~$15B). As Starship becomes operational and the development drag rolls off, margins should converge toward 40-50%. Our scenarios apply revenue CAGRs of roughly 15% / 25% / 45% (Bear / Base / Bull), and S-1 calibration lifted our base-case revenue anchor from ~$6.8B to ~$13.5B as the HLS Artemis lunar-lander and Starship cadence ramp.</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 35ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-4">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Launch Services charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" data-company-name="Crewed Spaceflight" style="--reveal-delay: 70ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Business Unit 02</span>
-              <span>
-                <span class="expand-title">Crewed Spaceflight</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>NASA CCP/CRS and deposits received for manned private spaceflight make up current revenues. NASA crewed missions account for $700M-$900M of annual revenue inside of this decade, supplemented by Polaris and Axiom private-astronaut missions. There are distinct plans for private spaceflight, both interplanetary and globally (global point-to-point in less than 45 minutes via Starport infrastructure) that could be significant as well. Other space services — satellite servicing, orbit-to-orbit transport (orbital tug), and rocketry IP licensing or manufacture for sale — are a smaller line modeled conservatively but capable of opening entirely new business lines. These segments are also where SpaceX's Mars ambitions begin to monetize: as the cadence and payload economics improve, the path toward a self-sustaining off-planet presence underwrites optionality that the comps cannot capture. Elon has referenced a space hotel in a recent JP Morgan roadshow appearance. Overall, we have these segments as relatively benign in the scenario weighting, but we maintain them as a placeholder as there is outlier potential for these segments over time, particularly as the core mission of SpaceX (and Elon's compensation) are centered around a threshold of inhabitants on Mars.</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 105ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-5">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Crewed Spaceflight charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" data-company-name="Other Space Services" style="--reveal-delay: 140ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Business Unit 03</span>
-              <span>
-                <span class="expand-title">Other Space Services</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>NASA CCP/CRS and deposits received for manned private spaceflight make up current revenues. NASA crewed missions account for $700M-$900M of annual revenue inside of this decade, supplemented by Polaris and Axiom private-astronaut missions. There are distinct plans for private spaceflight, both interplanetary and globally (global point-to-point in less than 45 minutes via Starport infrastructure) that could be significant as well. Other space services — satellite servicing, orbit-to-orbit transport (orbital tug), and rocketry IP licensing or manufacture for sale — are a smaller line modeled conservatively but capable of opening entirely new business lines. These segments are also where SpaceX's Mars ambitions begin to monetize: as the cadence and payload economics improve, the path toward a self-sustaining off-planet presence underwrites optionality that the comps cannot capture. Elon has referenced a space hotel in a recent JP Morgan roadshow appearance. Overall, we have these segments as relatively benign in the scenario weighting, but we maintain them as a placeholder as there is outlier potential for these segments over time, particularly as the core mission of SpaceX (and Elon's compensation) are centered around a threshold of inhabitants on Mars.</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 175ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-6">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Other Space Services charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" data-company-name="Starlink Connectivity" style="--reveal-delay: 210ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Business Unit 04</span>
-              <span>
-                <span class="expand-title">Starlink Connectivity</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>Starlink is SpaceX's cash cow: $11.39B revenue and roughly $7.17B of adjusted EBITDA in 2025, a 63% margin that expanded from ~50% as the constellation scaled and fixed costs leveraged. 12M+ subscribers across 164 countries. ARPU compressed from $86 to $66 as Starlink expanded into lower-income geographies, but the May 2026 price increase signals a deliberate shift from land-grab toward monetizing the existing base. Aviation and maritime adoption are rapidly accelerating and carries materially higher ARPU than the consumer tier. S-1 calibration lifted our base-case revenue anchor from ~$9.8B to ~$18B, and our scenarios apply revenue CAGRs of roughly 15% / 35% / 55% (Bear / Base / Bull) with margins trending toward the mid-60s.</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 210ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-7">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Starlink Connectivity charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" data-company-name="Starlink Direct-to-Cell" style="--reveal-delay: 210ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Business Unit 05</span>
-              <span>
-                <span class="expand-title">Starlink Direct-to-Cell</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>DTC represents an entirely new revenue stream, monetized initially through carrier licensing fees from T-Mobile, KDDI, Optus, Rogers and others. The addressable opportunity is large — global cellular profits run ~$400B/yr, and the directly serviceable supplemental-coverage market is on the order of $40-100B — of which Starlink should be able to capture a significant component. Crucially, Direct-to-cell rides on the Gen2 constellation, which is already launching, so the marginal cost of per additional client is relatively low. Bilateral spectrum agreements now exist in dozens of countries. This is the most binary segment in the model on a 5-year basis: outcomes hinge on spectrum, handset compatibility, regulatory/political questions, and carrier deal-structure rather than on technical feasibility - which is now demonstrated. With the new generation of Starlink satellites offering superior speeds, we could very well see massive adoption growth in home and businesses as Starlink goes from internet back-up or remote use-cases to core home and business internet connection.</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 210ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-8">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Starlink Direct-to-Cell charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" data-company-name="Starshield &amp; Golden Dome" style="--reveal-delay: 210ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Business Unit 06</span>
-              <span>
-                <span class="expand-title">Starshield &amp; Golden Dome</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>SpaceX is the best-positioned defense neo-prime contractor in an era of considerable geopolitical uncertainty. $6.45B in new Golden Dome contracts in 2026: the SDN Backbone at $2.29B (with an end-2027 prototype milestone) plus AMTI satellites at $4.16B. Additional awards: an NRO $1.8B classified satellite contract and a Space Force PLEO IDIQ ceiling of $13B. In aggregate, SpaceX's recent defense awards exceed the combined awards of all other companies in the segment, underscoring its leading neo-prime status. These contracts are multi-year, so initial revenues are conservatively projected with lower weighting; our scenarios run a base case near $2.3B scaling toward a bull case of roughly $6.5B as Golden Dome and Starshield production ramp.</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 210ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-9">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Starshield &amp; Golden Dome charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" data-company-name="xAI Software (Grok + API)" style="--reveal-delay: 210ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Business Unit 07</span>
-              <span>
-                <span class="expand-title">xAI Software (Grok + API)</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>Grok + API $3.201B of revenue in FY2025 against an operating loss of roughly $(6.355B) — the heavy training-and-talent investment that funds Grok's position among the top two-to-three frontier models. The application layer is inflecting fast: Cursor went from $1B in ARR in November to $2B+ in ARR in March, and we assume the ~$60B acquisition is likely to consummate shortly after the IPO. Monetization runs across SuperGrok, enterprise API, and rapidly growing DoD / Department-of-War contracts, with X distribution (600M+ users) providing a low-cost-CAC funnel. AI Foundation models, or "the Sport of Kings" is an incredibly competitive and capital-intensive industry and thus the AI business is currently unprofitable. We expect inflection to profitability by late 2026 into early 2027 as inference costs fall and enterprise/API revenue scales against a largely fixed base. Also, Macrohard could prove very compelling and Grok Build is rapidly scaling, entering an era of recursive self-improvement and asymptotic intelligence.</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 210ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-10">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">xAI Software (Grok + API) charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" data-company-name="Colossus Data Centers" style="--reveal-delay: 210ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Business Unit 08</span>
-              <span>
-                <span class="expand-title">Colossus Data Centers</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>The 300MW, 220,000 NVIDIA GPU-equivalent cluster in Memphis — stood up in a now-famous 122-day build that demonstrated SpaceX/xAI's shocking speed advantage in deploying compute. The $15 billion Anthropic and $11 billion Google agreements validate the market-clearing price for frontier GPU-hours and their resultant tokens, and these contrasts de-risk the buildout by underwriting third-party demand alongside xAI's own training needs. SpaceX targets roughly 1 million GPU-equivalent additions per year, a commitment it intends to sustain across a multi-year horizon. Colossus II is now operational, training novel Grok models, Macrohard, and it serves as the terrestrial bridge to the Orbital Data Center roadmap.</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 210ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-11">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Colossus Data Centers charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" data-company-name="X Platform &amp; XMoney" style="--reveal-delay: 210ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Business Unit 09</span>
-              <span>
-                <span class="expand-title">X Platform &amp; XMoney</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>550-600M MAU and roughly 245-250M DAU, with $3.5B of FY2025 revenue of which ~70-75% is advertising — a base that has recovered strongly from the ~$2.7B 2023 trough. XMoney launched April 2026 with Visa integration, P2P payments across 41 US states, &gt;100M DAU on the payments surface, and 6% APY on deposits. Our model raises X Platform's 2026 base revenue to $7B, reflecting XMoney, creator monetization, AI-targeted advertising powered by Grok, and an expanding app scope toward the WeChat-style super-app model — a transition that, if it lands, drives non-linear revenue per user rather than the linear ad-load economics the current multiple assumes.</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 210ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-12">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">X Platform &amp; XMoney charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" data-company-name="Orbital Data Centers" style="--reveal-delay: 210ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Business Unit 10</span>
-              <span>
-                <span class="expand-title">Orbital Data Centers</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>In-space compute with distinct advantage – lowered levelized cost of energy with high capacity-factor solar arrays, improved cooling through highly engineered radiators, faster networking via lasers through the vacuum of space, and the elimination of the NIMBY/permitting constraint (holding up nearly 50% of planned US data centers). This business line is conservatively classified as speculative; estimated first commercial operation in 2030, noting that there is a reasonable chance that ODCs come online before that and have significant upside similar to Colossus or are potentially delayed in achieving scale. The transformational case is cost-per-FLOP parity with terrestrial compute: once orbital launch and on-orbit assembly costs fall far enough that a watt of space-based compute is competitive with a watt on the ground, the structural advantages above (energy, cooling, networking, no permitting) convert a niche into a potential platform shift in where large-scale AI training is done — a market SpaceX is uniquely positioned to serve given its launch, satellite, and chip-fabrication stack.</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 210ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-13">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Orbital Data Centers charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" data-company-name="Deep Space Optionality" style="--reveal-delay: 210ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Business Unit 11</span>
-              <span>
-                <span class="expand-title">Deep Space Optionality</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>Deep Space Optionality includes a range of far-reaching businesses that are on the roadmap, but possess economic models that are not as well understood — Lunar then Mars colonization, resource extraction on other planets and asteroids, orbit-to-orbit transport, and exploratory R&amp;D. We note that ambitious targets, such as 2028 lunar missions, sustain a narrative premium and attracts the best talent in aerospace. Our model treats this as a small probability-weighted DCF contribution that we treat as a deep-DCF, so it does not double-count optionality recognized elsewhere.</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 210ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-14">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Deep Space Optionality charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" data-company-name="Terafab — Semiconductor Mfg" style="--reveal-delay: 210ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Business Unit 12</span>
-              <span>
-                <span class="expand-title">Terafab — Semiconductor Mfg</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>The vertically integrated semiconductor fabrication project announced in March 2026 building 1- custom space-optimized ASICs for training in space, 2- high-performance compute for Colussus, and 3- specific edge-node inference chips both for Tesla robots and cars alongside a potential edge- node device with telecommunications (think, the next generation of the smart phone) that SpaceX is uniquely positioned to offer. The world's largest chip-manufacturing facility under one roof, and the most vertically integrated: Terafab is designed to consolidate chip design, lithography, HBM memory, advanced packaging, and test under a single roof — the steps that today are fragmented across TSMC, ASML, SK Hynix and others. It would supply SpaceX's own roadmap (AI5-class FSD silicon, AI6-class Optimus inference, and D3-class space-hardened training chips) rather than depend on the merchant market. Target capacity is over 1 terawatt of AI compute per year. First phase is ~$55B, with full buildout up to $119B. Revenue is modeled beginning 2031 to account for the unknown unknowns in chip design and foundry development, making this the longest-dated and most heavily discounted line in the SOTP.</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 210ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-15">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Terafab — Semiconductor Mfg charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article></div>
-      </div>
-    </section><section class="page scroll-scene" id="valuation-analysis">
-      <div class="page-inner">
-        <div class="page-kicker reveal reveal-kicker" style="--reveal-delay: 0ms;">Page 05</div>
-        <h2 class="reveal reveal-title" style="--reveal-delay: 45ms;">Valuation Analysis</h2>
-        <article class="copy-panel valuation-copy reveal flow-from-bottom" style="--reveal-delay: 90ms;">
+        <div class="page-kicker reveal">Page 05</div>
+        <h2 class="reveal">Valuation Analysis</h2>
+        <p class="lede reveal">The methodology, comparables, Elon Premium, market signals, and sensitivities are shown directly below. Supporting charts remain available as expandable panels.</p>
+        <article class="copy-panel valuation-copy reveal">
           <h3 class="detail-heading">Methodology</h3>
-          <p>We primarily employed a bottoms-up, probability-weighted sum-of-the-parts (SOTP) DCF across twelve business units, each modeled with three scenarios (Bear / Base / Bull) and a materialization probability considered in short, medium and long time horizons with strong overweighting near-term cash flows. The DCF tab discounts the resulting UFCF at a blended WACC of 9.0% with a terminal growth rate of 4.0%. In addition to this valuation model, we evaluate comparables in relevant industries and consider the Elon Premium alongside Current Market Signlas.</p>
+          <p>We employ a bottoms-up, probability-weighted sum-of-the-parts (SOTP) DCF across twelve business units, each modeled with three scenarios (Bear / Base / Bull) and a materialization probability considered across short, medium, and long time horizons with strong overweighting to near-term cash flows. The DCF tab discounts the resulting unlevered free cash flow at a blended WACC of 9.0% with a terminal growth rate of 4.0%.</p>
+          <p>The SOTP independently values each business unit using the same WACC and terminal growth parameters, producing present value of UFCF plus present value of terminal value. This structure allows the model to reflect both currently visible cash flows and the longer-dated optionality embedded in SpaceX's operating system for orbit, connectivity, AI, and defense.</p>
           <h3 class="detail-heading">Comparables Analysis</h3>
-          <p>We treat trading comparables as a cross-check and a downside bound, not as the primary basis for value. SpaceX has no clean peer. A blended whole-company multiple is therefore directional at best, which is why our central value rests on the sum-of-the-parts DCF.</p>
-          <p>Viewed across the relevant peer sets, the comparables span an extremely wide band. Defense primes trade at roughly 2x revenue and anchor low, while high-growth satellite and new space names (Rocket Lab, AST SpaceMobile) trade at multiples that, applied to SpaceX's revenue base, would imply values up to ~$2.47 trillion. The AI cohort sits between these poles: OpenAI screens at roughly 28x Revenue and Anthropic at roughly 21x, Palantir — the closest listed AI/defense neo-prime analogue — at roughly 47x Revenues, alongside NVIDIA at roughly 22x. Applying the AI and high-growth multiples to SpaceX's revenue implies an equity value in the $1.0-1.7 trillion zone, broadly consistent with the DCF.</p>
-          <p>The synthesis is that comparables price the company as it is today, not the convergence flywheel we underwrite, and they penalize SpaceX for being mid-cycle in a heavy-investment phase. They are therefore most useful as a soft floor — framing value near $0.9-1.0 trillion — with the DCF and the IPO range describing where the market is actually likely to clear, given the Elon Premium.</p>
+          <p>We treat trading comparables as a cross-check and a downside bound, not as the primary basis for value. SpaceX has no clean peer. It is a conglomerate spanning launch, satellite connectivity, defense, frontier AI, compute infrastructure, consumer platforms, and payments. No single listed company carries that mix.</p>
+          <p>The comparables frame a wide range: defense primes around 2x revenue imply a low reference point near $0.11T; high-growth satellite and new-space peers imply outcomes up to approximately $2.47T; OpenAI at roughly 28x revenue, Anthropic around 21x, Palantir around 47x, and NVIDIA around 22x provide a more relevant high-growth AI and infrastructure reference set. Depending on revenue or EBITDA multiple application, the AI and high-growth set implies roughly $1.0T to $1.7T of equity value.</p>
+          <p>Comparable analysis prices the present, not the convergence flywheel across twelve businesses that underwrites our thesis. It also penalizes a company in the middle of a heavy investment cycle, where Starship, Colossus, and Terafab suppress near-term free cash flow while building the infrastructure for a much larger terminal value. We read the comparables as setting a soft floor near $0.9T to $1.0T, with the DCF and IPO range describing where the market is likely to clear given the Elon Premium.</p>
           <h3 class="detail-heading">Elon Premium</h3>
-          <p>Across peer groups, SpaceX valuation implies an average Elon Premium of roughly 1.8x against the AI-lab median of OpenAI and Anthropic (24.5x EV/Revenue), while being in line with Palantir, the closest listed AI/defence neo-prime comparable at 46.7x EV/Revenue vs SpaceX's 43.5x EV/Revenue and 79.1x EV/EBITDA (2026E, DCF conclusion) to frame the premium. On EBITDA, the picture inverts the headline: SpaceX screens roughly 80% Palantir's 100.0x, i.e. the one preferred peer that is profitable. OpenAI and Anthropic carry no EBITDA multiple as both remain pre-EBITDA. Surprisingly, our valuation has SpaceX at the same revenue multiple as space industry peers despite extraordinary structural advantages.</p>
-          <p>The Elon Premium is best understood as compensation for the compounding optionality of an operator who moves faster, builds more ambitiously and competently, and controls more of the value chain than any single peer. SpaceX has no clean comparable.</p>
+          <p>The implied Elon Premium in SpaceX is moderate against the most relevant high-growth reference set. SpaceX implies an average premium of roughly 1.8x against the AI-lab median EV/Revenue multiple of approximately 24.5x, while sitting broadly in line with Palantir's 46.7x EV/Revenue compared with SpaceX at 43.5x EV/Revenue and 79.1x EV/EBITDA. SpaceX's EBITDA multiple is roughly 80% of Palantir's 100.0x, and SpaceX trades near space-peer revenue multiples despite structural advantages those peers do not possess.</p>
+          <p>We view the premium as compensation for compounding optionality, execution velocity, vertical integration, and an operator who repeatedly moves faster than the market expects. The premium is real, but in our view it is justified by the breadth of SpaceX's business-system convergence and by the demonstrated ability to convert ambitious roadmaps into operating assets.</p>
           <h3 class="detail-heading">Current Market Signals</h3>
-          <p>Hyperliquid and Polymarket have been pricing the enterprise valuation between $2.17 and $2.45T for the last several weeks with $42M and $2.3M in daily volume respectively, which substantiates the legitimate market depth of these positions.</p>
+          <p>Hyperliquid and Polymarket have been pricing the enterprise valuation between approximately $2.17T and $2.45T, with roughly $42M and $2.3M in daily volume respectively. These markets are not definitive valuation tools, but they substantiate meaningful depth around the central DCF range and provide a useful real-time check on where informed participants expect SPCX to clear.</p>
         </article>
-        <div class="chart-accordion reveal flow-from-bottom" aria-label="Expandable valuation charts" style="--reveal-delay: 135ms;">
-          <article class="expand-card flow-from-bottom" data-expand-card="" style="--reveal-delay: 0ms;">
+        <div class="chart-accordion reveal" aria-label="Expandable valuation charts">
+          <article class="expand-card" data-expand-card>
             <button class="expand-trigger" type="button" aria-expanded="false">
               <span class="card-index">Charts 01</span>
-              <span><span class="expand-title">Methodology &amp; SOTP Charts</span></span>
+              <span><span class="expand-title">Methodology & SOTP Charts</span></span>
               <span class="expand-action">Open charts</span>
             </button>
             <div class="expand-body" aria-hidden="true">
               <div class="expand-body-inner">
-                <div class="detail-chart-grid">
-                  <figure class="detail-chart-card is-interactive-chart" data-interactive-ready="true">
-      <div class="interactive-chart-grid" data-panel-count="1">
-      <div class="interactive-chart-panel">
-        <div class="interactive-chart-title">Enterprise Value by Horizon</div>
-        <div class="interactive-chart-stage" style="--chart-height:280px">
-          <canvas data-chart-key="horizon" aria-label="Enterprise Value by Horizon" data-expandable-chart="true"></canvas>
-        <button type="button" class="chart-expand-btn" aria-label="Expand chart" title="Expand chart">Expand</button></div>
-      </div></div>
-      
-      <div class="interactive-chart-source">Dialectic SOTP-DCF model, 10-year horizon. WACC 9.0%, terminal growth 4.0%. Bear/Base/Bull scenario weighting via central Scenario Engine.</div>
-      <figcaption class="detail-chart-caption">Enterprise value by horizon</figcaption></figure>
-                  <figure class="detail-chart-card is-interactive-chart" data-interactive-ready="true">
-      <div class="interactive-chart-grid" data-panel-count="1">
-      <div class="interactive-chart-panel">
-        <div class="interactive-chart-title">Monte Carlo Distribution - 5,000 Trials</div>
-        <div class="interactive-chart-stage" style="--chart-height:280px">
-          <canvas data-chart-key="monteCarlo" aria-label="Monte Carlo Distribution - 5,000 Trials" data-expandable-chart="true"></canvas>
-        <button type="button" class="chart-expand-btn" aria-label="Expand chart" title="Expand chart">Expand</button></div>
-      </div></div>
-      
-      <div class="interactive-chart-source">Dialectic Monte Carlo engine - 5,000 trials drawing on WACC, terminal growth, and per-segment scenario outcomes.</div>
-      <figcaption class="detail-chart-caption">Monte Carlo equity-value distribution</figcaption></figure>
-                  <figure class="detail-chart-card is-interactive-chart" data-interactive-ready="true">
-      <div class="interactive-chart-grid" data-panel-count="1">
-      <div class="interactive-chart-panel">
-        <div class="interactive-chart-title">SOTP - Segment EV ($B) by Scenario</div>
-        <div class="interactive-chart-stage" style="--chart-height:360px">
-          <canvas data-chart-key="sotp" aria-label="SOTP - Segment EV ($B) by Scenario" data-expandable-chart="true"></canvas>
-        <button type="button" class="chart-expand-btn" aria-label="Expand chart" title="Expand chart">Expand</button></div>
-      </div></div>
-      
-      <div class="interactive-chart-source">Dialectic SOTP model - PV of 10-year UFCF plus Gordon-Growth terminal value, per business unit.</div>
-      <figcaption class="detail-chart-caption">SOTP enterprise value by segment</figcaption></figure>
-                  <figure class="detail-chart-card is-interactive-chart" data-interactive-ready="true">
-      <div class="interactive-chart-grid" data-panel-count="1">
-      <div class="interactive-chart-panel">
-        <div class="interactive-chart-title">SOTP Cumulative Build - How Segments Stack to Total EV</div>
-        <div class="interactive-chart-stage" style="--chart-height:340px">
-          <canvas data-chart-key="sotpCumulative" aria-label="SOTP Cumulative Build - How Segments Stack to Total EV" data-expandable-chart="true"></canvas>
-        <button type="button" class="chart-expand-btn" aria-label="Expand chart" title="Expand chart">Expand</button></div>
-      </div></div>
-      
-      <div class="interactive-chart-source">Same SOTP segment values as above, stacked cumulatively from largest to smallest Base EV contribution.</div>
-      <figcaption class="detail-chart-caption">Cumulative SOTP enterprise value</figcaption></figure>
-                  <figure class="detail-chart-card is-interactive-chart" data-interactive-ready="true">
-      <div class="interactive-chart-grid" data-panel-count="1">
-      <div class="interactive-chart-panel">
-        <div class="interactive-chart-title">Total Revenue by Business Unit - 2026 to 2035</div>
-        <div class="interactive-chart-stage" style="--chart-height:320px">
-          <canvas data-chart-key="revenue" aria-label="Total Revenue by Business Unit - 2026 to 2035" data-expandable-chart="true"></canvas>
-        <button type="button" class="chart-expand-btn" aria-label="Expand chart" title="Expand chart">Expand</button></div>
-      </div></div>
-      
-      <div class="interactive-chart-source">Dialectic consolidated P&amp;L - probability-weighted segment revenue, anchored to SpaceX S-1 FY2025 revenue.</div>
-      <figcaption class="detail-chart-caption">Consolidated revenue projections</figcaption></figure>
-                </div>
+                <div class="detail-chart-grid" data-chart-figs="chart_01_horizon,chart_02_montecarlo,chart_03_sotp,chart_09_sotp_cumulative,chart_04_revenue"></div>
               </div>
             </div>
           </article>
-          <article class="expand-card flow-from-bottom" data-expand-card="" style="--reveal-delay: 35ms;">
+          <article class="expand-card" data-expand-card>
             <button class="expand-trigger" type="button" aria-expanded="false">
               <span class="card-index">Charts 02</span>
               <span><span class="expand-title">Comparables Charts</span></span>
@@ -2242,56 +1759,11 @@
             </button>
             <div class="expand-body" aria-hidden="true">
               <div class="expand-body-inner">
-                <div class="detail-chart-grid">
-                  <figure class="detail-chart-card is-interactive-chart" data-interactive-ready="true">
-      <div class="interactive-chart-grid" data-panel-count="1">
-      <div class="interactive-chart-panel">
-        <div class="interactive-chart-title">EV / Revenue Multiple Comparison</div>
-        <div class="interactive-chart-stage" style="--chart-height:300px">
-          <canvas data-chart-key="comps" aria-label="EV / Revenue Multiple Comparison" data-expandable-chart="true"></canvas>
-        <button type="button" class="chart-expand-btn" aria-label="Expand chart" title="Expand chart">Expand</button></div>
-      </div></div>
-      
-      <div class="interactive-chart-source">Dialectic comparables set - company filings and street consensus; EV/Revenue multiples vs SpaceX at DCF conclusion.</div>
-      <figcaption class="detail-chart-caption">Comparable-company EV/revenue reference set</figcaption></figure>
-                  <figure class="detail-chart-card is-interactive-chart" data-interactive-ready="true">
-      <div class="interactive-chart-grid" data-panel-count="1">
-      <div class="interactive-chart-panel">
-        <div class="interactive-chart-title">Unlevered Free Cash Flow Growth - 2026 to 2035</div>
-        <div class="interactive-chart-stage" style="--chart-height:280px">
-          <canvas data-chart-key="ufcf" aria-label="Unlevered Free Cash Flow Growth - 2026 to 2035" data-expandable-chart="true"></canvas>
-        <button type="button" class="chart-expand-btn" aria-label="Expand chart" title="Expand chart">Expand</button></div>
-      </div></div>
-      
-      <div class="interactive-chart-source">Dialectic DCF model - scenario-weighted unlevered free cash flow build across the twelve business units.</div>
-      <figcaption class="detail-chart-caption">Revenue and UFCF projection profile</figcaption></figure>
-                  <figure class="detail-chart-card is-interactive-chart" data-interactive-ready="true">
-      <div class="interactive-chart-grid" data-panel-count="1">
-      <div class="interactive-chart-panel">
-        <div class="interactive-chart-title">Hyperliquid - SPCX Perpetual</div>
-        <div class="interactive-chart-stage" style="--chart-height:240px">
-          <canvas data-chart-key="hyperliquid" aria-label="Hyperliquid - SPCX Perpetual" data-expandable-chart="true"></canvas>
-        <button type="button" class="chart-expand-btn" aria-label="Expand chart" title="Expand chart">Expand</button></div>
-      </div></div>
-      
-      <div class="interactive-chart-source">Hyperliquid pre-IPO perpetual market - trailing 30-day implied valuation, illustrative.</div>
-      <figcaption class="detail-chart-caption">Hyperliquid implied enterprise value signal</figcaption></figure>
-                  <figure class="detail-chart-card is-interactive-chart" data-interactive-ready="true">
-      <div class="interactive-chart-grid" data-panel-count="1">
-      <div class="interactive-chart-panel">
-        <div class="interactive-chart-title">Polymarket - SpaceX IPO Valuation</div>
-        <div class="interactive-chart-stage" style="--chart-height:240px">
-          <canvas data-chart-key="polymarket" aria-label="Polymarket - SpaceX IPO Valuation" data-expandable-chart="true"></canvas>
-        <button type="button" class="chart-expand-btn" aria-label="Expand chart" title="Expand chart">Expand</button></div>
-      </div></div>
-      
-      <div class="interactive-chart-source">Polymarket SpaceX valuation prediction markets - trailing 30-day, illustrative.</div>
-      <figcaption class="detail-chart-caption">Polymarket valuation probability distribution</figcaption></figure>
-                </div>
+                <div class="detail-chart-grid" data-chart-figs="chart_06_comps,chart_05_ufcf,chart_10_hyperliquid,chart_11_polymarket"></div>
               </div>
             </div>
           </article>
-          <article class="expand-card flow-from-bottom" data-expand-card="" style="--reveal-delay: 70ms;">
+          <article class="expand-card" data-expand-card>
             <button class="expand-trigger" type="button" aria-expanded="false">
               <span class="card-index">Charts 03</span>
               <span><span class="expand-title">Sensitivity Charts</span></span>
@@ -2299,315 +1771,70 @@
             </button>
             <div class="expand-body" aria-hidden="true">
               <div class="expand-body-inner">
-                <div class="detail-chart-grid">
-                  <figure class="detail-chart-card is-interactive-chart" data-interactive-ready="true">
-      
-      
-      <div class="interactive-table-wrap">
-        <div class="interactive-table-panel">
-          <div class="interactive-table-title">Blended Equity Value ($B): WACC x Terminal Growth</div>
-          <table class="sensitivity-table">
-            <thead>
-              <tr>
-                <th>WACC / g</th>
-                <th>3.0%</th>
-                <th>3.5%</th>
-                <th>4.0%</th>
-                <th>4.5%</th>
-                <th>5.0%</th>
-              </tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>7.5%</td>
-                  <td class="up-1">$3,276</td><td class="up-2">$3,639</td><td class="up-3">$4,106</td><td class="up-4">$4,728</td><td class="up-4">$5,599</td>
-                </tr>
-                <tr>
-                  <td>8.25%</td>
-                  <td class="up-1">$2,693</td><td class="up-1">$2,939</td><td class="up-1">$3,243</td><td class="up-2">$3,628</td><td class="up-3">$4,132</td>
-                </tr>
-                <tr>
-                  <td>9.0%</td>
-                  <td class="down-1">$2,262</td><td class="down-1">$2,436</td><td class="base-cell">$2,646</td><td class="up-1">$2,902</td><td class="up-2">$3,223</td>
-                </tr>
-                <tr>
-                  <td>9.75%</td>
-                  <td class="down-2">$1,930</td><td class="down-1">$2,059</td><td class="down-1">$2,210</td><td class="down-1">$2,389</td><td class="down-1">$2,607</td>
-                </tr>
-                <tr>
-                  <td>10.5%</td>
-                  <td class="down-3">$1,669</td><td class="down-2">$1,766</td><td class="down-2">$1,879</td><td class="down-1">$2,009</td><td class="down-1">$2,164</td>
-                </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="interactive-chart-source">Dialectic sensitivity table - blended equity value across WACC and terminal growth assumptions.</div>
-      <figcaption class="detail-chart-caption">WACC and terminal-growth sensitivity</figcaption></figure>
-                  <figure class="detail-chart-card is-interactive-chart" data-interactive-ready="true">
-      <div class="interactive-chart-grid" data-panel-count="1">
-      <div class="interactive-chart-panel">
-        <div class="interactive-chart-title">Sensitivity Tornado: Key Equity Value Drivers</div>
-        <div class="interactive-chart-stage" style="--chart-height:340px">
-          <canvas data-chart-key="tornado" aria-label="Sensitivity Tornado: Key Equity Value Drivers" data-expandable-chart="true"></canvas>
-        <button type="button" class="chart-expand-btn" aria-label="Expand chart" title="Expand chart">Expand</button></div>
-      </div></div>
-      
-      <div class="interactive-chart-source">Dialectic single-variable sensitivity analysis - swings around base equity value of $2,380B.</div>
-      <figcaption class="detail-chart-caption">Key valuation sensitivity drivers</figcaption></figure>
-                </div>
+                <div class="detail-chart-grid" data-chart-figs="chart_07_sensitivity,chart_08_tornado"></div>
               </div>
             </div>
           </article>
         </div>
       </div>
-    </section><section class="page scroll-scene" id="risks">
+    </section>
+
+    <section class="page" id="investment-thesis">
       <div class="page-inner">
-        <div class="page-kicker reveal reveal-kicker" style="--reveal-delay: 0ms;">Page 06</div>
-        <h2 class="reveal reveal-title" style="--reveal-delay: 45ms;">Risks &amp; Considerations</h2>
-        <div class="risk-list reveal flow-from-bottom" id="riskList" aria-label="Expandable risks" style="--reveal-delay: 90ms;">
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" style="--reveal-delay: 0ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Risk 01</span>
-              <span>
-                <span class="expand-title">Execution &amp; Technology Risk</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>Starship's commercial timeline is a risk, as is the timeline of direct-to-cell, Terafab and to a lesser extent Colossus, and Starshield. Numerous projects, in particular Terafab, represent enormous capital commitments with binary outcomes. If the $55 billion Terafab Capex does not produce cost-competitive chips for AI training, it could be written down.</p></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" style="--reveal-delay: 35ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Risk 02</span>
-              <span>
-                <span class="expand-title">Key-Man Risk</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>All of the businesses are dependent on Elon Musk for design direction and important cultural leadership. Any event that reduces Musk's involvement -- legal, political, or personal -- would likely cause rapid multiple compression, even if the risk event doesn't affect business fundamentals or competitive positioning.</p></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" style="--reveal-delay: 70ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Risk 03</span>
-              <span>
-                <span class="expand-title">Regulatory &amp; Political Concentration Risk</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>SpaceX's Starshield and Golden Dome revenues are politically concentrated in the current administration. Particularly, an antagonistic Democrat-controlled branch of government could hold back the business in different ways. A change in administration could materially slow or cancel government programs. Other countries and companies could decide not to work with SpaceX for geopolitical reasons, thereby propping up the competition and digesting some market potential over time. Regulatory risk is also the primary concern with respect to a potential merger with Tesla.</p></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" style="--reveal-delay: 105ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Risk 04</span>
-              <span>
-                <span class="expand-title">Competition &amp; Market Structure</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>Our analysis concluded that the most significant competition across the business units of SpaceX comes primarily from China today, both from state-sponsored projects as well as private enterprises such as i-Space and LandSpace. It would be unwise to underestimate the Chinese in their ability to develop, manufacture, and push the boundaries of exploration. Space pure-play competitors in America do exist and are growing with formidable backing – Amazon's Blue Origin, Rocket Lab ($RKLB), and Eric Schmidt's Relativity are all relevant, even amidst some technical setbacks and scale limitations therein.</p><p>Note: We observe with opportunistic excitement the flowering of an array of 'SpaceX Cubs' or 'SpaceX Mafia' – offspring led by former SpaceX team members that are building compelling technologies. Impulse, Verda, Apex, Firefly and others may present new opportunities for acquisition and these different experiments may prove positive.</p><p>Finally, but very importantly, the cost of serving intelligence in AI is rapidly decreasing, which could have profound impacts on society and industry. The nature of AI may fundamentally change to primarily edge-computing, open-source. Recursive learning could result in totally unforeseen solutions to the compute dirth. There are many ways AI could commodify quickly, rendering massive previous capital expenditure as sunk cost.</p></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" style="--reveal-delay: 140ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Risk 05</span>
-              <span>
-                <span class="expand-title">Financial &amp; Balance Sheet Risk</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>Total long-term debt of $29.1 billion against cash of $15.9 billion produces net debt of $13.2 billion. Q1 2026 burned $8.9 billion in cash (R&amp;D and xAI integration costs). The $75 billion IPO raise is indeed necessary for short term growth. Further dilutive fundraising could drag down return profile in the short and medium term.</p></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" style="--reveal-delay: 175ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Risk 06</span>
-              <span>
-                <span class="expand-title">The Elon Premium</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>The Elon Premium is real, measurable, and -- in our view -- historically justified. SpaceX at 43x 2026E Revenue requires the market to continue believing in the full convergence flywheel and for multiple business units to have successful outcomes. Note that at $1.5 trillion ($112/share), the Elon Premium comes for free.</p></div>
-            </div>
-          </article></div>
+        <div class="page-kicker reveal">Page 03</div>
+        <h2 class="reveal">Investment Thesis</h2>
+        <p class="lede reveal">SpaceX is rapidly accelerating strategic advantages across space exploration, connectivity, and AI + digital, with special consideration to the synergistic convergence of these businesses and the resultant network effects.</p>
+        <div class="interactive-grid reveal" id="pillarGrid" aria-label="Investment thesis pillars"></div>
       </div>
-    </section><section class="page scroll-scene" id="conclusion">
+    </section>
+
+    <section class="page" id="companies">
       <div class="page-inner">
-        <div class="page-kicker reveal reveal-kicker" style="--reveal-delay: 0ms;">Page 07</div>
-        <h2 class="reveal reveal-title" style="--reveal-delay: 45ms;">Conclusion</h2>
-        <article class="copy-panel reveal flow-from-bottom" style="--reveal-delay: 90ms;">
-          <p>When we look up towards the stars we are reminded of the infinite possibilities of space and the inspiring Sci-Fi future that mankind will chart as a multi-planetary species. SpaceX is uniquely positioned as the most consequential private company of the 21st century, potentially in the history of capitalism. The flywheel of vertical integration across these businesses is compounding in ways that no competitor can replicate. At 43x 26E Revenues ($55.6B) and our DCF blended fair value of $179/share ($2.418T), we reiterate our conviction on the accumulation plan set herein. The opportune issuance of SPCX may be remembered as the most extraordinary gift to America on the eve of her 250th Anniversary. At current levels the investor buys the current business across launch, connectivity, AI and digital. The Moon, Mars and potentially many other celestial bodies are free, as is the impact of a maximally truth-seeking generalized intelligence as recursive self-improvement takes hold.</p>
+        <div class="page-kicker reveal">Page 04</div>
+        <h2 class="reveal">Business Unit Analysis</h2>
+        <p class="lede reveal" id="businessUnitLead">SpaceX is a complex conglomerate operating across current and near-term businesses in manufacturing, AI, space launch and space-based activities, connectivity, social media, payments, and long-term ambitions such as off-planet resource extraction and interplanetary colonization. For the sake of simplicity in this first iteration, we divide the business into twelve segments, build revenue and profitability potential across three horizons, and heavily weight near-term potential for conservatism. We built projections from first principles using public sources and expect to update this analysis as new information becomes available. This is an incredibly dynamic business.</p>
+        <div class="company-grid reveal" id="companyGrid" aria-label="Space sector company grid"></div>
+      </div>
+    </section>
+
+    <section class="page" id="risks">
+      <div class="page-inner">
+        <div class="page-kicker reveal">Page 06</div>
+        <h2 class="reveal">Risks &amp; Considerations</h2>
+        <p class="lede reveal">The primary risks are execution timing, key-person exposure, regulatory concentration, competition, balance-sheet intensity, and potential Elon Premium compression.</p>
+        <div class="risk-list reveal" id="riskList" aria-label="Expandable risks"></div>
+      </div>
+    </section>
+
+    <section class="page" id="conclusion">
+      <div class="page-inner">
+        <div class="page-kicker reveal">Page 07</div>
+        <h2 class="reveal">Conclusion</h2>
+        <article class="copy-panel reveal">
+          <p>When we look up toward the stars we are reminded of the infinite possibilities of space and the inspiring Sci-Fi future that mankind may chart as a multi-planetary species. SpaceX is uniquely positioned as the most consequential private company of the 21st century, and potentially in the history of capitalism.</p>
+          <p>The flywheel of vertical integration across these businesses is compounding in ways that no competitor can replicate. At 43x 2026E revenue of $55.6B and our DCF blended fair value of approximately $2.408T, we reiterate our intention to strongly accumulate on the plan set herein.</p>
+          <p>The opportune issuance of SPCX may be remembered as an extraordinary gift to America on the eve of her 250th anniversary. At $179/share, the investor buys the current business across launch, connectivity, AI, and digital. The Moon, Mars, and potentially many other celestial bodies are free at these levels, as is the impact of a maximally truth-seeking generalized intelligence.</p>
           <div class="model-output-box disclaimer-box">
-            <p><strong>Disclaimer:</strong> Dialectic is an investor in SpaceX, Tesla and related entities discussed herein. This document is not financial advice or a recommendation or solicitation for investment and the financial modelling herein may represent projections or biases based on our own interpretation of current and potential events using public sources and may be incorrect. Dialectic makes no representations of any kind. This is purely for informational purposes.</p>
+            <p><strong>Disclaimer:</strong> Dialectic is an investor in SpaceX, Tesla and related entities discussed herein. This document is not financial advice or a solicitation for investment and the financial modelling herein may represent projections or biases based on our own interpretation of current and potential events using public sources and may be incorrect. Dialectic makes no representations of any kind. This is purely for informational purposes.</p>
           </div>
         </article>
       </div>
-    </section><section class="page scroll-scene" id="annexes">
+    </section>
+
+    <section class="page" id="annexes">
       <div class="page-inner">
-        <div class="page-kicker reveal reveal-kicker" style="--reveal-delay: 0ms;">Page 08 / Annexes A-G</div>
-        <h2 class="reveal reveal-title" style="--reveal-delay: 45ms;">Data Room</h2>
-        <p class="lede reveal reveal-copy" style="--reveal-delay: 90ms;">The original document includes detailed technical annexes with the following data.</p>
-        <div class="annex-grid reveal flow-from-bottom" id="annexGrid" aria-label="Expandable annexes A through G" style="--reveal-delay: 135ms;">
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" style="--reveal-delay: 0ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Annex A</span>
-              <span>
-                <span class="expand-title">Annex A: Probability-Weighted Valuation Summary</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>- 5-Year Horizon (2026-2030): $61.73/share</p><p>- 10-Year Horizon (2026-2035): $199.46/share</p><p>- 20-Year Horizon (2026-2045): $759.57/share</p><p>- Blended (55/35/10): $179.72/share</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 35ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-16">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Annex A: Probability-Weighted Valuation Summary charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" style="--reveal-delay: 70ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Annex B</span>
-              <span>
-                <span class="expand-title">Annex B: Sum-of-the-Parts Valuation</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>- 12 business segments valued separately</p><p>- Launch Services: $324B base case</p><p>- Starlink Connectivity: $745B base case</p><p>- Starshield &amp; Golden Dome: $190B base case</p><p>- xAI Software: $86B base case</p><p>- Colossus Data Centers: $329B base case</p><p>- Crewed Spaceflight: $63B base case</p><p>- Starlink Direct-to-Cell: $380B base case</p><p>- Other Space Services: $6B base case</p><p>- X Platform &amp; XMoney: $53B base case</p><p>- Terafab Semiconductor: $54B base case</p><p>- Orbital Data Centers: $27B base case</p><p>- Deep Space Optionality: $0.02B base case</p><p>Total Enterprise Value (10-Year): $2,257B</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 105ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-17">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Annex B: Sum-of-the-Parts Valuation charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" style="--reveal-delay: 140ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Annex C</span>
-              <span>
-                <span class="expand-title">Annex C: Consolidated Revenue &amp; UFCF Projections (2026-2035)</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>- 2026E Total Revenue: $55.6B</p><p>- 2035E Total Revenue: $1.05T</p><p>- Revenue CAGR 2026-2035: ~34%</p><p>- UFCF CAGR: ~37%</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 175ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-18">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Annex C: Consolidated Revenue &amp; UFCF Projections (2026-2035) charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" style="--reveal-delay: 210ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Annex D</span>
-              <span>
-                <span class="expand-title">Annex D: Comparable Companies Analysis</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>- Defense Primes: 1.8x-2.1x EV/Revenue</p><p>- AI Labs (OpenAI, Anthropic): 20.5x-28.4x EV/Revenue</p><p>- Palantir (closest comparable): 46.7x EV/Revenue</p><p>- SpaceX DCF Valuation: 43.5x EV/Revenue</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 210ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-19">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Annex D: Comparable Companies Analysis charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" style="--reveal-delay: 210ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Annex E</span>
-              <span>
-                <span class="expand-title">Annex E: Elon Premium &amp; Implied Valuation Methods</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>- Defense median valuation: $104B-$440B</p><p>- AI/Growth median valuation: $904B-$1,652B</p><p>- Satellite median valuation: $2,291B</p><p>- DCF Central Conclusion: $2,408B</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 210ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-20">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Annex E: Elon Premium &amp; Implied Valuation Methods charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" style="--reveal-delay: 210ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Annex F</span>
-              <span>
-                <span class="expand-title">Annex F: Sensitivity &amp; Scenario Analysis</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>- WACC sensitivity: 7.5% to 10.5%</p><p>- Terminal growth sensitivity: 3.0% to 5.0%</p><p>- Base case sensitivity range: $1.5T to $3.9T</p><p>- Key drivers: WACC ($751B downside, $1.467T upside), Terminal g ($185B downside, $509B upside)</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 210ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-21">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Annex F: Sensitivity &amp; Scenario Analysis charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article>
-          <article class="expand-card reveal flow-from-bottom" data-expand-card="" style="--reveal-delay: 210ms;">
-            <button class="expand-trigger" type="button" aria-expanded="false">
-              <span class="card-index">Annex G</span>
-              <span>
-                <span class="expand-title">Annex G: Business Unit Detail</span>
-              </span>
-              <span class="expand-action">Read more</span>
-            </button>
-            <div class="expand-body" aria-hidden="true">
-              <div class="expand-body-inner"><p>Detailed 10-year revenue, EBITDA, and UFCF projections for all 12 business segments with specific margin assumptions and growth rates.</p>
-        <article class="expand-card thesis-chart-disclosure chart-modal-card flow-from-bottom" style="--reveal-delay: 210ms;">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="chart-set-22">
-            <span class="card-index">Charts</span>
-            <span><span class="expand-title">Annex G: Business Unit Detail charts</span></span>
-            <span class="expand-action">Open charts</span>
-          </button>
-        </article></div>
-            </div>
-          </article></div>
+        <div class="page-kicker reveal">Page 08 / Annexes A-G</div>
+        <h2 class="reveal">Data Room</h2>
+        <p class="lede reveal">The model detail, scenario tables, comparables, sensitivities, and business-unit build are kept here as expandable evidence.</p>
+        <div class="annex-grid reveal" id="annexGrid" aria-label="Expandable annexes A through G"></div>
       </div>
-    </section></main>
+    </section>
+  </main>
 
   <footer class="footer">
     <div>Dialectic Group / Perpetual / June 2026 / Pre-IPO</div>
     <p class="footer-credit">Background photos attributed (CC BY 2.0) to <a href="https://www.flickr.com/photos/jurvetson/" target="_blank" rel="noopener noreferrer">Jurvetson</a>, with gratitude.</p>
   </footer>
-
-  <div class="chart-modal" data-chart-modal="" hidden="">
-    <div class="chart-modal-backdrop" data-chart-modal-close=""></div>
-    <section class="chart-modal-panel" role="dialog" aria-modal="true" aria-labelledby="chartModalTitle">
-      <header class="chart-modal-header">
-        <h2 class="chart-modal-title" id="chartModalTitle" data-chart-modal-title="">Charts</h2>
-        <button class="chart-modal-close" type="button" aria-label="Close charts" data-chart-modal-close="">×</button>
-      </header>
-      <div class="chart-modal-body" data-chart-modal-body=""></div>
-    </section>
-  </div>
 
   <script>
     const pageFlowOrder = [
@@ -2900,14 +2127,6 @@
       });
     }
 
-    function renderParagraph(paragraph){
-      if(paragraph && typeof paragraph === "object"){
-        const className = paragraph.className ? ` class="${escapeHtml(paragraph.className)}"` : "";
-        return `<p${className}>${escapeHtml(paragraph.text || "")}</p>`;
-      }
-      return `<p>${escapeHtml(paragraph)}</p>`;
-    }
-
     function splitPillarTitle(title){
       const normalized = String(title || "");
       const match = normalized.match(/^(.*?)\s+[—–-]\s+(.*)$/);
@@ -2918,16 +2137,85 @@
     }
 
     const chartPath = "./assets/charts/";
+
+    // --- Interactive chart specs (mirror of chartImageMap in charts-interactive.js). ---
+    // Charts are emitted as live <canvas> elements so they render via the chart engine's
+    // raw-canvas path instead of the runtime <img>-swap, which was unreliable.
+    const CHART_SPECS = {
+      launch_cost_learning_curve:{caption:"Launch Cost Learning Curve: Cost / Price per kg to Low Earth Orbit",source:"Hover any point for vehicle, year, and cost/price per kg basis. Competitor points use public launch-price or reported revenue-per-launch benchmarks divided by published LEO capacity. Y-axis is logarithmic.",panels:[{key:"launchCost",title:"Launch Cost Learning Curve: Cost / Price per kg to Low Earth Orbit",height:360}]},
+      global_launch_activity:{caption:"Global Orbital Launch Activity - 2022 to 2026E",source:"2026E bars use diagonal hatching to indicate projected estimates. Hover stacks for category-level counts and tonnage.",panels:[{key:"launchCount",title:"Annual Launches to Orbit - Count",height:330},{key:"launchMass",title:"Annual Mass Delivered to Orbit - Weight",height:330}]},
+      starlink_market_growth:{caption:"Starlink Connectivity Projections & Global Broadband Market",source:"Starlink Connectivity (Consumer + Av/Mar): revenue, EBITDA, and margin from Dialectic model P&L_Consolidated, probability-weighted, 2026-2035. All years are model projections. Broadband market panel: Starlink series from the model; market revenue/EBITDA extrapolated from memo data (~8% CAGR decaying to ~6%, not a model output).",panels:[{key:"starlinkConnectivity",title:"Starlink Connectivity - Revenue, EBITDA & Margin (Model, 2026-2035)",height:380},{key:"broadbandMarket",title:"Global Broadband Market vs Starlink Penetration (2026-2035)",height:380}]},
+      starlink_penetration_v5:{caption:"Global Mobile / Cellular Market vs Starlink Direct-to-Cell",source:"Global mobile market and Starlink DTC penetration from the supplied memo chart data. D2C economics panel from Dialectic model Starlink_D2C sheet, probability-weighted, 2026-2035; revenue/EBITDA on logarithmic left axis.",panels:[{key:"mobileMarket",title:"Global Mobile / Cellular Market vs Starlink Direct-to-Cell",height:380},{key:"starlinkMetrics",title:"Starlink Direct-to-Cell - Revenue, EBITDA & Margin (Model, 2026-2035)",height:380}]},
+      chart_01_horizon:{caption:"Enterprise value by horizon",source:"Dialectic SOTP-DCF model, 10-year horizon. WACC 9.0%, terminal growth 4.0%. Bear/Base/Bull scenario weighting via central Scenario Engine.",panels:[{key:"horizon",title:"Enterprise Value by Horizon",height:280}]},
+      chart_02_montecarlo:{caption:"Monte Carlo equity-value distribution",source:"Dialectic Monte Carlo engine - 5,000 trials drawing on WACC, terminal growth, and per-segment scenario outcomes.",panels:[{key:"monteCarlo",title:"Monte Carlo Distribution - 5,000 Trials",height:280}]},
+      chart_03_sotp:{caption:"SOTP enterprise value by segment",source:"Dialectic SOTP model - PV of 10-year UFCF plus Gordon-Growth terminal value, per business unit.",panels:[{key:"sotp",title:"SOTP - Segment EV ($B) by Scenario",height:360}]},
+      chart_09_sotp_cumulative:{caption:"Cumulative SOTP enterprise value",source:"Same SOTP segment values as above, stacked cumulatively from largest to smallest Base EV contribution.",panels:[{key:"sotpCumulative",title:"SOTP Cumulative Build - How Segments Stack to Total EV",height:340}]},
+      chart_04_revenue:{caption:"Consolidated revenue projections",source:"Dialectic consolidated P&L - probability-weighted segment revenue, anchored to SpaceX S-1 FY2025 revenue.",panels:[{key:"revenue",title:"Total Revenue by Business Unit - 2026 to 2035",height:320}]},
+      chart_05_ufcf:{caption:"Revenue and UFCF projection profile",source:"Dialectic DCF model - scenario-weighted unlevered free cash flow build across the twelve business units.",panels:[{key:"ufcf",title:"Unlevered Free Cash Flow Growth - 2026 to 2035",height:280}]},
+      chart_06_comps:{caption:"Comparable-company EV/revenue reference set",source:"Dialectic comparables set - company filings and street consensus; EV/Revenue multiples vs SpaceX at DCF conclusion.",panels:[{key:"comps",title:"EV / Revenue Multiple Comparison",height:300}]},
+      chart_07_sensitivity:{caption:"WACC and terminal-growth sensitivity",source:"Dialectic sensitivity table (Sensitivities sheet, Table 1) - blended ENTERPRISE value across WACC and terminal growth assumptions. Base cell (WACC 9.0% / g 4.0%) = $2,424B.",table:"sensitivity"},
+      chart_08_tornado:{caption:"Key valuation sensitivity drivers",source:"Dialectic single-variable sensitivity analysis - swings around base equity value of $2,408B (Sensitivities sheet, Table 4).",panels:[{key:"tornado",title:"Sensitivity Tornado: Key Equity Value Drivers",height:340}]},
+      chart_10_hyperliquid:{caption:"Hyperliquid implied enterprise value signal",source:"Hyperliquid pre-IPO perpetual market - trailing 30-day implied valuation, illustrative.",panels:[{key:"hyperliquid",title:"Hyperliquid - SPCX Perpetual",height:240}]},
+      chart_11_polymarket:{caption:"Polymarket valuation probability distribution",source:"Polymarket SpaceX valuation prediction markets - trailing 30-day, illustrative.",panels:[{key:"polymarket",title:"Polymarket - SpaceX IPO Valuation",height:240}]}
+    };
+    for(let i = 1; i <= 12; i += 1){
+      CHART_SPECS["bu_" + String(i).padStart(2, "0")] = {
+        caption:"Business-unit model output",
+        source:"Dialectic SOTP-DCF model - scenario-weighted Bear/Base/Bull projections at 9.0% WACC / 4.0% terminal growth, anchored to SpaceX S-1 FY2025 segment disclosures where available.",
+        panels:[
+          {key:"buRevenueEbitda",title:"Revenue & EBITDA ($M)",height:230,buIndex:i},
+          {key:"buUfcf",title:"Unlevered Free Cash Flow ($M)",height:230,buIndex:i}
+        ]
+      };
+    }
+
+    function ixPanelMarkup(panel){
+      const attrs = [
+        `data-chart-key="${escapeHtml(panel.key)}"`,
+        panel.buIndex ? `data-bu-index="${panel.buIndex}"` : "",
+        `aria-label="${escapeHtml(panel.title)}"`
+      ].filter(Boolean).join(" ");
+      return `<div class="interactive-chart-panel"><div class="interactive-chart-title">${escapeHtml(panel.title)}</div><div class="interactive-chart-stage" style="--chart-height:${Number(panel.height || 320)}px"><canvas ${attrs}></canvas></div></div>`;
+    }
+    function ixSensitivityTable(){
+      const rows = [
+        ["7.5%", ["$3,126","up-1"], ["$3,461","up-2"], ["$3,891","up-3"], ["$4,465","up-4"], ["$5,268","up-4"]],
+        ["8.25%", ["$2,524","up-1"], ["$2,746","up-1"], ["$3,020","up-1"], ["$3,367","up-2"], ["$3,821","up-3"]],
+        ["9.0%", ["$2,085","down-1"], ["$2,239","down-1"], ["$2,424","base-cell"], ["$2,650","up-1"], ["$2,933","up-2"]],
+        ["9.75%", ["$1,753","down-2"], ["$1,864","down-1"], ["$1,995","down-1"], ["$2,150","down-1"], ["$2,339","down-1"]],
+        ["10.5%", ["$1,495","down-3"], ["$1,578","down-2"], ["$1,673","down-2"], ["$1,784","down-1"], ["$1,916","down-1"]]
+      ];
+      return `<div class="interactive-table-wrap"><div class="interactive-table-panel"><div class="interactive-table-title">Blended Enterprise Value ($B): WACC x Terminal Growth</div><table class="sensitivity-table"><thead><tr><th>WACC / g</th><th>3.0%</th><th>3.5%</th><th>4.0%</th><th>4.5%</th><th>5.0%</th></tr></thead><tbody>${rows.map((row) => `<tr><td>${row[0]}</td>${row.slice(1).map(([value, className]) => `<td class="${className}">${value}</td>`).join("")}</tr>`).join("")}</tbody></table></div></div>`;
+    }
+    function buildInteractiveFigure(spec, caption){
+      if(!spec) return "";
+      const panels = spec.panels || [];
+      const grid = panels.length ? `<div class="interactive-chart-grid" data-panel-count="${panels.length}">${panels.map(ixPanelMarkup).join("")}</div>` : "";
+      const table = spec.table === "sensitivity" ? ixSensitivityTable() : "";
+      const source = `<div class="interactive-chart-source">${escapeHtml(spec.source || "")}</div>`;
+      const cap = `<figcaption class="detail-chart-caption">${escapeHtml(caption || spec.caption || "")}</figcaption>`;
+      return `<figure class="detail-chart-card is-interactive-chart" data-interactive-ready="true">${grid}${table}${source}${cap}</figure>`;
+    }
+    function specForSrc(src){
+      return CHART_SPECS[String(src || "").replace(/\.(png|svg|jpe?g|webp)$/i, "")];
+    }
+    // Fill the static valuation-accordion grids declared with data-chart-figs.
+    document.querySelectorAll("[data-chart-figs]").forEach((grid) => {
+      grid.innerHTML = grid.getAttribute("data-chart-figs").split(",").map((key) => {
+        const spec = specForSrc(key.trim());
+        return spec ? buildInteractiveFigure(spec, spec.caption) : "";
+      }).join("");
+    });
     const pillarCharts = {
       "Space — Network Effects & Moat in Access to Orbit": [
         {src:"global_launch_activity.png", caption:"Global orbital launch activity and mass delivered to orbit"},
         {src:"launch_cost_learning_curve.png", caption:"Launch cost learning curve and SpaceX cost advantage"}
       ],
-      "Connectivity — Starlink as a Global Telecom & Internet Infra + D2C": [
+      "Connectivity — Starlink as a Global Telecom & Internet Infrastructure + D2C": [
         {src:"starlink_market_growth.png", caption:"Starlink market growth and broadband opportunity"},
         {src:"starlink_penetration_v5.png", caption:"Starlink penetration runway across broadband and direct-to-cell"}
       ],
-      "Maximally Truth-Seeking AI — The AI Infrastructure Stack": [
+      "Maximally Truth-seeking AI — The AI Infrastructure Stack": [
         {src:"bu_07.png", caption:"xAI software revenue, EBITDA, and UFCF profile"},
         {src:"bu_08.png", caption:"Colossus data center revenue, EBITDA, and UFCF profile"},
         {src:"bu_12.png", caption:"Terafab semiconductor manufacturing profile"}
@@ -2999,34 +2287,28 @@
       ]
     };
 
-    const chartModalSets = new Map();
-    let chartModalSetIndex = 0;
-    function registerChartSet(title, charts){
-      const id = `chart-set-${chartModalSetIndex++}`;
-      chartModalSets.set(id, {title, charts});
-      return id;
-    }
-
     function renderCharts(charts){
       if(!Array.isArray(charts) || !charts.length) return "";
       const layoutClass = charts.length === 1 ? " is-single" : "";
-      return `<div class="detail-chart-grid${layoutClass}">${charts.map((chart) => `
-        <figure class="detail-chart-card">
-          <img src="${chartPath}${escapeHtml(chart.src)}" alt="${escapeHtml(chart.caption)}" loading="lazy">
-          <figcaption class="detail-chart-caption">${escapeHtml(chart.caption)}</figcaption>
-        </figure>`).join("")}</div>`;
+      return `<div class="detail-chart-grid${layoutClass}">${charts.map((chart) => {
+        const spec = specForSrc(chart.src);
+        if(spec) return buildInteractiveFigure(spec, chart.caption);
+        return `<figure class="detail-chart-card"><figcaption class="detail-chart-caption">${escapeHtml(chart.caption || "")}</figcaption></figure>`;
+      }).join("")}</div>`;
     }
 
     function renderChartDisclosure(charts, label){
       if(!Array.isArray(charts) || !charts.length) return "";
-      const modalId = registerChartSet(label || "Supporting Charts", charts);
       return `
-        <article class="expand-card thesis-chart-disclosure chart-modal-card">
-          <button class="expand-trigger chart-modal-trigger" type="button" data-chart-modal-id="${escapeHtml(modalId)}">
+        <article class="expand-card thesis-chart-disclosure" data-expand-card>
+          <button class="expand-trigger" type="button" aria-expanded="false">
             <span class="card-index">Charts</span>
             <span><span class="expand-title">${escapeHtml(label || "Supporting Charts")}</span></span>
             <span class="expand-action">Open charts</span>
           </button>
+          <div class="expand-body" aria-hidden="true">
+            <div class="expand-body-inner">${renderCharts(charts)}</div>
+          </div>
         </article>`;
     }
 
@@ -3035,6 +2317,14 @@
       if(type === "company") return companyCharts[item.name] || [];
       if(type === "annex") return annexCharts[item.letter] || [];
       return [];
+    }
+
+    function renderParagraph(paragraph){
+      if(paragraph && typeof paragraph === "object"){
+        const className = paragraph.className ? ` class="${escapeHtml(paragraph.className)}"` : "";
+        return `<p${className}>${escapeHtml(paragraph.text || "")}</p>`;
+      }
+      return `<p>${escapeHtml(paragraph)}</p>`;
     }
 
     function renderDetail(item, type){
@@ -3067,12 +2357,7 @@
       if(Array.isArray(item.paragraphs)){
         parts.push(item.paragraphs.map(renderParagraph).join(""));
       }
-      const detailCharts = chartsForItem(item, type);
-      if(type === "company" || type === "annex"){
-        parts.push(renderChartDisclosure(detailCharts, `${item.name || item.title || "Supporting"} charts`));
-      }else{
-        parts.push(renderCharts(detailCharts));
-      }
+      parts.push(renderCharts(chartsForItem(item, type)));
       if(Array.isArray(item.bullets) && item.bullets.length){
         parts.push(`<span class="detail-label">Investment thesis</span><ul>${item.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("")}</ul>`);
       }
@@ -3209,91 +2494,10 @@
       });
     }
 
-    const chartModal = document.querySelector("[data-chart-modal]");
-    const chartModalTitle = document.querySelector("[data-chart-modal-title]");
-    const chartModalBody = document.querySelector("[data-chart-modal-body]");
-    const chartModalCloseButton = document.querySelector(".chart-modal-close");
-    let lastChartTrigger = null;
-
-    function normalizeChartSrc(src){
-      if(!src) return "";
-      if(src.startsWith("./") || src.startsWith("/") || src.startsWith("http") || src.startsWith("data:")) return src;
-      return `${chartPath}${src}`;
-    }
-
-    function renderModalCharts(charts){
-      return `<div class="chart-modal-grid">${charts.map((chart) => `
-        <figure class="chart-modal-figure">
-          <img src="${escapeHtml(normalizeChartSrc(chart.src))}" alt="${escapeHtml(chart.caption || "Chart")}" loading="eager">
-          <figcaption class="chart-modal-caption">${escapeHtml(chart.caption || "Chart")}</figcaption>
-        </figure>`).join("")}</div>`;
-    }
-
-    function chartsFromDomCard(card){
-      return Array.from(card.querySelectorAll(".detail-chart-card")).map((figure) => {
-        const image = figure.querySelector("img");
-        const canvas = figure.querySelector("canvas");
-        const caption = figure.querySelector("figcaption")?.textContent?.trim() || image?.alt || "Chart";
-        if(image) return {src:image.getAttribute("src") || "", caption};
-        if(canvas){
-          try{
-            return {src:canvas.toDataURL("image/png"), caption};
-          }catch(error){
-            return {src:"", caption};
-          }
-        }
-        return {src:"", caption};
-      }).filter((chart) => chart.src);
-    }
-
-    function openChartModal(title, charts, trigger){
-      if(!chartModal || !chartModalBody || !Array.isArray(charts) || !charts.length) return;
-      lastChartTrigger = trigger || document.activeElement;
-      chartModalTitle.textContent = title || "Charts";
-      chartModalBody.innerHTML = renderModalCharts(charts);
-      chartModal.hidden = false;
-      document.body.classList.add("chart-modal-open");
-      chartModalCloseButton?.focus();
-    }
-
-    function closeChartModal(){
-      if(!chartModal || chartModal.hidden) return;
-      chartModal.hidden = true;
-      chartModalBody.innerHTML = "";
-      document.body.classList.remove("chart-modal-open");
-      if(lastChartTrigger && typeof lastChartTrigger.focus === "function") lastChartTrigger.focus();
-      lastChartTrigger = null;
-    }
-
-    document.addEventListener("click", (event) => {
-      const closeTarget = event.target.closest("[data-chart-modal-close]");
-      if(closeTarget){
-        event.preventDefault();
-        closeChartModal();
-        return;
-      }
-
-      const modalTrigger = event.target.closest(".chart-modal-trigger, .chart-accordion .expand-trigger");
-      if(!modalTrigger) return;
-      event.preventDefault();
-      event.stopImmediatePropagation();
-
-      const registered = modalTrigger.dataset.chartModalId ? chartModalSets.get(modalTrigger.dataset.chartModalId) : null;
-      const card = modalTrigger.closest(".expand-card");
-      const title = registered?.title || card?.querySelector(".expand-title")?.textContent?.trim() || "Charts";
-      const charts = registered?.charts || chartsFromDomCard(card);
-      openChartModal(title, charts, modalTrigger);
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if(event.key === "Escape") closeChartModal();
-    });
-
     document.addEventListener("click", (event) => {
       const trigger = event.target.closest(".expand-trigger");
       if(!trigger) return;
       const card = trigger.closest("[data-expand-card]");
-      if(!card) return;
       const scope = card.parentElement;
       const isOpen = card.classList.contains("is-open");
       scope.querySelectorAll("[data-expand-card].is-open").forEach(closeCard);
@@ -3411,147 +2615,10 @@
       syncCurrentPage();
     }, {passive:true});
   </script>
-  <script src="./SpaceX Thesis &amp; Valuation_files/chart.umd.js"></script>
-  <script src="./SpaceX Thesis &amp; Valuation_files/charts-interactive.js"></script>
-  <script src="./SpaceX Thesis &amp; Valuation_files/html2canvas.min.js"></script>
-  <script src="./SpaceX Thesis &amp; Valuation_files/jspdf.umd.min.js"></script>
-  <script src="./SpaceX Thesis &amp; Valuation_files/dashboard-controls.js"></script><div class="pdf-export-overlay" hidden="" role="status" aria-live="polite" data-html2canvas-ignore="true"><span data-pdf-status="">Preparing PDF</span><span class="pdf-export-progress" aria-hidden="true"><span></span></span></div>
-
-
-<ut-widget style="display: none;"><template shadowrootmode="open">
-  <style>
-    * { 
-      box-sizing: border-box; 
-    }
-    
-    p { margin: 0 } 
-    button { 
-        background-color: transparent;
-        border: none;
-        padding: 0;
-        display: flex;
-        cursor: pointer;
-    }
-    .msg-close {
-      align-self: flex-start;
-    }
-    .msg-close .close-icon {
-      align-self: flex-start;
-    }
-    
-    @keyframes fadeIn {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1
-        }
-    }
-    
-    :host { 
-      all: initial;
-      font-size: 14px;
-      font-family: Arial, sans-serif;
-      position: absolute;
-      z-index: 2147483647;
-    }
-    
-    .widget {
-        position: fixed;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: 1px solid #CFD0D8;
-        bottom: 30px;
-        right: 25px;
-        padding: 10px;
-        background-color: #fff;
-        box-shadow: 0 2px 7px rgb(15 20 58 / 10%);
-    }
-    
-    .msg {
-        animation: fadeIn ease-in 0.6s;
-        gap: 30px;
-        position: fixed;
-        bottom: 85px;
-        right: 25px;
-        border: 1px solid #CFD0D8;
-        background-color: #fff;
-        box-shadow: 0 2px 7px rgb(15 20 58 / 10%);
-        padding: 13px 15px;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        color: #000;
-        justify-content: space-between;
-    }
-    
-    .widget svg {
-        max-width: 100%;
-        max-height: 100%;
-    }
-    
-    .error {
-        color: #FF0000;
-    }
-
-    .success {
-      color: #2e9a58;
-  }
-    
-    .spinner {
-        border: 4px solid #f3f3f3;
-        border-top: 4px solid #3498db;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        animation: spin 2s linear infinite;
-    }
-    
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-    .msg-text {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .msg-text > .spinner,
-    .msg-text > .error-icon,
-    .msg-text > .success-icon {
-      align-self: flex-start;
-      flex-shrink: 0;
-    }
-    .msg-body {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .msg-left {
-      display: flex;
-      flex-direction: column;
-    }
-    .view-tx-link {
-      font-size: 12px;
-      color: #4A60FF;
-      text-decoration: none;
-    }
-    .view-tx-link:hover {
-      text-decoration: underline;
-    }
-    .info-msg {
-      font-size: 14px;
-      color: #272C4E;
-      margin-top: 4px;
-    }
-  </style>
-
-  <div class="widget">
-    <svg width="468" height="351" viewBox="0 0 468 351" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M140.795 4.13965L209.866 73.211L135.81 147.268C100.778 182.299 100.778 239.096 135.81 274.127C168.614 306.931 220.503 309.017 255.734 280.384L234.339 301.779C182.676 353.442 98.914 353.442 47.2512 301.779L38.7472 293.275C-12.9157 241.613 -12.9157 157.85 38.7472 106.188L140.795 4.13965Z" fill="#161616"></path>
-      <path d="M327.205 346.894L258.133 277.823L332.19 203.766C367.221 168.735 367.221 111.938 332.19 76.9069C299.386 44.103 247.497 42.0172 212.266 70.6495L233.661 49.2545C285.324 -2.40844 369.086 -2.40844 420.749 49.2544L429.253 57.7584C480.916 109.421 480.916 193.183 429.253 244.846L327.205 346.894Z" fill="#161616"></path>
-    </svg>
-  </div>
-</template></ut-widget></body></html>
+  <script src="./assets/chart.umd.js"></script>
+  <script src="./assets/charts-interactive.js"></script>
+  <script src="./assets/html2canvas.min.js"></script>
+  <script src="./assets/jspdf.umd.min.js"></script>
+  <script src="./assets/dashboard-controls.js"></script>
+</body>
+</html>
