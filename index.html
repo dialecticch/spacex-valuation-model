@@ -715,6 +715,11 @@
       margin-top:36px;
       align-items:stretch;
     }
+    /* When a pillar's chart drawer is open, span the full width so dense charts
+       (e.g. the launch-cost learning curve) aren't squished in a half-width column. */
+    .interactive-grid > .thesis-card:has(.thesis-chart-disclosure.is-open){
+      grid-column:1 / -1;
+    }
     .thesis-card{
       padding:24px;
       display:flex;
