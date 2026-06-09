@@ -571,6 +571,11 @@
     if(chartInstances.has(canvas)) return chartInstances.get(canvas);
     const factory = chartFactories[canvas.dataset.chartKey];
     if(!factory) return null;
+    // Guard against Chart.js "Canvas is already in use" if a stray instance lingers on this canvas.
+    if(window.Chart && typeof window.Chart.getChart === "function"){
+      const existing = window.Chart.getChart(canvas);
+      if(existing){ try{ existing.destroy(); }catch(error){} }
+    }
     const chart = factory(canvas);
     chartInstances.set(canvas, chart);
     return chart;
@@ -585,7 +590,14 @@
 
   function initVisibleCharts(scope){
     (scope || document).querySelectorAll("canvas[data-chart-key]").forEach((canvas) => {
-      if(isCanvasVisible(canvas)) initChart(canvas);
+      if(!isCanvasVisible(canvas)) return;
+      // Isolate each chart: one failing chart must not abort the rest of the loop
+      // (otherwise a single bad chart blanks every other chart in the same card).
+      try{
+        initChart(canvas);
+      }catch(error){
+        console.error("Chart init failed:", canvas.dataset.chartKey, error);
+      }
     });
   }
 
