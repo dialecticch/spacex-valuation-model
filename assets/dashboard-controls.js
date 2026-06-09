@@ -3,9 +3,8 @@
 
   const STORAGE_KEY = "spacex-dashboard-language";
   const PDF_FILENAME = "spacex-thesis-valuation-dashboard.pdf";
-  const PDF_MAX_PAGE_HEIGHT = 5200;
-  const PDF_PAGE_MARGIN = 40;
-  const PDF_RENDER_SCALE = 1.25;
+  const PDF_PAGE_MARGIN = 28;
+  const PDF_RENDER_SCALE = 1.5;
   const PDF_IMAGE_QUALITY = 0.92;
   const LANGUAGE_PAGES = {
     en: "spacex-dashboard.html",
@@ -246,25 +245,23 @@
     return window.location.protocol === "file:" && (tagName === "IMG" || tagName === "VIDEO" || tagName === "SOURCE");
   }
 
-  function createPdfPacker(jsPDF, pageWidth){
-    const pageHeight = PDF_MAX_PAGE_HEIGHT;
-    const pdf = new jsPDF({
-      compress: true,
-      format: [pageWidth, pageHeight],
-      hotfixes: ["px_scaling"],
-      orientation: "portrait",
-      unit: "px"
-    });
+  function createPdf(jsPDF){
+    const pdf = new jsPDF({orientation: "portrait", unit: "pt", format: "a4", compress: true});
+    const pageW = pdf.internal.pageSize.getWidth();
+    const pageH = pdf.internal.pageSize.getHeight();
+    const contentW = pageW - (PDF_PAGE_MARGIN * 2);
+    const contentH = pageH - (PDF_PAGE_MARGIN * 2);
+    const gap = 18;
     let y = PDF_PAGE_MARGIN;
     let pageEmpty = true;
 
     function paintBackground(){
       pdf.setFillColor(5, 5, 7);
-      pdf.rect(0, 0, pageWidth, pageHeight, "F");
+      pdf.rect(0, 0, pageW, pageH, "F");
     }
 
     function addPage(){
-      pdf.addPage([pageWidth, pageHeight], "portrait");
+      pdf.addPage();
       y = PDF_PAGE_MARGIN;
       pageEmpty = true;
       paintBackground();
@@ -273,55 +270,24 @@
     paintBackground();
     return {
       pdf,
-      addCanvas(canvas, scale){
-        addCanvasBlock({pdf, pageWidth, pageHeight, get y(){return y;}, set y(value){y = value;}, get pageEmpty(){return pageEmpty;}, set pageEmpty(value){pageEmpty = value;}, addPage}, canvas, scale);
+      // Scale each captured section to fit the page width; if it would be taller
+      // than a full page, scale to fit the page height instead, so every block
+      // always fits entirely on one page (never sliced/cut). Centered horizontally.
+      addCanvas(canvas){
+        if(!canvas.width || !canvas.height) return;
+        let drawW = contentW;
+        let drawH = drawW * (canvas.height / canvas.width);
+        if(drawH > contentH){
+          drawH = contentH;
+          drawW = drawH * (canvas.width / canvas.height);
+        }
+        if(!pageEmpty && y + drawH > pageH - PDF_PAGE_MARGIN) addPage();
+        const x = (pageW - drawW) / 2;
+        pdf.addImage(canvasJpeg(canvas), "JPEG", x, y, drawW, drawH, undefined, "FAST");
+        y += drawH + gap;
+        pageEmpty = false;
       }
     };
-  }
-
-  function addCanvasBlock(packer, canvas, scale){
-    const cssWidth = canvas.width / scale;
-    const cssHeight = canvas.height / scale;
-    const maxContentWidth = packer.pageWidth - (PDF_PAGE_MARGIN * 2);
-    const displayScale = maxContentWidth / cssWidth;
-    const displayWidth = cssWidth * displayScale;
-    const displayHeight = cssHeight * displayScale;
-    const x = PDF_PAGE_MARGIN;
-    const pageContentHeight = packer.pageHeight - (PDF_PAGE_MARGIN * 2);
-
-    if(displayHeight <= pageContentHeight){
-      if(!packer.pageEmpty && packer.y + displayHeight > packer.pageHeight - PDF_PAGE_MARGIN) packer.addPage();
-      packer.pdf.addImage(canvasJpeg(canvas), "JPEG", x, packer.y, displayWidth, displayHeight, undefined, "FAST");
-      packer.y += displayHeight + 24;
-      packer.pageEmpty = false;
-      return;
-    }
-
-    const maxSlicePx = Math.max(1, Math.floor((pageContentHeight / displayScale) * scale));
-    let sourceY = 0;
-
-    while(sourceY < canvas.height){
-      const slicePx = Math.min(maxSlicePx, canvas.height - sourceY);
-      const sliceCssHeight = (slicePx / scale) * displayScale;
-      let sourceCanvas = canvas;
-      if(slicePx !== canvas.height){
-        sourceCanvas = document.createElement("canvas");
-        sourceCanvas.width = canvas.width;
-        sourceCanvas.height = slicePx;
-        const context = sourceCanvas.getContext("2d");
-        context.drawImage(canvas, 0, sourceY, canvas.width, slicePx, 0, 0, canvas.width, slicePx);
-      }
-
-      if(!packer.pageEmpty) packer.addPage();
-      packer.pdf.addImage(canvasJpeg(sourceCanvas), "JPEG", x, packer.y, displayWidth, sliceCssHeight, undefined, "FAST");
-      packer.y += sliceCssHeight + 24;
-      packer.pageEmpty = false;
-      if(sourceCanvas !== canvas){
-        sourceCanvas.width = 1;
-        sourceCanvas.height = 1;
-      }
-      sourceY += slicePx;
-    }
   }
 
   function downloadPdfBlob(pdf){
@@ -345,8 +311,7 @@
     const scale = Math.min(PDF_RENDER_SCALE, Math.max(1, window.devicePixelRatio || 1));
     const targets = pdfTargets();
     if(!targets.length) throw new Error("No dashboard sections were available to export.");
-    const pageWidth = Math.ceil(Math.max(document.documentElement.clientWidth, 1180));
-    const packer = createPdfPacker(jsPDF, pageWidth);
+    const packer = createPdf(jsPDF);
 
     for(let targetIndex = 0; targetIndex < targets.length; targetIndex += 1){
       const target = targets[targetIndex];
@@ -373,7 +338,7 @@
         windowWidth: Math.max(width, window.innerWidth)
       });
 
-      packer.addCanvas(canvas, scale);
+      packer.addCanvas(canvas);
       canvas.width = 1;
       canvas.height = 1;
     }
