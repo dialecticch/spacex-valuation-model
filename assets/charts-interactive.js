@@ -220,21 +220,31 @@
     "Starlink Connectivity",
     "Starlink D2C",
     "Colossus DCs",
-    "Launch Services",
+    "Launch Services & Lunar Vehicles",
     "Starshield",
     "xAI Software",
-    "Crewed Dragon",
-    "Terafab",
+    "Crewed Spaceflight",
+    "Terafab — Semiconductor Manufacturing",
     "X Platform",
     "Orbital DCs",
     "Other Space Services",
     "Deep Space Optionality"
   ];
   const sotpContributions = {
-    bear:[84,28,59,70,42,13,3,6,13,2,0,0],
-    base:[745,380,329,297,190,86,63,54,54,27,6,0],
-    bull:[1638,836,723,654,418,189,29,119,85,77,9,0]
+    bear:[84,28,59,76,42,13,7,6,8,2,0,0],
+    base:[745,380,329,324,190,86,63,54,53,27,6,0],
+    bull:[1638,836,723,713,418,189,140,119,118,77,13,0]
   };
+  // Starlink Connectivity (Consumer + Av/Mar) — model, P&L_Consolidated line 4, 2026-2035 ($B).
+  const starConnYears = ["2026","2027","2028","2029","2030","2031","2032","2033","2034","2035"];
+  const starConnRevenue = [15.0,21.3,30.5,44.0,63.8,83.4,109.2,143.5,189.1,249.7];
+  const starConnEbitda = [9.3,13.4,19.3,28.0,40.9,53.6,70.5,92.9,122.6,162.3];
+  const starConnMargin = [62.2,62.7,63.2,63.7,64.1,64.3,64.5,64.7,64.8,65.0];
+  // Starlink Direct-to-Cell — model, Starlink_D2C sheet, 2026-2035 ($B).
+  const starD2CYears = ["2026","2027","2028","2029","2030","2031","2032","2033","2034","2035"];
+  const starD2CRevenue = [1.0,1.7,3.1,5.5,10.0,15.3,23.8,37.2,58.9,94.1];
+  const starD2CEbitda = [0.6,1.0,1.8,3.3,6.1,9.6,15.0,23.8,38.2,61.7];
+  const starD2CMargin = [58.0,58.9,59.8,60.7,61.5,62.4,63.2,64.0,64.8,65.5];
   const sotpScenarioColors = {bear:"#fca5a5", base:RED, bull:DARK};
 
   function cumulativeSotp(values, total){
@@ -246,18 +256,18 @@
   }
 
   const buChartDefs = {
-    1:{re:{r:[11500,16400,23600,34000,49300,64500,84600,111300,146800,194100],e:[5200,7600,11100,16300,23900,31700,42100,56000,74600,99500]},fc:[979,1600,2500,3800,5900,8200,11200,15400,21000,28600]},
-    2:{re:{r:[2400,3100,3800,4800,6000,7300,8800,10700,12900,15700],e:[1300,1600,2000,2600,3300,4000,4800,5900,7200,8800]},fc:[873,1100,1400,1800,2200,2700,3300,4000,4900,6000]},
-    3:{re:{r:[150,207,288,405,574,746,972,1300,1700,2200],e:[78,110,157,224,321,421,554,729,962,1300]},fc:[32,46,66,96,139,184,243,322,428,569]},
-    4:{re:{r:[15000,21300,30500,44000,63800,83400,109200,143500,189100,249700],e:[9300,13400,19300,28000,40900,53600,70500,92900,122600,162300]},fc:[5100,7400,10700,15600,22900,29900,39200,51500,67800,89400]},
-    5:{re:{r:[980,1700,3100,5500,10000,15300,23800,37200,58900,94100],e:[568,1000,1800,3300,6100,9600,15000,23800,38200,61700]},fc:[312,567,1000,1900,3600,5600,9000,14400,23300,37900]},
-    6:{re:{r:[3300,4800,7100,10400,15400,20100,26200,34300,45100,59400],e:[1500,2300,3300,5000,7500,9900,13000,17200,22800,30300]},fc:[833,1200,1900,2800,4300,5700,7500,10000,13300,17800]},
-    7:{re:{r:[2300,3500,5200,8000,12200,17000,23700,33100,46500,65300],e:[1100,1700,2600,4100,6400,9000,12700,18000,25500,36100]},fc:[230,360,565,891,1400,2000,2900,4100,5800,8300]},
-    8:{re:{r:[15800,22500,32300,46800,68200,85900,108300,136900,173400,219900],e:[10800,15500,22500,32800,48200,60900,77200,97900,124400,158200]},fc:[1200,2000,3200,5100,8000,10500,13700,18000,23400,30600]},
-    9:{re:{r:[4100,5700,7900,11200,15800,19400,23900,29500,36500,45200],e:[752,1100,1500,2200,3200,4000,5000,6300,7900,10000]},fc:[288,429,638,948,1400,1800,2300,3000,3800,4900]},
-    10:{re:{r:[0,0,0,0,0,8600,14300,23900,40300,68300],e:[0,0,0,0,0,4500,7700,13000,22200,38100]},fc:[0,0,0,0,0,-51,103,464,1200,2800]},
-    11:{re:{r:[0,0,0,0,0,24,27,32,38,46],e:[0,0,0,0,0,11,13,15,19,23]},fc:[0,0,0,0,0,0,1,1,1,2]},
-    12:{re:{r:[0,0,0,0,0,4500,7400,12500,21100,36000],e:[0,0,0,0,0,2000,3300,5700,9900,17300]},fc:[0,0,0,0,0,419,819,1600,3000,5600]}
+    1:{re:{r:[12092,17315,24923,36047,52361,68583,90115,118746,156877,207734],e:[5573,8121,11874,17417,25619,33981,45156,60108,80130,106967]},fc:[1090,1728,2710,4213,6505,8945,12262,16765,22873,31154]},
+    2:{re:{r:[2448,3052,3818,4795,6046,7306,8813,10659,12926,15717],e:[1283,1612,2033,2573,3267,3969,4825,5879,7178,8783]},fc:[873,1100,1390,1762,2242,2715,3305,4031,4925,6028]},
+    3:{re:{r:[150,207,288,405,574,746,972,1269,1662,2180],e:[78,110,157,224,321,421,554,729,962,1272]},fc:[32,46,66,96,139,184,243,322,428,569]},
+    4:{re:{r:[15010,21334,30534,44000,63826,83367,109233,143531,189089,249694],e:[9337,13377,19294,28008,40914,53623,70473,92852,122617,162261]},fc:[5134,7395,10717,15627,22922,29935,39205,51479,67757,89379]},
+    5:{re:{r:[980,1725,3067,5510,9992,15324,23762,37237,58935,94140],e:[568,1016,1835,3343,6144,9560,15027,23849,38190,61655]},fc:[312,567,1038,1919,3572,5631,8960,14379,23256,37879]},
+    6:{re:{r:[3334,4846,7086,10420,15402,20051,26187,34304,45064,59353],e:[1520,2250,3346,4997,7494,9866,13020,17221,22824,30306]},fc:[833,1247,1874,2826,4275,5665,7520,10000,13318,17761]},
+    7:{re:{r:[2298,3451,5221,7954,12200,16977,23692,33149,46493,65349],e:[1094,1684,2610,4067,6372,8983,12689,17956,25452,36129]},fc:[230,360,565,891,1413,2005,2851,4059,5787,8261]},
+    8:{re:{r:[15768,22468,32285,46754,68192,85855,108313,136906,173363,219905],e:[10763,15493,22469,32811,48216,60945,77173,97886,124359,158231]},fc:[1210,1982,3192,5080,8020,10506,13741,17953,23432,30558]},
+    9:{re:{r:[4080,5678,7944,11169,15774,19373,23856,29453,36456,45236],e:[752,1074,1538,2212,3190,3993,5010,6298,7933,10013]},fc:[288,429,638,948,1408,1805,2316,2974,3821,4911]},
+    10:{re:{r:[0,0,0,0,0,8600,14300,23942,40336,68341],e:[0,0,0,0,0,4530,7653,13005,22218,38140]},fc:[0,0,0,0,0,-51,103,464,1237,2814]},
+    11:{re:{r:[0,0,0,0,0,23.5,27.5,32.3,38.4,45.9],e:[0,0,0,0,0,10.5,12.7,15.4,18.9,23.3]},fc:[0,0,0,0,0,0.5,0.7,0.9,1.2,1.5]},
+    12:{re:{r:[0,0,0,0,0,4500,7444,12457,21074,36021],e:[0,0,0,0,0,1969,3340,5723,9895,17250]},fc:[0,0,0,0,0,419,819,1567,2963,5556]}
   };
   const buLabels = [2026,2027,2028,2029,2030,2031,2032,2033,2034,2035];
   const buScaleOpts = {
@@ -333,22 +343,29 @@
       return buildChart(canvas, {type:"bar", data:{labels:launchYears, datasets:launchCats.map((cat) => ({label:cat.label,data:cat.mass,backgroundColor:projectedColors(cat.color),borderColor:"#fff",borderWidth:.8,stack:"mass",borderRadius:cat.label==="Rest of World"?3:0}))}, options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom",labels:{boxWidth:14,font:{size:10}}},tooltip:stackedTooltip("t"),exhibitAnnotationPlugin:{projectedAfterIndex:3.5,projectedLabel:false,totalLabels:{totals:[1394,1824,2226,2807,3225],labels:["1394t","1824t","2226t","2807t","3225t"]}}},scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,title:{display:true,text:"Mass to orbit (tonnes)"},grid:{color:"#f0f0f0"},suggestedMax:3500}}}});
     },
     starlinkMetrics(canvas){
-      return buildChart(canvas, {type:"bar", data:{labels:starYears, datasets:[
-        {label:"Revenue ($B)",data:starRevenue,backgroundColor:projectedColors(RED),borderRadius:5,borderSkipped:false,barPercentage:.68,categoryPercentage:.72,yAxisID:"y"},
-        {label:"EBITDA ($B)",data:starEbitda,backgroundColor:projectedColors(DARK),borderRadius:5,borderSkipped:false,barPercentage:.68,categoryPercentage:.72,yAxisID:"y"},
-        {label:"Subscribers (M)",type:"line",data:starSubs,borderColor:"#ff5252",backgroundColor:"#ff5252",pointStyle:"circle",pointRadius:4,pointHoverRadius:6,pointBorderColor:"#fff",pointBorderWidth:1.5,borderWidth:2.5,borderDash:[6,4],tension:.32,yAxisID:"y1"}
-      ]}, options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:2,right:2,bottom:0,left:0}},plugins:{legend:slickLegend,tooltip:withSlickTooltip({label(ctx){if(ctx.dataset.label.indexOf("Subscribers")>-1)return ctx.dataset.label+": "+ctx.raw+"M";return ctx.dataset.label+": "+formatBillions(ctx.raw);},afterBody(items){const idx=items[0].dataIndex;return "EBITDA margin: "+starMargin[idx]+"%";}})},scales:{x:slickAxis("",{grid:{display:false},ticks:{font:{size:10},color:"#666",maxRotation:35,minRotation:35}}),y:slickAxis("USD billions",{position:"left",beginAtZero:true}),y1:slickAxis("Active subscribers (M)",{position:"right",grid:{display:false},ticks:{font:{size:10},color:"#ff5252",maxTicksLimit:6}})}}});
+      return buildChart(canvas, {type:"bar", data:{labels:starD2CYears, datasets:[
+        {label:"Expected revenue ($B)",data:starD2CRevenue,backgroundColor:RED,borderRadius:4,borderSkipped:false,barPercentage:.68,categoryPercentage:.72,yAxisID:"y"},
+        {label:"Expected EBITDA ($B)",data:starD2CEbitda,backgroundColor:DARK,borderRadius:4,borderSkipped:false,barPercentage:.68,categoryPercentage:.72,yAxisID:"y"},
+        {label:"Blended EBITDA margin (%)",type:"line",data:starD2CMargin,borderColor:BLUE,backgroundColor:BLUE,pointStyle:"circle",pointRadius:3,pointHoverRadius:5,pointBorderColor:"#fff",pointBorderWidth:1.5,borderWidth:2.5,borderDash:[6,4],tension:.3,yAxisID:"y1"}
+      ]}, options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:2,right:2,bottom:0,left:0}},plugins:{legend:slickLegend,tooltip:withSlickTooltip({label(ctx){if(ctx.dataset.label.indexOf("margin")>-1)return ctx.dataset.label+": "+ctx.raw+"%";return ctx.dataset.label+": "+formatBillions(ctx.raw);}})},scales:{x:slickAxis("",{grid:{display:false},ticks:{font:{size:10},color:"#666",maxRotation:35,minRotation:35}}),y:slickAxis("USD billions (log scale)",{type:"logarithmic",min:0.3,max:120,ticks:{callback:(value)=>[0.5,1,2,5,10,25,50,100].indexOf(value)>-1?"$"+value+"B":null}}),y1:slickAxis("Blended EBITDA margin (%)",{position:"right",grid:{display:false},min:56,max:68,ticks:{font:{size:10},color:BLUE,maxTicksLimit:8,callback:(value)=>value+"%"}})}}});
+    },
+    starlinkConnectivity(canvas){
+      return buildChart(canvas, {type:"bar", data:{labels:starConnYears, datasets:[
+        {label:"Revenue ($B)",data:starConnRevenue,backgroundColor:RED,borderRadius:5,borderSkipped:false,barPercentage:.68,categoryPercentage:.72,yAxisID:"y"},
+        {label:"EBITDA ($B)",data:starConnEbitda,backgroundColor:DARK,borderRadius:5,borderSkipped:false,barPercentage:.68,categoryPercentage:.72,yAxisID:"y"},
+        {label:"EBITDA margin (%)",type:"line",data:starConnMargin,borderColor:BLUE,backgroundColor:BLUE,pointStyle:"circle",pointRadius:4,pointHoverRadius:6,pointBorderColor:"#fff",pointBorderWidth:1.5,borderWidth:2.5,borderDash:[6,4],tension:.32,yAxisID:"y1"}
+      ]}, options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:2,right:2,bottom:0,left:0}},plugins:{legend:slickLegend,tooltip:withSlickTooltip({label(ctx){if(ctx.dataset.label.indexOf("margin")>-1)return ctx.dataset.label+": "+ctx.raw+"%";return ctx.dataset.label+": "+formatBillions(ctx.raw);}})},scales:{x:slickAxis("",{grid:{display:false},ticks:{font:{size:10},color:"#666",maxRotation:35,minRotation:35}}),y:slickAxis("USD billions",{position:"left",beginAtZero:true}),y1:slickAxis("EBITDA margin (%)",{position:"right",grid:{display:false},min:55,max:70,ticks:{font:{size:10},color:BLUE,maxTicksLimit:6,callback:(value)=>value+"%"}})}}});
     },
     broadbandMarket(canvas){
-      const marketRevenue = [420,457,500,548,580];
-      const marketEbitda = [155,169,185,208,221];
-      const share = [.3,.9,1.5,2.1,2.5];
-      return buildChart(canvas, {type:"bar", data:{labels:starYears, datasets:[
-        {label:"Rest of market revenue ($B)",data:marketRevenue.map((value,index)=>value-starRevenue[index]),backgroundColor:"#dedede",stack:"rev",borderRadius:5,borderSkipped:false,barPercentage:.72,categoryPercentage:.72,yAxisID:"y"},
-        {label:"Starlink revenue ($B)",data:starRevenue,backgroundColor:projectedColors(RED),stack:"rev",borderRadius:5,borderSkipped:false,barPercentage:.72,categoryPercentage:.72,yAxisID:"y"},
-        {label:"Market EBITDA ($B)",type:"line",data:marketEbitda,borderColor:DARK,backgroundColor:DARK,pointStyle:"rectRounded",pointRadius:4,pointHoverRadius:6,pointBorderColor:"#fff",pointBorderWidth:1.5,borderWidth:2.5,borderDash:[6,4],tension:.3,yAxisID:"y1"},
-        {label:"Starlink EBITDA ($B)",type:"line",data:starEbitda,borderColor:RED,backgroundColor:RED,pointRadius:4,pointHoverRadius:6,pointBorderColor:"#fff",pointBorderWidth:1.5,borderWidth:2.5,borderDash:[2,4],tension:.3,yAxisID:"y1"}
-      ]}, options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:2,right:2,bottom:0,left:0}},plugins:{legend:slickLegend,tooltip:withSlickTooltip({label(ctx){return ctx.dataset.label+": "+formatBillions(ctx.raw);},afterBody(items){return "Starlink market share: "+share[items[0].dataIndex]+"%";}})},scales:{x:slickAxis("",{stacked:true,grid:{display:false},ticks:{font:{size:10},color:"#666",maxRotation:35,minRotation:35}}),y:slickAxis("Total market revenue ($B)",{stacked:true,beginAtZero:true}),y1:slickAxis("EBITDA ($B)",{position:"right",grid:{display:false},ticks:{font:{size:10},color:"#666",maxTicksLimit:6}})}}});
+      const marketRevenue = [580,626,675,726,778,833,889,948,1009,1071];
+      const marketEbitda = [221,240,260,281,303,326,350,374,400,427];
+      const share = [2.6,3.4,4.5,6.1,8.2,10.0,12.3,15.1,18.7,23.3];
+      return buildChart(canvas, {type:"bar", data:{labels:starConnYears, datasets:[
+        {label:"Rest of market revenue ($B)",data:marketRevenue.map((value,index)=>value-starConnRevenue[index]),backgroundColor:"#dedede",stack:"rev",borderRadius:5,borderSkipped:false,barPercentage:.72,categoryPercentage:.72,yAxisID:"y"},
+        {label:"Starlink revenue ($B)",data:starConnRevenue,backgroundColor:RED,stack:"rev",borderRadius:5,borderSkipped:false,barPercentage:.72,categoryPercentage:.72,yAxisID:"y"},
+        {label:"Market EBITDA ($B)",type:"line",data:marketEbitda,stack:"mkt-ebitda",borderColor:DARK,backgroundColor:DARK,pointStyle:"rectRounded",pointRadius:4,pointHoverRadius:6,pointBorderColor:"#fff",pointBorderWidth:1.5,borderWidth:2.5,borderDash:[6,4],tension:.3,yAxisID:"y"},
+        {label:"Starlink EBITDA ($B)",type:"line",data:starConnEbitda,stack:"sl-ebitda",borderColor:RED,backgroundColor:RED,pointRadius:4,pointHoverRadius:6,pointBorderColor:"#fff",pointBorderWidth:1.5,borderWidth:2.5,borderDash:[2,4],tension:.3,yAxisID:"y"}
+      ]}, options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:2,right:2,bottom:0,left:0}},plugins:{legend:slickLegend,tooltip:withSlickTooltip({label(ctx){return ctx.dataset.label+": "+formatBillions(ctx.raw);},afterBody(items){return "Starlink market share: "+share[items[0].dataIndex]+"%";}})},scales:{x:slickAxis("",{stacked:true,grid:{display:false},ticks:{font:{size:10},color:"#666",maxRotation:35,minRotation:35}}),y:slickAxis("Revenue / EBITDA ($B)",{stacked:true,beginAtZero:true})}}});
     },
     mobileMarket(canvas){
       const mobileRevenue = [1060,1100,1150,1180,1210];
@@ -364,10 +381,12 @@
       ]}, options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:14,right:4,bottom:0,left:0}},plugins:{legend:{position:"top",align:"start",labels:{usePointStyle:false,boxWidth:22,boxHeight:8,padding:10,color:DARK,font:{size:10,weight:"700"}}},tooltip:withSlickTooltip({label(ctx){return ctx.dataset.label+": "+formatBillions(ctx.raw);},afterBody(items){return "DTC market share: "+dtcShare[items[0].dataIndex]+"%";}}),exhibitAnnotationPlugin:{totalLabels:{totals:mobileRevenue,labels:mobileRevenue.map((value)=>"$"+value+"B"),color:DARK,font:"700 12px Arial"}}},scales:{x:slickAxis("",{stacked:true,grid:{display:false},ticks:{font:{size:10},color:"#444",maxRotation:0,minRotation:0}}),y:slickAxis("Total Market Revenue ($B)",{stacked:true,beginAtZero:true,max:1300,ticks:{font:{size:10},color:"#444",stepSize:200},grid:{color:"rgba(38,37,43,.08)",drawBorder:false}}),y1:slickAxis("EBITDA ($B)",{position:"right",beginAtZero:true,max:550,grid:{display:false},ticks:{font:{size:10},color:"#444",stepSize:100}})}}});
     },
     horizon(canvas){
-      return buildChart(canvas, {type:"bar", data:{labels:["5-Year (2026-2030)","10-Year (2026-2035)","Blended (55/35/10)","20-Year (2026-2045)"],datasets:[{label:"Enterprise Value ($B)",data:[831,2657,2393,10064],backgroundColor:[LIGHT_GREY,RED,RED_SOFT,DARK],borderRadius:3}]}, options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:(ctx)=>"$"+ctx.raw.toLocaleString()+"B"}}},scales:{y:{ticks:{callback:(value)=>"$"+value.toLocaleString()+"B"},grid:{color:"#f0f0f0"}},x:{grid:{display:false}}}}});
+      return buildChart(canvas, {type:"bar", data:{labels:["5-Year (2026-2030)","10-Year (2026-2035)","Blended (55/35/10)","20-Year (2026-2045)"],datasets:[{label:"Enterprise Value ($B)",data:[840,2686,2421,10191],backgroundColor:[LIGHT_GREY,RED,RED_SOFT,DARK],borderRadius:3}]}, options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:(ctx)=>"$"+ctx.raw.toLocaleString()+"B"}}},scales:{y:{ticks:{callback:(value)=>"$"+value.toLocaleString()+"B"},grid:{color:"#f0f0f0"}},x:{grid:{display:false}}}}});
     },
     monteCarlo(canvas){
-      return buildChart(canvas, {type:"bar", data:{labels:["$0-0.25T","$0.25-0.5T","$0.5-0.75T","$0.75-1.0T","$1.0-1.25T","$1.25-1.5T","$1.5-1.75T","$1.75-2.0T","$2.0-2.25T","$2.25-2.5T","$2.5-2.75T","$2.75-3.0T","$3.0-3.5T","$3.5-4.0T","$4.0-4.5T","$4.5T+"],datasets:[{label:"Trial Count",data:[45,60,110,186,280,340,420,480,510,480,380,310,420,350,265,364],backgroundColor:(ctx)=>{const i=ctx.dataIndex;if(i<=2)return "#fecaca";if(i>=13)return "#bbf7d0";return RED;},borderRadius:2}]}, options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:(ctx)=>ctx.raw+" trials"}}},scales:{y:{title:{display:true,text:"Number of Trials"},grid:{color:"#f0f0f0"}},x:{ticks:{maxRotation:45,font:{size:10}},grid:{display:false}}}}});
+      const mcCounts = [45,243,236,184,218,299,462,444,386,326,285,239,221,189,249,113,111,168,85,59,49,44,81,36,20,23,19,20,17,15,22,18,7,5,37,6,4,2,1,12];
+      const mcLabels = mcCounts.map((_,i)=>"$"+(i*0.25).toFixed(2)+"-"+((i+1)*0.25).toFixed(2)+"T");
+      return buildChart(canvas, {type:"bar", data:{labels:mcLabels,datasets:[{label:"Trial Count",data:mcCounts,backgroundColor:(ctx)=>{const i=ctx.dataIndex;if(i<=2)return "#fecaca";if(i>=14)return "#bbf7d0";return RED;},borderRadius:1,barPercentage:.92,categoryPercentage:.96}]}, options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:(ctx)=>ctx.raw+" trials"}}},scales:{y:{title:{display:true,text:"Number of Trials"},grid:{color:"#f0f0f0"}},x:{ticks:{autoSkip:false,maxRotation:0,font:{size:10},callback:(value,index)=>index%4===0?"$"+(index*0.25)+"T":""},grid:{display:false}}}}});
     },
     sotp(canvas){
       const labelPlugin = {id:"sotpBaseValueLabels", afterDatasetsDraw(chart){const meta=chart.getDatasetMeta(1);const dataset=chart.data.datasets[1];const ctx=chart.ctx;ctx.save();ctx.fillStyle=DARK;ctx.font="700 10px Arial";ctx.textAlign="center";ctx.textBaseline="bottom";meta.data.forEach((bar,index)=>{const value=dataset.data[index];if(value<1)return;ctx.fillText("$"+value.toLocaleString(),bar.x,bar.y-4);});ctx.restore();}};
@@ -379,28 +398,28 @@
     },
     sotpCumulative(canvas){
       return buildChart(canvas, {type:"line", data:{labels:sotpLabels,datasets:[
-        {label:"Base cumulative",data:cumulativeSotp(sotpContributions.base,2230),borderColor:sotpScenarioColors.base,backgroundColor:"rgba(233,44,44,.08)",pointBackgroundColor:sotpScenarioColors.base,pointBorderColor:"#fff",pointBorderWidth:1.5,pointRadius:3,pointHoverRadius:6,borderWidth:3,tension:.34,cubicInterpolationMode:"monotone",fill:false},
-        {label:"Bear cumulative",data:cumulativeSotp(sotpContributions.bear,320),borderColor:sotpScenarioColors.bear,backgroundColor:"rgba(252,165,165,.12)",pointBackgroundColor:sotpScenarioColors.bear,pointBorderColor:"#fff",pointBorderWidth:1.5,pointRadius:3,pointHoverRadius:6,borderWidth:2.5,tension:.34,cubicInterpolationMode:"monotone",fill:false},
-        {label:"Bull cumulative",data:cumulativeSotp(sotpContributions.bull,4777),borderColor:sotpScenarioColors.bull,backgroundColor:"rgba(38,37,43,.08)",pointBackgroundColor:sotpScenarioColors.bull,pointBorderColor:"#fff",pointBorderWidth:1.5,pointRadius:3,pointHoverRadius:6,borderWidth:2.5,tension:.34,cubicInterpolationMode:"monotone",fill:false}
+        {label:"Base cumulative",data:cumulativeSotp(sotpContributions.base,2257),borderColor:sotpScenarioColors.base,backgroundColor:"rgba(233,44,44,.08)",pointBackgroundColor:sotpScenarioColors.base,pointBorderColor:"#fff",pointBorderWidth:1.5,pointRadius:3,pointHoverRadius:6,borderWidth:3,tension:.34,cubicInterpolationMode:"monotone",fill:false},
+        {label:"Bear cumulative",data:cumulativeSotp(sotpContributions.bear,326),borderColor:sotpScenarioColors.bear,backgroundColor:"rgba(252,165,165,.12)",pointBackgroundColor:sotpScenarioColors.bear,pointBorderColor:"#fff",pointBorderWidth:1.5,pointRadius:3,pointHoverRadius:6,borderWidth:2.5,tension:.34,cubicInterpolationMode:"monotone",fill:false},
+        {label:"Bull cumulative",data:cumulativeSotp(sotpContributions.bull,4983),borderColor:sotpScenarioColors.bull,backgroundColor:"rgba(38,37,43,.08)",pointBackgroundColor:sotpScenarioColors.bull,pointBorderColor:"#fff",pointBorderWidth:1.5,pointRadius:3,pointHoverRadius:6,borderWidth:2.5,tension:.34,cubicInterpolationMode:"monotone",fill:false}
       ]}, options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"top",labels:{boxWidth:24,boxHeight:3,color:DARK,font:{size:11,weight:"700"}}},tooltip:{callbacks:{label:(ctx)=>ctx.dataset.label+": $"+ctx.raw.toLocaleString()+"B",afterBody(items){if(!items.length)return "";const index=items[0].dataIndex;const key=items[0].datasetIndex===0?"base":items[0].datasetIndex===1?"bear":"bull";return "Segment contribution: $"+sotpContributions[key][index].toLocaleString()+"B";}}}},scales:{y:{title:{display:true,text:"Cumulative EV ($B)"},ticks:{callback:(value)=>"$"+value.toLocaleString()},grid:{color:"#e5e5e5"}},x:{title:{display:true,text:"Segment (largest to smallest by Base EV)"},grid:{display:false},ticks:{font:{size:9},maxRotation:45,minRotation:45}}}}});
     },
     revenue(canvas){
       return buildChart(canvas, {type:"bar", data:{labels:["2026","2027","2028","2029","2030","2031","2032","2033","2034","2035"],datasets:[
         {label:"Starlink Connectivity",data:[15,21.3,30.5,44,63.8,83.4,109.2,143.5,189.1,249.7],backgroundColor:RED},
         {label:"Colossus DCs",data:[15.8,22.5,32.3,46.8,68.2,85.9,108.3,136.9,173.4,219.9],backgroundColor:DARK},
-        {label:"Launch Services",data:[11.5,16.4,23.6,34,49.3,64.5,84.6,111.3,146.8,194.1],backgroundColor:RED_SOFT},
+        {label:"Launch Services",data:[12.1,17.3,24.9,36,52.4,68.6,90.1,118.7,156.9,207.7],backgroundColor:RED_SOFT},
         {label:"Starlink D2C",data:[.98,1.7,3.1,5.5,10,15.3,23.8,37.2,58.9,94.1],backgroundColor:"#404042"},
-        {label:"xAI + Starshield + Other",data:[12.2,17.3,24.3,34.8,50,77.7,105.3,145.3,204.1,292.1],backgroundColor:GREY}
+        {label:"xAI + Starshield + Other",data:[12.3,17.2,24.4,34.7,50,77.6,105.3,145.3,204,292.2],backgroundColor:GREY}
       ]}, options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"top"},tooltip:{callbacks:{label:(ctx)=>ctx.dataset.label+": $"+ctx.raw+"B"}}},scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,ticks:{callback:(value)=>"$"+value+"B"},grid:{color:"#f0f0f0"}}}}});
     },
     ufcf(canvas){
       return buildChart(canvas, {type:"line", data:{labels:["2026","2027","2028","2029","2030","2031","2032","2033","2034","2035"],datasets:[
-        {label:"Total UFCF ($B)",data:[9.8,14.7,22,32.9,49.8,67,90.3,122.8,167.9,232.5],borderColor:RED,backgroundColor:"rgba(233,44,44,.1)",fill:true,tension:.3,pointRadius:5,pointBackgroundColor:RED},
-        {label:"Total Revenue ($B)",data:[55.5,79.2,113.8,165.1,241.3,326.8,431.2,574.2,772.3,1049.9],borderColor:DARK,backgroundColor:"rgba(38,37,43,.05)",fill:true,tension:.3,pointRadius:5,pointBackgroundColor:DARK,yAxisID:"y2"}
+        {label:"Total UFCF ($B)",data:[10,14.9,22.2,33.4,50.5,67.8,91.3,124,169.8,234.9],borderColor:RED,backgroundColor:"rgba(233,44,44,.1)",fill:true,tension:.3,pointRadius:5,pointBackgroundColor:RED},
+        {label:"Total Revenue ($B)",data:[56.2,80.1,115.2,167.1,244.4,330.7,436.7,581.7,782.3,1063.7],borderColor:DARK,backgroundColor:"rgba(38,37,43,.05)",fill:true,tension:.3,pointRadius:5,pointBackgroundColor:DARK,yAxisID:"y2"}
       ]}, options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"top"}},scales:{y:{ticks:{callback:(value)=>"$"+value+"B"},title:{display:true,text:"UFCF ($B)"},grid:{color:"#f0f0f0"}},y2:{position:"right",ticks:{callback:(value)=>"$"+value+"B"},title:{display:true,text:"Revenue ($B)"},grid:{display:false}},x:{grid:{display:false}}}}});
     },
     comps(canvas){
-      return buildChart(canvas, {type:"bar", data:{labels:["Defence Prime","Tech Mega-Cap","AI Labs Median","AI/Growth Median","SpaceX IPO $1.75T","SpaceX DCF Central","Palantir","NVIDIA"],datasets:[{label:"EV / Revenue",data:[2.1,4.6,24.5,16.5,31.7,43.1,46.7,21.5],backgroundColor:[LIGHT_GREY,LIGHT_GREY,LIGHT_GREY,LIGHT_GREY,RED_SOFT,RED,"#404042",LIGHT_GREY],borderRadius:3}]}, options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:(ctx)=>ctx.raw+"x EV/Rev"}}},scales:{y:{ticks:{callback:(value)=>value+"x"},grid:{color:"#f0f0f0"}},x:{grid:{display:false},ticks:{font:{size:11}}}}}});
+      return buildChart(canvas, {type:"bar", data:{labels:["Defence Prime","Tech Mega-Cap","AI Labs Median","AI/Growth Median","SpaceX IPO $1.75T","SpaceX DCF Central","Palantir","NVIDIA"],datasets:[{label:"EV / Revenue",data:[2.1,4.7,24.5,16.5,31.4,43.1,46.7,21.5],backgroundColor:[LIGHT_GREY,LIGHT_GREY,LIGHT_GREY,LIGHT_GREY,RED_SOFT,RED,"#404042",LIGHT_GREY],borderRadius:3}]}, options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:(ctx)=>ctx.raw+"x EV/Rev"}}},scales:{y:{ticks:{callback:(value)=>value+"x"},grid:{color:"#f0f0f0"}},x:{grid:{display:false},ticks:{font:{size:11}}}}}});
     },
     tornado(canvas){
       return buildChart(canvas, {type:"bar", data:{labels:["WACC +/-150bps","Terminal g +/-100bps","Governance discount","Starship 24-month slip","Speculative bucket","NOL / NWC assumptions","Colossus DCs demand","Starlink D2C"],datasets:[
@@ -435,8 +454,8 @@
   const chartImageMap = {
     launch_cost_learning_curve: {caption:"Launch Cost Learning Curve: Cost / Price per kg to Low Earth Orbit", source:"Hover any point for vehicle, year, and cost/price per kg basis. Competitor points use public launch-price or reported revenue-per-launch benchmarks divided by published LEO capacity. Y-axis is logarithmic.", panels:[{key:"launchCost", title:"Launch Cost Learning Curve: Cost / Price per kg to Low Earth Orbit", height:430}]},
     global_launch_activity: {caption:"Global Orbital Launch Activity - 2022 to 2026E", source:"2026E bars use diagonal hatching to indicate projected estimates. Hover stacks for category-level counts and tonnage.", panels:[{key:"launchCount", title:"Annual Launches to Orbit - Count", height:330},{key:"launchMass", title:"Annual Mass Delivered to Orbit - Weight", height:330}]},
-    starlink_market_growth: {caption:"Starlink Growth vs Global Internet Markets - 2022 to 2026E", source:"Starlink revenue, EBITDA, subscribers, and global broadband market penetration from the supplied memo chart data.", panels:[{key:"starlinkMetrics", title:"Starlink - Revenue, EBITDA & Subscriber Growth", height:380},{key:"broadbandMarket", title:"Global Broadband Internet Service Market vs Starlink Penetration", height:380}]},
-    starlink_penetration_v5: {caption:"Global Mobile / Cellular Market vs Starlink Direct-to-Cell", source:"Global mobile market and Starlink DTC penetration from the supplied memo chart data.", panels:[{key:"mobileMarket", title:"Global Mobile / Cellular Market vs Starlink Direct-to-Cell", height:380}]},
+    starlink_market_growth: {caption:"Starlink Connectivity Projections & Global Broadband Market", source:"Starlink Connectivity (Consumer + Av/Mar): revenue, EBITDA, and margin from Dialectic model P&L_Consolidated, probability-weighted, 2026-2035. All years are model projections. Broadband market panel: Starlink series from the model; market revenue/EBITDA extrapolated from memo data (~8% CAGR decaying to ~6%, not a model output).", panels:[{key:"starlinkConnectivity", title:"Starlink Connectivity - Revenue, EBITDA & Margin (Model, 2026-2035)", height:380},{key:"broadbandMarket", title:"Global Broadband Market vs Starlink Penetration (2026-2035)", height:380}]},
+    starlink_penetration_v5: {caption:"Global Mobile / Cellular Market vs Starlink Direct-to-Cell", source:"Global mobile market and Starlink DTC penetration from the supplied memo chart data. D2C economics panel from Dialectic model Starlink_D2C sheet, probability-weighted, 2026-2035; revenue/EBITDA on logarithmic left axis.", panels:[{key:"mobileMarket", title:"Global Mobile / Cellular Market vs Starlink Direct-to-Cell", height:380},{key:"starlinkMetrics", title:"Starlink Direct-to-Cell - Revenue, EBITDA & Margin (Model, 2026-2035)", height:380}]},
     chart_01_horizon: {caption:"Enterprise value by horizon", source:"Dialectic SOTP-DCF model, 10-year horizon. WACC 9.0%, terminal growth 4.0%. Bear/Base/Bull scenario weighting via central Scenario Engine.", panels:[{key:"horizon", title:"Enterprise Value by Horizon", height:280}]},
     chart_02_montecarlo: {caption:"Monte Carlo equity-value distribution", source:"Dialectic Monte Carlo engine - 5,000 trials drawing on WACC, terminal growth, and per-segment scenario outcomes.", panels:[{key:"monteCarlo", title:"Monte Carlo Distribution - 5,000 Trials", height:280}]},
     chart_03_sotp: {caption:"SOTP enterprise value by segment", source:"Dialectic SOTP model - PV of 10-year UFCF plus Gordon-Growth terminal value, per business unit.", panels:[{key:"sotp", title:"SOTP - Segment EV ($B) by Scenario", height:360}]},
@@ -444,8 +463,8 @@
     chart_04_revenue: {caption:"Consolidated revenue projections", source:"Dialectic consolidated P&L - probability-weighted segment revenue, anchored to SpaceX S-1 FY2025 revenue.", panels:[{key:"revenue", title:"Total Revenue by Business Unit - 2026 to 2035", height:320}]},
     chart_05_ufcf: {caption:"Revenue and UFCF projection profile", source:"Dialectic DCF model - scenario-weighted unlevered free cash flow build across the twelve business units.", panels:[{key:"ufcf", title:"Unlevered Free Cash Flow Growth - 2026 to 2035", height:280}]},
     chart_06_comps: {caption:"Comparable-company EV/revenue reference set", source:"Dialectic comparables set - company filings and street consensus; EV/Revenue multiples vs SpaceX at DCF conclusion.", panels:[{key:"comps", title:"EV / Revenue Multiple Comparison", height:300}]},
-    chart_07_sensitivity: {caption:"WACC and terminal-growth sensitivity", source:"Dialectic sensitivity table - blended equity value across WACC and terminal growth assumptions.", table:"sensitivity"},
-    chart_08_tornado: {caption:"Key valuation sensitivity drivers", source:"Dialectic single-variable sensitivity analysis - swings around base equity value of $2,380B.", panels:[{key:"tornado", title:"Sensitivity Tornado: Key Equity Value Drivers", height:340}]},
+    chart_07_sensitivity: {caption:"WACC and terminal-growth sensitivity", source:"Dialectic sensitivity table (Sensitivities sheet, Table 1) - blended ENTERPRISE value across WACC and terminal growth assumptions. Base cell (WACC 9.0% / g 4.0%) = $2,424B.", table:"sensitivity"},
+    chart_08_tornado: {caption:"Key valuation sensitivity drivers", source:"Dialectic single-variable sensitivity analysis - swings around base equity value of $2,408B (Sensitivities sheet, Table 4).", panels:[{key:"tornado", title:"Sensitivity Tornado: Key Equity Value Drivers", height:340}]},
     chart_10_hyperliquid: {caption:"Hyperliquid implied enterprise value signal", source:"Hyperliquid pre-IPO perpetual market - trailing 30-day implied valuation, illustrative.", panels:[{key:"hyperliquid", title:"Hyperliquid - SPCX Perpetual", height:240}]},
     chart_11_polymarket: {caption:"Polymarket valuation probability distribution", source:"Polymarket SpaceX valuation prediction markets - trailing 30-day, illustrative.", panels:[{key:"polymarket", title:"Polymarket - SpaceX IPO Valuation", height:240}]}
   };
@@ -487,16 +506,16 @@
 
   function sensitivityTableMarkup(){
     const rows = [
-      ["7.5%", ["$3,276","up-1"], ["$3,639","up-2"], ["$4,106","up-3"], ["$4,728","up-4"], ["$5,599","up-4"]],
-      ["8.25%", ["$2,693","up-1"], ["$2,939","up-1"], ["$3,243","up-1"], ["$3,628","up-2"], ["$4,132","up-3"]],
-      ["9.0%", ["$2,262","down-1"], ["$2,436","down-1"], ["$2,646","base-cell"], ["$2,902","up-1"], ["$3,223","up-2"]],
-      ["9.75%", ["$1,930","down-2"], ["$2,059","down-1"], ["$2,210","down-1"], ["$2,389","down-1"], ["$2,607","down-1"]],
-      ["10.5%", ["$1,669","down-3"], ["$1,766","down-2"], ["$1,879","down-2"], ["$2,009","down-1"], ["$2,164","down-1"]]
+      ["7.5%", ["$3,126","up-1"], ["$3,461","up-2"], ["$3,891","up-3"], ["$4,465","up-4"], ["$5,268","up-4"]],
+      ["8.25%", ["$2,524","up-1"], ["$2,746","up-1"], ["$3,020","up-1"], ["$3,367","up-2"], ["$3,821","up-3"]],
+      ["9.0%", ["$2,085","down-1"], ["$2,239","down-1"], ["$2,424","base-cell"], ["$2,650","up-1"], ["$2,933","up-2"]],
+      ["9.75%", ["$1,753","down-2"], ["$1,864","down-1"], ["$1,995","down-1"], ["$2,150","down-1"], ["$2,339","down-1"]],
+      ["10.5%", ["$1,495","down-3"], ["$1,578","down-2"], ["$1,673","down-2"], ["$1,784","down-1"], ["$1,916","down-1"]]
     ];
     return `
       <div class="interactive-table-wrap">
         <div class="interactive-table-panel">
-          <div class="interactive-table-title">Blended Equity Value ($B): WACC x Terminal Growth</div>
+          <div class="interactive-table-title">Blended Enterprise Value ($B): WACC x Terminal Growth</div>
           <table class="sensitivity-table">
             <thead>
               <tr>
