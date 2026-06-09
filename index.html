@@ -127,7 +127,8 @@
       z-index:45;
       flex:0 0 auto;
     }
-    .language-switcher{position:relative}
+    /* Language switcher temporarily disabled (per-language pages not present in this build). */
+    .language-switcher{position:relative;display:none}
     .language-trigger{
       appearance:none;
       border:1px solid rgba(245,242,238,.20);
@@ -1172,26 +1173,29 @@
     @keyframes pdfPulse{to{opacity:.44;transform:translateY(-1px)}}
     .pdf-export-overlay{
       position:fixed;
-      right:24px;
-      bottom:82px;
-      z-index:90;
-      width:min(320px,calc(100vw - 48px));
-      padding:14px 16px;
-      border:1px solid rgba(245,242,238,.18);
-      border-radius:8px;
-      background:rgba(13,13,17,.92);
-      color:rgba(245,242,238,.88);
-      box-shadow:0 18px 54px rgba(0,0,0,.45);
-      backdrop-filter:blur(18px);
+      inset:0;
+      z-index:9999;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:16px;
+      padding:24px;
+      background:var(--bg);
+      color:rgba(245,242,238,.92);
       font-family:var(--font-display);
-      font-size:11px;
-      letter-spacing:.08em;
-      line-height:1.35;
+      font-size:13px;
+      letter-spacing:.12em;
+      line-height:1.4;
       text-transform:uppercase;
+      text-align:center;
     }
     .pdf-export-overlay[hidden]{display:none}
+    /* While exporting, hide the live page behind the overlay and center content blocks for the capture. */
+    body.pdf-exporting .page-inner > *{margin-left:auto !important;margin-right:auto !important}
     .pdf-export-progress{
       display:block;
+      width:min(280px,70vw);
       height:3px;
       margin-top:10px;
       border-radius:999px;
@@ -2138,7 +2142,7 @@
     // Charts are emitted as live <canvas> elements so they render via the chart engine's
     // raw-canvas path instead of the runtime <img>-swap, which was unreliable.
     const CHART_SPECS = {
-      launch_cost_learning_curve:{caption:"Launch Cost Learning Curve: Cost / Price per kg to Low Earth Orbit",source:"Hover any point for vehicle, year, and cost/price per kg basis. Competitor points use public launch-price or reported revenue-per-launch benchmarks divided by published LEO capacity. Y-axis is logarithmic.",panels:[{key:"launchCost",title:"Launch Cost Learning Curve: Cost / Price per kg to Low Earth Orbit",height:430}]},
+      launch_cost_learning_curve:{caption:"Launch Cost Learning Curve: Cost / Price per kg to Low Earth Orbit",source:"Hover any point for vehicle, year, and cost/price per kg basis. Competitor points use public launch-price or reported revenue-per-launch benchmarks divided by published LEO capacity. Y-axis is logarithmic.",panels:[{key:"launchCost",title:"Launch Cost Learning Curve: Cost / Price per kg to Low Earth Orbit",height:360}]},
       global_launch_activity:{caption:"Global Orbital Launch Activity - 2022 to 2026E",source:"2026E bars use diagonal hatching to indicate projected estimates. Hover stacks for category-level counts and tonnage.",panels:[{key:"launchCount",title:"Annual Launches to Orbit - Count",height:330},{key:"launchMass",title:"Annual Mass Delivered to Orbit - Weight",height:330}]},
       starlink_market_growth:{caption:"Starlink Growth vs Global Internet Markets - 2022 to 2026E",source:"Starlink revenue, EBITDA, subscribers, and global broadband market penetration from the supplied memo chart data.",panels:[{key:"starlinkMetrics",title:"Starlink - Revenue, EBITDA & Subscriber Growth",height:380},{key:"broadbandMarket",title:"Global Broadband Internet Service Market vs Starlink Penetration",height:380}]},
       starlink_penetration_v5:{caption:"Global Mobile / Cellular Market vs Starlink Direct-to-Cell",source:"Global mobile market and Starlink DTC penetration from the supplied memo chart data.",panels:[{key:"mobileMarket",title:"Global Mobile / Cellular Market vs Starlink Direct-to-Cell",height:380}]},

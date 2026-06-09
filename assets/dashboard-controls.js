@@ -174,9 +174,10 @@
   }
 
   async function preparePrintablePage(progress){
+    const initialScroll = {x: window.scrollX, y: window.scrollY};
     document.body.classList.add("pdf-exporting");
     document.body.classList.toggle("pdf-file-export", window.location.protocol === "file:");
-    if(progress) progress.show("Opening all drawers", 4);
+    if(progress) progress.show("Generating PDF", 4);
     revealAllForPrint();
     const restoreCards = expandCardsForPrint();
     if(window.SpaceXDashboardCharts && typeof window.SpaceXDashboardCharts.prepareForPrint === "function"){
@@ -189,6 +190,7 @@
       restoreCards();
       document.body.classList.remove("pdf-exporting");
       document.body.classList.remove("pdf-file-export");
+      window.scrollTo(initialScroll.x, initialScroll.y);
     };
   }
 
