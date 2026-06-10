@@ -4,7 +4,7 @@ Dialectic's SpaceX thesis & valuation memorandum, hosted at **spacex.dialectic.c
 
 ## What is live
 
-`public/spacex-dashboard.html` is the deliverable: a single-file dashboard with
+`public/index.html` is the deliverable: a single-file dashboard with
 interactive Chart.js (v4.4.4) charts inlined and content self-contained. It is served
 at `/` via the `vercel.json` rewrite and needs no backend. It loads two assets from
 CDNs at runtime: Font Awesome icons and an optional Google Translate widget.
