@@ -348,6 +348,8 @@
     downloadPdfBlob(packer.pdf);
   }
 
+  // Native print-to-PDF: expand all drawers + render every chart, then hand off to
+  // the browser's print engine (vector text, exact layout) styled by the @media print rules.
   function initPdfExport(){
     const button = document.querySelector("[data-pdf-export]");
     if(!button) return;
@@ -355,38 +357,53 @@
     const originalLabel = label ? label.textContent : "PDF";
     const progress = createPdfProgress();
 
-    button.addEventListener("click", async () => {
+    async function runPrint(){
       if(button.disabled) return;
       button.disabled = true;
       button.classList.add("is-busy");
       button.setAttribute("aria-busy", "true");
       if(label) label.textContent = "Preparing";
+      progress.show("Preparing print…", 60);
+      document.body.classList.add("printing");
 
-      const originalTitle = document.title;
-      let restore = function(){};
-      let finished = false;
-      function finish(options){
-        if(finished) return;
-        finished = true;
-        restore();
-        document.title = originalTitle;
+      revealAllForPrint();
+      const restoreCards = expandCardsForPrint();
+      if(window.SpaceXDashboardCharts && typeof window.SpaceXDashboardCharts.prepareForPrint === "function"){
+        window.SpaceXDashboardCharts.prepareForPrint(document);
+      }
+      // give layout + Chart.js time to fully render before the print snapshot
+      await waitForFrames(3);
+      await wait(500);
+
+      let done = false;
+      function cleanup(){
+        if(done) return;
+        done = true;
+        try{ restoreCards(); }catch(error){}
+        document.body.classList.remove("printing");
+        progress.hide();
         button.disabled = false;
         button.classList.remove("is-busy");
         button.removeAttribute("aria-busy");
         if(label) label.textContent = originalLabel;
-        if(!options || !options.keepProgress) progress.hide();
+        window.removeEventListener("afterprint", cleanup);
       }
+      window.addEventListener("afterprint", cleanup);
+      window.setTimeout(cleanup, 120000); // safety net if afterprint never fires
 
-      try{
-        restore = await preparePrintablePage(progress);
-        await downloadDashboardPdf(label, progress);
-        finish();
-      }catch(error){
-        progress.show("PDF export failed. Check the console.", 100);
-        finish({keepProgress:true});
-        window.setTimeout(() => progress.hide(), 6000);
-        console.error("PDF export failed", error);
-      }
+      window.print();
+    }
+
+    button.addEventListener("click", () => {
+      runPrint().catch((error) => {
+        document.body.classList.remove("printing");
+        progress.hide();
+        button.disabled = false;
+        button.classList.remove("is-busy");
+        button.removeAttribute("aria-busy");
+        if(label) label.textContent = originalLabel;
+        console.error("Print preparation failed", error);
+      });
     });
   }
 

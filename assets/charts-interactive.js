@@ -60,8 +60,11 @@
       const ctx = chart.ctx;
       const area = chart.chartArea;
       if(!area) return;
+      // On narrow (phone-width) charts the dense on-canvas point labels + callout
+      // boxes collide and look squished; hide them and let users tap for tooltips.
+      const narrow = (chart.width || (area.right - area.left)) < 500;
       ctx.save();
-      chart.data.datasets.forEach((dataset, datasetIndex) => {
+      if(!narrow) chart.data.datasets.forEach((dataset, datasetIndex) => {
         const meta = chart.getDatasetMeta(datasetIndex);
         if(meta.hidden) return;
         meta.data.forEach((point, index) => {
@@ -89,7 +92,7 @@
           ctx.fillText(labels[index], x, yPos);
         });
       }
-      if(opts && opts.callouts){
+      if(opts && opts.callouts && !narrow){
         opts.callouts.forEach((callout) => {
           const x = chart.scales.x.getPixelForValue(callout.x) + (callout.dx || 0);
           const y = chart.scales.y.getPixelForValue(callout.y) + (callout.dy || 0);
