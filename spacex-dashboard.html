@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SpaceX Thesis &amp; Valuation — Post-Q2 2026</title>
+  <title>SpaceX Thesis &amp; Valuation</title>
   <link rel="preload" as="image" href="./assets/hero/orbit-reentry.jpg">
   <style>
 @font-face {
@@ -118,32 +118,6 @@
       transition:color .2s ease,background .2s ease,transform .2s ease;
     }
     .nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.08);transform:translateY(-1px)}
-    /* Nine nav items (two more than the pre-IPO edition) must sit on one line without
-       clipping the brand, so the brand is pinned and the links step down in size. */
-    .nav-links a{white-space:nowrap}
-    .brand{flex:0 0 auto}
-    /* .nav-links is justify-content:flex-end, so any overflow spills LEFT and hides
-       under the brand instead of scrolling. Nine items therefore have to be made to
-       fit: reclaim the 5vw gutter and step the link size down with the viewport. */
-    .nav{gap:14px;padding:0 clamp(24px,3.4vw,72px)}
-    .nav-links{gap:5px;justify-content:flex-end;flex-wrap:nowrap}
-    @media(max-width:1600px){
-      .nav-links{gap:2px}
-      .nav-links a{padding:10px 8px;font-size:11px;letter-spacing:.05em}
-    }
-    @media(max-width:1400px){
-      .nav-links a{padding:9px 6px;font-size:10px;letter-spacing:.03em}
-    }
-    @media(max-width:1320px){
-      .nav-links a{padding:8px 5px;font-size:9px;letter-spacing:0}
-      .nav-edition{height:21px;padding:0 8px;font-size:7.5px;letter-spacing:.06em}
-    }
-    @media(max-width:1200px){
-      /* Below this the eight items cannot fit: flip to flex-start so the overflow
-         spills right and is actually scrollable, instead of hiding under the brand. */
-      .nav-links{justify-content:flex-start;-webkit-overflow-scrolling:touch}
-      .nav-links a{padding:8px 6px}
-    }
     .nav-actions{
       display:flex;
       align-items:center;
@@ -695,9 +669,7 @@
       line-height:1.72;
     }
     h2 + .copy-panel{margin-top:28px}
-    .copy-panel p,
-    .copy-panel li{text-align:justify}
-    .lede + .copy-panel{margin-top:26px}
+    .copy-panel p{text-align:justify}
     .lede + .valuation-copy{margin-top:28px}
     .valuation-copy .detail-heading{margin-top:18px}
     .valuation-copy .detail-heading:first-child{margin-top:0}
@@ -947,13 +919,6 @@
     .interactive-chart-stage canvas{
       cursor:zoom-in;
     }
-    .ix-lightbox{position:fixed;inset:0;z-index:200;background:rgba(20,19,24,.72);display:none;align-items:center;justify-content:center;padding:24px}
-    .ix-lightbox.is-open{display:flex}
-    .ix-lightbox-inner{background:#fff;border-radius:10px;width:min(1180px,96vw);max-height:92vh;padding:20px 22px 22px;position:relative;display:flex;flex-direction:column;color:#202126}
-    .ix-lightbox-close{position:absolute;top:9px;right:11px;border:0;background:none;font-size:26px;line-height:1;color:#888;cursor:pointer;padding:4px 8px}
-    .ix-lightbox-close:hover{color:#202126}
-    .ix-lightbox-title{font-size:14px;font-weight:650;margin-bottom:12px;padding-right:32px}
-    .ix-lightbox-stage{position:relative;flex:1 1 auto;height:min(70vh,620px);min-height:300px}
     .interactive-chart-source{
       color:#666;
       background:#fbfaf8;
@@ -1253,8 +1218,6 @@
       line-height:1.35;
       font-weight:700;
     }
-    .detail-chart-card.is-interactive-chart > .interactive-chart-grid:last-child,
-    .detail-chart-card.is-interactive-chart > .interactive-table-wrap:last-child{padding-bottom:18px}
     .detail-chart-grid.is-single{grid-template-columns:minmax(0,1fr)}
     .detail-heading{
       font-family:var(--font-display);
@@ -1635,168 +1598,6 @@
       .interactive-table-panel, .detail-chart-card, p, li { break-inside: avoid; page-break-inside: avoid; }
       h1, h2, h3, .detail-heading, .expand-title, .page-kicker { break-after: avoid; page-break-after: avoid; }
     }
-    /* --- Edition switcher (Post-Q2 2026 <-> Pre-IPO) --- */
-    .nav-edition{
-      appearance:none;
-      display:inline-flex;
-      align-items:center;
-      height:23px;
-      padding:0 10px;
-      border-radius:999px;
-      border:1px solid rgba(233,44,44,.42);
-      background:rgba(233,44,44,.14);
-      color:#fff;
-      font-family:var(--font-display);
-      font-size:8px;
-      line-height:1;
-      letter-spacing:.09em;
-      text-transform:uppercase;
-      white-space:nowrap;
-      cursor:pointer;
-      transition:background .18s ease,border-color .18s ease,transform .18s ease;
-    }
-    .nav-edition:hover{background:rgba(233,44,44,.28);border-color:rgba(233,44,44,.72);transform:translateY(-1px)}
-    @media(max-width:1180px){
-      .nav-edition{height:21px;padding:0 8px;font-size:7.5px;letter-spacing:.06em}
-    }
-
-    /* --- Annex / memo data tables --- */
-    .data-table-wrap{
-      padding:18px;
-      overflow-x:auto;
-      background:#f6f5f3;
-      border-radius:8px;
-      margin:0;
-    }
-    .data-table-panel{
-      min-width:640px;
-      border:1px solid rgba(32,33,38,.10);
-      border-radius:8px;
-      background:#fff;
-      padding:18px;
-      box-shadow:0 18px 38px rgba(0,0,0,.08);
-    }
-    .data-table-title{
-      color:#202126;
-      font-family:Arial,sans-serif;
-      font-size:13px;
-      font-weight:800;
-      line-height:1.25;
-      margin:0 0 12px;
-      text-transform:uppercase;
-      letter-spacing:.03em;
-    }
-    .data-table{
-      width:100%;
-      border-collapse:collapse;
-      color:#202126;
-      font-family:Arial,sans-serif;
-      font-size:11.5px;
-    }
-    .data-table th,
-    .data-table td{
-      border:1px solid #e5e0d9;
-      padding:7px 9px;
-      text-align:right;
-      white-space:nowrap;
-    }
-    .data-table thead th{white-space:normal;min-width:64px}
-    .data-table tbody td:first-child{white-space:normal}
-    .data-table thead th{
-      background:#26252b;
-      color:#fff;
-      font-weight:800;
-      text-align:right;
-    }
-    .data-table thead th:first-child{text-align:left}
-    .data-table tbody th,
-    .data-table td:first-child{
-      background:#f4f2ef;
-      color:#202126;
-      font-weight:700;
-      text-align:left;
-    }
-    .data-table tbody tr.is-total td,
-    .data-table tbody tr.is-total th{
-      background:#26252b;
-      color:#fff;
-      font-weight:800;
-    }
-    .data-table tbody tr.is-group td{
-      background:#efece7;
-      color:#5d5a55;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.05em;
-      font-size:10.5px;
-      text-align:left;
-    }
-    .data-table tbody tr.is-highlight td{background:var(--red);color:#fff;font-weight:800}
-    .data-table tbody tr.is-highlight td:first-child{background:#b81f1f;color:#fff}
-    .data-table .cell-base{background:var(--red);color:#fff;font-weight:800;box-shadow:inset 0 0 0 2px #fff}
-    .data-table-note{
-      color:#666;
-      background:#fbfaf8;
-      border-left:3px solid var(--red);
-      border-radius:0 4px 4px 0;
-      font-family:Arial,sans-serif;
-      font-size:11px;
-      line-height:1.5;
-      padding:9px 11px;
-      margin:12px 0 0;
-    }
-    .annex-tables{display:grid;gap:16px;margin-top:18px}
-    .table-block{max-width:1280px;margin:22px 0 6px}
-    .section-subhead{margin:56px 0 0;padding-top:34px;border-top:1px solid var(--line);max-width:960px}
-    .section-subhead + .lede{margin-top:16px}
-    .section-subhead + .copy-panel{margin-top:24px}
-    h2 + .interactive-grid,
-    h2 + .risk-list,
-    h2 + .annex-grid,
-    h2 + .copy-panel.valuation-copy{margin-top:30px}
-    .table-block + .copy-panel{margin-top:22px}
-    .copy-panel .data-table-wrap{margin-top:4px}
-
-    /* --- Ordered rationale list (merger section) --- */
-    .rationale-list{
-      display:grid;
-      gap:18px;
-      margin:4px 0 0;
-      padding:0;
-      list-style:none;
-      counter-reset:rationale;
-    }
-    .rationale-list li{
-      position:relative;
-      padding-left:46px;
-      counter-increment:rationale;
-    }
-    .rationale-list li::before{
-      content:counter(rationale,decimal-leading-zero);
-      position:absolute;
-      left:0;
-      top:2px;
-      font-family:var(--font-display);
-      font-size:12px;
-      letter-spacing:.1em;
-      color:var(--red);
-      border:1px solid rgba(233,44,44,.4);
-      border-radius:999px;
-      padding:5px 9px;
-      line-height:1;
-    }
-    .rationale-list li strong{color:var(--ink);font-weight:400}
-    .lede a,
-    .copy-panel a{
-      color:var(--red);
-      border-bottom:1px solid rgba(233,44,44,.55);
-      padding-bottom:1px;
-      transition:color .18s ease,border-color .18s ease;
-    }
-    .lede a:hover,
-    .copy-panel a:hover{color:#fff;border-color:#fff}
-    .footer a{color:rgba(245,242,238,.72);border-bottom:1px solid rgba(233,44,44,.5);transition:color .18s ease}
-    .footer a:hover{color:#fff}
   </style>
 </head>
 <body>
@@ -1808,7 +1609,6 @@
       <a href="#investment-thesis" data-nav>Investment Thesis</a>
       <a href="#companies" data-nav>Business Units</a>
       <a href="#valuation-analysis" data-nav>Valuation Analysis</a>
-      <a href="#tesla-merger" data-nav>Tesla Merger</a>
       <a href="#risks" data-nav>Risks</a>
       <a href="#conclusion" data-nav>Conclusion</a>
       <a href="#annexes" data-nav>Annexes</a>
@@ -1852,20 +1652,22 @@
     <section class="page landing" id="landing">
       <div class="page-inner hero-grid">
         <div>
-          <div class="page-kicker reveal">Dialectic Group / Perpetual Fund / August 2026 / Confidential Research</div>
+          <div class="page-kicker reveal">Dialectic Group / Perpetual / June 2026 / Pre-IPO</div>
           <div class="spacex-wordmark reveal" aria-label="SpaceX"><img src="./assets/spacex-logo.svg" alt="" aria-hidden="true"></div>
-          <h1 class="reveal">Thesis &amp; Valuation<br>Memorandum</h1>
-          <p class="hero-subtitle reveal">Probabilistic sum-of-the-parts valuation <span aria-hidden="true">·</span> Q3 2026 <span aria-hidden="true">·</span> Post-Q2 Earnings Update</p>
-          <div class="hero-metric-grid reveal" aria-label="Post-Q2 valuation metrics">
-            <div class="hero-metric-card"><strong>$4.32-$6.21 T</strong><span>Equity Value Range</span></div>
-            <div class="hero-metric-card"><strong>$314-$456<small>/share</small></strong><span>Value Per Share Range</span></div>
-            <div class="hero-metric-card"><strong>$71.7B</strong><span>FY2026E Economic Revenue</span></div>
+          <h1 class="reveal">Dialectic Thesis &amp; Valuation<br>Memorandum</h1>
+          <p class="hero-subtitle reveal">Probabilistic sum-of-the-parts valuation <span aria-hidden="true">·</span> Q2 2026 <span aria-hidden="true">·</span> Pre-IPO</p>
+          <div class="hero-metric-grid reveal" aria-label="Opening valuation metrics">
+            <div class="hero-metric-card"><strong>$2.24-$3.47 T</strong><span>Opening Week Valuation Target Range</span></div>
+            <div class="hero-metric-card"><strong>$166-$258<small>/share</small></strong><span>Entry Price Range</span></div>
+            <div class="hero-metric-card"><strong>$56.2B</strong><span>FY2026E Revenue (Forecast)</span></div>
           </div>
           <div class="landing-company-map reveal" aria-label="Business unit quick links">
             <div class="company-map-group">
               <span class="company-map-heading">Space</span>
               <div class="company-map-list">
                 <button class="company-map-button" type="button" data-company-target="Launch Services">Launch Services</button>
+                <button class="company-map-button" type="button" data-company-target="Crewed Spaceflight">Crewed Spaceflight</button>
+                <button class="company-map-button" type="button" data-company-target="Other Space Services">Other Space Services</button>
                 <button class="company-map-button" type="button" data-company-target="Starshield &amp; Golden Dome">Starshield &amp; Golden Dome</button>
                 <button class="company-map-button" type="button" data-company-target="Orbital Data Centers">Orbital Data Centers</button>
                 <button class="company-map-button" type="button" data-company-target="Deep Space Optionality">Deep Space Optionality</button>
@@ -1874,16 +1676,17 @@
             <div class="company-map-group">
               <span class="company-map-heading">Connectivity</span>
               <div class="company-map-list">
-                <button class="company-map-button" type="button" data-company-target="Starlink Connectivity (and D2C)">Starlink Connectivity (and D2C)</button>
+                <button class="company-map-button" type="button" data-company-target="Starlink Connectivity">Starlink Connectivity</button>
+                <button class="company-map-button" type="button" data-company-target="Starlink Direct-to-Cell">Starlink Direct-to-Cell</button>
               </div>
             </div>
             <div class="company-map-group">
               <span class="company-map-heading">AI &amp; Digital</span>
               <div class="company-map-list">
-                <button class="company-map-button" type="button" data-company-target="xAI (Grok + Cursor)">xAI (Grok + Cursor)</button>
-                <button class="company-map-button" type="button" data-company-target="Terrestrial Data Centres (TDCs)">Terrestrial Data Centres (TDCs)</button>
+                <button class="company-map-button" type="button" data-company-target="xAI Software (Grok + API)">xAI Software</button>
+                <button class="company-map-button" type="button" data-company-target="Colossus Data Centers">Colossus Data Centers</button>
                 <button class="company-map-button" type="button" data-company-target="X Platform &amp; XMoney">X Platform &amp; XMoney</button>
-                <button class="company-map-button" type="button" data-company-target="Terafab">Terafab</button>
+                <button class="company-map-button" type="button" data-company-target="Terafab — Semiconductor Mfg">Terafab Semiconductor</button>
               </div>
             </div>
           </div>
@@ -1896,36 +1699,83 @@
         <div class="page-kicker reveal">Page 02</div>
         <h2 class="reveal">Executive Summary</h2>
         <article class="copy-panel reveal">
-          <p>Two months after the largest IPO in history, the market has handed the opportunity back to buyers. Our week-1 prediction held true to form ($166-258/share), but it is increasingly clear that market observers have difficulty valuing this complex conglomerate of the future. We posit that near-term SpaceX is an AI infrastructure firm with a satellite connectivity business that is supported by launch services. While these 3 primary revenue streams: terrestrial datacenters, Starlink, and Launch services areas are projected to be the bulk of the $71.7B in 2026 economic revenue, we note with great interest the acceleration of Grok &amp; Cursor post-acquisition.</p>
-          <p>SPCX closed today at $134.13 (~$1.80T market capitalization) below its IPO print and beneath the $166-$258 entry range we framed in June. Even as the first public quarter validated nearly every operating assumption in our model, revenue is up 92% year-over-year, the first quarter of material company-wide Adjusted EBITDA ($3.5B, +191%), Starlink subscribers grew to 12.0M, and most importantly nameplate compute up 3.5x to 1.4 GW, $14.1B of Cloud Services Agreements signed in ninety days, and $100B of balance-sheet liquidity following the IPO and the inaugural $25B investment-grade bond. Our post-Q2 announcement recalibration now drives every major segment off its relevant physical unit of production, including tonnes to orbit, subscribers, gigawatts of installed compute, all materially lifts our projections. We are considerably more bullish on this asset than we were at the IPO. Blended fair value rises to $311/share (blended equity $4.27T), the Monte Carlo P50 to $314/share ($4.32T equity), with right-skew to $629/share ($8.64T) at P90.</p>
-          <p>Our action here is to continue to accumulate SPCX aggressively at current levels while employing our advanced yielding strategies on top of the asset. Our long-term valuation target of $10T ($748/share) is unchanged, but is deepened in its substantiation by near-term business lines rather than exciting long-term plans such as Terafab, Orbital data centres and deep space optionality. All the myriad possibilities of space are effectively a low-cost option at these levels.</p>
-          <p>We also open the discussion on the best path forward for a merger between SpaceX and Tesla, which present important synergies along with a brief note on potential other synergistic transactions such as The Boring Co. over time. We’d wager a guess that the combined entity ends up being referred to just as ‘X’ and likely trades under said ticker.</p>
-          <p>Grok Bot is just the latest in accelerating network effects across the business lines currently operated under the SpaceXAI brand. SpaceX is pulling mankind to the future, more than any other company on the planet or off planet and we consider exposure to this asset fundamental for our future-forward investment portfolio.</p>
+          <p>SpaceX is the most important company of this century as its combined ambitions address the largest TAM of any company in history, far beyond the S1 estimation of 28.5T. SpaceX is growing at an unprecedented rate for a trillion-dollar tech conglomerate and is rapidly converging an array of highly synergistic businesses in its quest to make consciousness multi-planetary, deliver superior connectivity infrastructure and accelerate mankind via a maximally truth-seeking generalized artificial intelligence. Dialectic herein posits a near-term valuation target of $179/share (blended equity value $2.405T) with a long-term valuation target (10yr+) of 10T. Our first-principles, scenario-weighted, sum-of-the-parts DCF across the estimated twelve business units produces a P50 enterprise value of $166/share ($2.241 trillion), with meaningful right-skew to $352/share $4.733 trillion at P90. We will continue to accumulate SPCX up to our P55 of $179/share, continue opportunistically adding via proprietary strategies up to our P75 of $258/share and favour holding while employing our advanced yielding strategies on top of the asset there above until more information becomes clear. Our probabilistic sum of the parts DCF is complemented by a comparables analysis that considers a moderate ‘Elon Premium’ against peers, as well as current market signals.</p>
+          <p>We note that there is considerable upside potential from this base given the dominant market position in the various emerging markets that are tangential to space exploration, AI, and connectivity. We observe accelerating network effects across the approximately twelve (12) business lines currently operated under the SpaceX brand. While this document does not contemplate a pending highly strategic and synergistic merger with Tesla, we do note additional upside potential therein. At Dialectic, one of our principles is that 'the future is far more Sci-Fi than you think'. SpaceX is pulling mankind towards a literal Sci-Fi future, more than any other company on the planet (or off planet) and we consider exposure to this asset fundamental for our future-forward investment portfolio.</p>
           <div class="model-output-box">
-            <h4>Key Model Outputs (Post-Q2 2026 Model)</h4>
-            <p>Blended Fair Value: $311/share | Blended Enterprise Value: ~$4.211T | Blended Equity: ~$4.272T (horizon weights 55 / 35 / 10)</p>
-            <p>Monte Carlo P10 / P50 / P90 equity: $1.504T / $4.319T / $8.641T (5,000 trials)</p>
-            <p>Market reference: $134.13/share (~$1.80T) | 2026E economic revenue $71.7B | 2026E EBITDA $41.1B | Long-term target $10T ($748/share)</p>
+            <h4>Key Model Outputs (Base Case, 10-Year Horizon)</h4>
+            <p>Blended Enterprise Value: ~$2.421T | Blended Equity: ~$2.408T | Per Share: ~$179.72</p>
+            <p>Opening Week Valuation Target Range: $2.24T-$3.47T | Entry Price Range: $166-$258/share</p>
+            <p>Monte Carlo P10 / P50 / P90 equity: $0.809T / $2.287T / $4.614T (5,000 trials)</p>
+            <p>S-1 Anchors: FY2025 Revenue $18.7B | EBITDA $6.6B | Starlink margin 62.9%</p>
           </div>
-        </article>
-        <h3 class="detail-heading section-subhead reveal">Q2 2026: The First Public Quarter</h3>
-        <article class="copy-panel reveal">
-          <p>Q2 ended June 30, 2026 - Revenues of $7.8B grew 92% year-over-year and 66% sequentially. Adjusted EBITDA of $3.5B nearly tripled. The AI segment swung from $(609)M of Adjusted EBITDA in Q1 to +$1.1B in Q2 was the fastest segment-level EBITDA inflection we have seen at this scale, driven by Cloud Services Agreements converting compute capacity into contracted revenue almost as fast as it is energized. Connectivity grew revenue 66% with income from operations up 79%, and Space completed two Starship V3 test flights while sustaining a ~156-launch annualized cadence with 1,041 tonnes delivered to orbit in the first half.</p>
-          <p>Three disclosures changed our model more than any headline number. First, SpaceX now reports mass to orbit (485t in Q2) and launch counts by customer versus internal, allowing us to rebuild Launch Services off tonnage rather than launch-price abstractions. Second, the AI segment discloses nameplate compute in gigawatts (1.4 GW, up from 0.4 GW a year ago) allows us to drive Terrestrial Data Centre TDCs such as Colossus and Macrohard off installed GW at a market-clearing revenue per gigawatt (~$13-14B/GW/yr, the rate implied by the $27.8B/yr of contracted tenancy against ~2 GW exiting 2026). Third, subscriber and ARPU disclosure (12.0M subs, $66 flat) confirms Starlink is running the launch playbook in telecom: hold price flat against collapsing unit costs, and let volume compound. Every major segment in our model is now driven off its referent physical unit of production with group revenues totalling $800B in 2030.</p>
-          <p>The uncommon read on the quarter is in what GAAP conceals. Twenty-eight of the thirty-eight Q2 launches carried internal payloads and produced almost no reported launch revenue, of which GAAP shows $648M of launch services revenue while 397 tonnes of internal deployment was, in economic substance, capital formation for Connectivity and AI. Mass to orbit is therefore the single best leading indicator of future segment revenue, and it is reported a full year before it monetizes. Similarly, the quarter's $15.8B of AI capex was matched almost one-for-one by $14.1B of freshly contracted CSAs, a book-to-build ratio near parity that converts what bears call capex risk into what landlords call pre-leasing. SpaceX has quietly built a second toll road beside access to orbit, including access to tokens: rival AI labs including Anthropic, Google, Reflection now rent xAI's landlord infrastructure just as rival constellations ride SpaceX rockets. The company collects the toll either way. We anecdotally note that observers of the Sport of Kings (Foundation Models) seem to note that companies prefer SpaceX data-centres over peers, which could imply a long-term premium to market for data-centre rental. Currently we are seeing that play out.</p>
-          <p>The balance sheet ended the quarter with $100.0B of cash and marketable securities against roughly $39.5B of debt and finance leases, with a net cash position of $60.5B, with $47.5B of backlog. The inaugural $25B bond priced at a 5.855% weighted-average coupon across tranches out to 2056: credit markets are pricing SpaceX as investment-grade infrastructure while the equity markets price it below our bear-adjusted fair value. Interesting guidance given by the company that they believe they can capture a “significant percentage of global connectivity market”, expectation of “more than a (1) launch per day in 2027” and an expectation to “bring 5-10GW of compute online by YE27 and a total 20GW of compute online by YE2028” represent incredible upside for this opportunity.</p>
         </article>
       </div>
     </section>
 
+    <section class="page" id="valuation-analysis">
+      <div class="page-inner">
+        <div class="page-kicker reveal">Page 05</div>
+        <h2 class="reveal">Valuation Analysis</h2>
+        <p class="lede reveal">The methodology, comparables, Elon Premium, market signals, and sensitivities are shown directly below. Supporting charts remain available as expandable panels.</p>
+        <article class="copy-panel valuation-copy reveal">
+          <h3 class="detail-heading">Methodology</h3>
+          <p>We primarily employed a bottoms-up, probability-weighted sum-of-the-parts (SOTP) DCF across twelve business units, each modeled with three scenarios (Bear / Base / Bull) and a materialization probability considered in short, medium and long time horizons with strong overweighting near-term cash flows. The DCF tab discounts the resulting UFCF at a blended WACC of 9.0% with a terminal growth rate of 4.0%. In addition to this valuation model, we evaluate comparables in relevant industries and consider the Elon Premium alongside Current Market Signlas.</p>
+          <h3 class="detail-heading">Comparables Analysis</h3>
+          <p>We treat trading comparables as a cross-check and a downside bound, not as the primary basis for value. SpaceX has no clean peer. A blended whole-company multiple is therefore directional at best, which is why our central value rests on the sum-of-the-parts DCF.</p>
+          <p>Viewed across the relevant peer sets, the comparables span an extremely wide band. Defense primes trade at roughly 2x revenue and anchor low, while high-growth satellite and new space names (Rocket Lab, AST SpaceMobile) trade at multiples that, applied to SpaceX's revenue base, would imply values up to ~$2.47 trillion. The AI cohort sits between these poles: OpenAI screens at roughly 28x Revenue and Anthropic at roughly 21x, Palantir — the closest listed AI/defense neo-prime analogue — at roughly 47x Revenues, alongside NVIDIA at roughly 22x. Applying the AI and high-growth multiples to SpaceX's revenue implies an equity value in the $1.0-1.7 trillion zone, broadly consistent with the DCF.</p>
+          <p>The synthesis is that comparables price the company as it is today, not the convergence flywheel we underwrite, and they penalize SpaceX for being mid-cycle in a heavy-investment phase. They are therefore most useful as a soft floor — framing value near $0.9-1.0 trillion — with the DCF and the IPO range describing where the market is actually likely to clear, given the Elon Premium.</p>
+          <h3 class="detail-heading">Elon Premium</h3>
+          <p>Across peer groups, SpaceX valuation implies an average Elon Premium of roughly 1.8x against the AI-lab median of OpenAI and Anthropic (24.5x EV/Revenue), while being in line with Palantir, the closest listed AI/defence neo-prime comparable at 46.7x EV/Revenue vs SpaceX's 43.5x EV/Revenue and 79.1x EV/EBITDA (2026E, DCF conclusion) to frame the premium. On EBITDA, the picture inverts the headline: SpaceX screens roughly 80% Palantir's 100.0x, i.e. the one preferred peer that is profitable. OpenAI and Anthropic carry no EBITDA multiple as both remain pre-EBITDA. Surprisingly, our valuation has SpaceX at the same revenue multiple as space industry peers despite extraordinary structural advantages.</p>
+          <p>The Elon Premium is best understood as compensation for the compounding optionality of an operator who moves faster, builds more ambitiously and competently, and controls more of the value chain than any single peer. SpaceX has no clean comparable.</p>
+          <h3 class="detail-heading">Current Market Signals</h3>
+          <p>Hyperliquid and Polymarket have been pricing the enterprise valuation between $2.17 and $2.45T for the last several weeks with $42M and $2.3M in daily volume respectively, which substantiates the legitimate market depth of these positions.</p>
+        </article>
+        <div class="chart-accordion reveal" aria-label="Expandable valuation charts">
+          <article class="expand-card" data-expand-card>
+            <button class="expand-trigger" type="button" aria-expanded="false">
+              <span class="card-index">Charts 01</span>
+              <span><span class="expand-title">Methodology & SOTP Charts</span></span>
+              <span class="expand-action">Open charts</span>
+            </button>
+            <div class="expand-body" aria-hidden="true">
+              <div class="expand-body-inner">
+                <div class="detail-chart-grid" data-chart-figs="chart_01_horizon,chart_02_montecarlo,chart_03_sotp,chart_09_sotp_cumulative,chart_04_revenue"></div>
+              </div>
+            </div>
+          </article>
+          <article class="expand-card" data-expand-card>
+            <button class="expand-trigger" type="button" aria-expanded="false">
+              <span class="card-index">Charts 02</span>
+              <span><span class="expand-title">Comparables Charts</span></span>
+              <span class="expand-action">Open charts</span>
+            </button>
+            <div class="expand-body" aria-hidden="true">
+              <div class="expand-body-inner">
+                <div class="detail-chart-grid" data-chart-figs="chart_06_comps,chart_05_ufcf,chart_10_hyperliquid,chart_11_polymarket"></div>
+              </div>
+            </div>
+          </article>
+          <article class="expand-card" data-expand-card>
+            <button class="expand-trigger" type="button" aria-expanded="false">
+              <span class="card-index">Charts 03</span>
+              <span><span class="expand-title">Sensitivity Charts</span></span>
+              <span class="expand-action">Open charts</span>
+            </button>
+            <div class="expand-body" aria-hidden="true">
+              <div class="expand-body-inner">
+                <div class="detail-chart-grid" data-chart-figs="chart_07_sensitivity,chart_08_tornado"></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <section class="page" id="investment-thesis">
       <div class="page-inner">
         <div class="page-kicker reveal">Page 03</div>
         <h2 class="reveal">Investment Thesis</h2>
-        <article class="copy-panel reveal">
-          <p>For a deep dive on the pillars of our investment thesis, please review the pre-IPO analysis <a href="./pre-ipo.html">here</a>. SpaceX is rapidly accelerating its strategic advantages across the different business units in the major overarching business segments of space exploration, connectivity, and AI. We further partition nine separate businesses across these categories. The Q2 print upgraded each pillar from thesis to evidence.</p>
-        </article>
+        <p class="lede reveal">SpaceX is rapidly accelerating strategic advantages across space exploration, connectivity, and AI + digital, with special consideration to the synergistic convergence of these businesses and the resultant network effects.</p>
         <div class="interactive-grid reveal" id="pillarGrid" aria-label="Investment thesis pillars"></div>
       </div>
     </section>
@@ -1934,228 +1784,26 @@
       <div class="page-inner">
         <div class="page-kicker reveal">Page 04</div>
         <h2 class="reveal">Business Unit Analysis</h2>
-        <p class="lede reveal" id="businessUnitLead">SpaceX is a complex conglomerate operating, by some analysis, more than 2 dozen different businesses across the 3 major categories (Space, Connectivity, AI). We separated these major categories into nine discernible business units and worked through revenue and profitability potential on 3 different horizons blending 3 different outcome scenarios (bear, base, bull), while heavily weighting near-term potential for the sake of conservatism. We have rebuilt each segment's projection off its underlying physical metric, launches and tonnes to orbit, subscribers and ARPU, gigawatts of installed compute, rather than abstract revenue growth rates and arrived at a blended probability-weighted revenue in 2030 of approximately $800B which appropriately balances SpaceX’s guidance of $1T in revenue. It is Elon’s job to paint an inspiring future and lay out lofty goals as it serves as a rallying cry that pushes his people forward aggressively. It is our job as analysts to pair these goals to physical constraints and appropriately discount BHAGs (big hairy audacious goals) given Elon’s track record of delivering the impossible, somewhat late.</p>
+        <p class="lede reveal" id="businessUnitLead">SpaceX is a complex conglomerate operating across current and near-term businesses in manufacturing, AI, space launch and space-based activities, connectivity, social media, payments, and long-term ambitions such as off-planet resource extraction and interplanetary colonization. For the sake of simplicity in this first iteration, we divide the business into twelve segments, build revenue and profitability potential across three horizons, and heavily weight near-term potential for conservatism. We built projections from first principles using public sources and expect to update this analysis as new information becomes available. This is an incredibly dynamic business.</p>
         <div class="company-grid reveal" id="companyGrid" aria-label="Space sector company grid"></div>
-      </div>
-    </section>
-
-    <section class="page" id="valuation-analysis">
-      <div class="page-inner">
-        <div class="page-kicker reveal">Page 05</div>
-        <h2 class="reveal">Valuation Analysis</h2>
-        <article class="copy-panel valuation-copy reveal">
-          <h3 class="detail-heading">Methodology</h3>
-          <p>We primarily employed a bottoms-up, probability-weighted sum-of-the-parts (SOTP) DCF across nine business units, each modeled with three scenarios (Bear / Base / Bull) and a materialization probability, with strong overweighting of near-term cash flows. Post-Q2, every major segment build is driven off its physical unit of production.</p>
-          <h3 class="detail-heading">Comparables Analysis</h3>
-          <p>We treat trading comparables as a cross-check and a downside bound, not as the primary basis for value. SpaceX has no clean peer and it is so obviously positioned to be the largest most important company on the planet that we find ourselves in full-throated belly laughs when talking with traders who short this asset. A blended whole-company multiple is therefore directional at best, which is why our central value rests on the sum-of-the-parts DCF.</p>
-          <p>Viewed across the relevant peer sets, the comparables span an extremely wide band. Defense primes trade at roughly 2x revenue and anchor low; high-growth space names (Rocket Lab, AST SpaceMobile) anchor high; the AI cohort sits between OpenAI ~28x revenue, Anthropic ~21x, Palantir ~47x, NVIDIA ~22x. The arithmetic has now inverted in the buyer's favour: at $134.13 the market values SpaceX at ~$1.80T of roughly 25x our 2026E economic revenue of $71.7B and only ~11x our 2027E of $169.5B, against an AI-lab median of ~24.5x. On reported GAAP (which excludes internal-payload economics), the annualized Q2 run-rate of ~$31B implies ~57x and the spread between the two multiples is itself the mispricing: the market is paying GAAP multiples for a company whose economic output is more than twice its reported revenue.</p>
-          <p>The synthesis is that comparables price the company as it is today, not the convergence flywheel we underwrite, and they penalize SpaceX for being mid-cycle in the heaviest investment phase in corporate history ($28.5B of H1 capex against $47.5B of backlog and $100B of liquidity). They remain most useful as a soft floor near $0.9-1.0T, a level the market briefly rediscovered and from which the Q2 print should force a re-rating.</p>
-          <h3 class="detail-heading">Elon Premium</h3>
-          <p>The Elon Premium has vanished and with it part of the upside opportunity. In June, the pre-IPO marks implied ~1.8x the AI-lab median multiple; at $134.13, SpaceX trades at ~25x our 2026E economic revenue, in line with the OpenAI/Anthropic median (~24.5x) and roughly half Palantir's ~47x, despite growing 92% with a launch monopoly, the world's fastest-scaling telecom, and a tenant-financed compute build attached. On our updated numbers the market is charging nothing for Musk, nothing for the flywheel, and nothing for eight of the nine business units: the Connectivity segment alone supports the current enterprise value at our SOTP base case ($3.06T of the $4.47T total).</p>
-          <p>The Elon Premium is best understood as compensation for the compounding optionality of an operator who moves faster, builds more ambitiously and competently, and controls more of the value chain than any single peer. SpaceX has no clean comparable and for the first time since the 2024 tender rounds, the market is not asking to be paid for that fact.</p>
-          <h3 class="detail-heading">CAPEX</h3>
-          <p>Given the exceptional profitability of TDCs which accentuate SpaceX’s engineering and execution advantage and the hard lessons of hardware won through many years of hard execution we would expect CAPEX spend to nearly double versus the guided numbers over the balance of this decade. We would expect that 1 trillion in CAPEX is spent by YE2030 and note that such a build will likely require dilutive financing during this period along with a significantly higher debt load. This will add short term pressure to valuation but the dividend in the end is quite literally out of this world.</p>
-        </article>
-        <div class="table-block reveal">
-          <div class="data-table-wrap">
-            <div class="data-table-panel">
-              <div class="data-table-title">Official Actuals — CapEx by Filing Segment ($B)</div>
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>Filing segment</th>
-                    <th>Basis</th>
-                    <th>2025 FY</th>
-                    <th>Q1 2026</th>
-                    <th>Q2 2026</th>
-                    <th>H1 2026</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>Space</td><td>Filed</td><td>3.83</td><td>1.05</td><td>1.17</td><td>2.23</td></tr>
-                  <tr><td>Connectivity</td><td>Filed</td><td>4.18</td><td>1.33</td><td>1.37</td><td>2.70</td></tr>
-                  <tr><td>AI</td><td>Filed</td><td>12.73</td><td>7.72</td><td>15.83</td><td>23.55</td></tr>
-                  <tr class="is-total"><td>Total</td><td>Filed</td><td>20.74</td><td>10.11</td><td>18.37</td><td>28.48</td></tr>
-                </tbody>
-              </table>
-              <p class="data-table-note">H1 already 83% AI. Musk: high AI spend for at least two more quarters. FY26 run-rate ~$55–70B.</p>
-            </div>
-          </div>
-        </div>
-        <div class="table-block reveal">
-          <div class="data-table-wrap">
-            <div class="data-table-panel">
-              <div class="data-table-title">Goldman Sachs case — Total Planned CapEx ($B)</div>
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>Business</th>
-                    <th>Filing</th>
-                    <th>2026</th>
-                    <th>2027</th>
-                    <th>2028</th>
-                    <th>2029</th>
-                    <th>2030</th>
-                    <th>5-year</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>Launch Services</td><td>Space</td><td>4.5</td><td>6.0</td><td>6.0</td><td>5.0</td><td>5.0</td><td>26.5</td></tr>
-                  <tr><td>Starlink</td><td>Connectivity</td><td>5.5</td><td>8.0</td><td>12.0</td><td>14.0</td><td>16.0</td><td>55.5</td></tr>
-                  <tr><td>Starshield</td><td>Connectivity</td><td>1.0</td><td>1.5</td><td>2.0</td><td>2.0</td><td>2.0</td><td>8.5</td></tr>
-                  <tr><td>xAI</td><td>AI</td><td>1.0</td><td>1.5</td><td>2.0</td><td>2.0</td><td>2.0</td><td>8.5</td></tr>
-                  <tr class="is-highlight"><td>Terrestrial Data Centres</td><td>AI</td><td>48.0</td><td>121.0</td><td>101.0</td><td>65.0</td><td>50.0</td><td>385.0</td></tr>
-                  <tr><td>Orbital Data Centres</td><td>AI</td><td>0.5</td><td>2.0</td><td>8.0</td><td>12.0</td><td>15.0</td><td>37.5</td></tr>
-                  <tr><td>X Platform</td><td>AI</td><td>0.3</td><td>0.3</td><td>0.3</td><td>0.3</td><td>0.3</td><td>1.5</td></tr>
-                  <tr><td>Terafab</td><td>AI</td><td>2.0</td><td>10.0</td><td>15.0</td><td>15.0</td><td>13.0</td><td>55.0</td></tr>
-                  <tr><td>Deep Space Optionality</td><td>Space</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>2.0</td><td>3.0</td></tr>
-                  <tr class="is-total"><td>Total planned capex</td><td>—</td><td>62.8</td><td>150.3</td><td>146.3</td><td>116.3</td><td>105.3</td><td>581.0</td></tr>
-                </tbody>
-              </table>
-              <p class="data-table-note">$360B cumulative through 2028, ~80% AI.</p>
-            </div>
-          </div>
-        </div>
-        <div class="table-block reveal">
-          <div class="data-table-wrap">
-            <div class="data-table-panel">
-              <div class="data-table-title">SemiAnalysis / Musk GW case — Total Planned CapEx ($B)</div>
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>Business</th>
-                    <th>Filing</th>
-                    <th>2026</th>
-                    <th>2027</th>
-                    <th>2028</th>
-                    <th>2029</th>
-                    <th>2030</th>
-                    <th>5-year</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>Launch Services</td><td>Space</td><td>4.5</td><td>6.0</td><td>6.0</td><td>5.0</td><td>5.0</td><td>26.5</td></tr>
-                  <tr><td>Starlink</td><td>Connectivity</td><td>5.5</td><td>8.0</td><td>12.0</td><td>14.0</td><td>16.0</td><td>55.5</td></tr>
-                  <tr><td>Starshield</td><td>Connectivity</td><td>1.0</td><td>1.5</td><td>2.0</td><td>2.0</td><td>2.0</td><td>8.5</td></tr>
-                  <tr><td>xAI</td><td>AI</td><td>1.0</td><td>1.5</td><td>2.0</td><td>2.0</td><td>2.0</td><td>8.5</td></tr>
-                  <tr class="is-highlight"><td>Terrestrial Data Centres</td><td>AI</td><td>55.0</td><td>350.0</td><td>150.0</td><td>100.0</td><td>80.0</td><td>735.0</td></tr>
-                  <tr><td>Orbital Data Centres</td><td>AI</td><td>0.5</td><td>2.0</td><td>8.0</td><td>12.0</td><td>15.0</td><td>37.5</td></tr>
-                  <tr><td>X Platform</td><td>AI</td><td>0.3</td><td>0.3</td><td>0.3</td><td>0.3</td><td>0.3</td><td>1.5</td></tr>
-                  <tr><td>Terafab</td><td>AI</td><td>2.0</td><td>10.0</td><td>15.0</td><td>15.0</td><td>13.0</td><td>55.0</td></tr>
-                  <tr><td>Deep Space Optionality</td><td>Space</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>2.0</td><td>3.0</td></tr>
-                  <tr class="is-total"><td>Total planned capex</td><td>—</td><td>69.8</td><td>379.3</td><td>195.3</td><td>151.3</td><td>135.3</td><td>931.0</td></tr>
-                </tbody>
-              </table>
-              <p class="data-table-note">$50B per GW, 6–8 GW incremental in 2027.</p>
-            </div>
-          </div>
-        </div>
-        <div class="table-block reveal">
-          <div class="data-table-wrap">
-            <div class="data-table-panel">
-              <div class="data-table-title">Dialectic bull case — Total Planned CapEx ($B)</div>
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>Business</th>
-                    <th>Filing</th>
-                    <th>2026</th>
-                    <th>2027</th>
-                    <th>2028</th>
-                    <th>2029</th>
-                    <th>2030</th>
-                    <th>5-year</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>Launch Services</td><td>Space</td><td>4.5</td><td>8.0</td><td>9.0</td><td>8.0</td><td>8.0</td><td>37.5</td></tr>
-                  <tr><td>Starlink</td><td>Connectivity</td><td>5.5</td><td>10.0</td><td>14.0</td><td>20.0</td><td>26.0</td><td>75.5</td></tr>
-                  <tr><td>Starshield</td><td>Connectivity</td><td>1.0</td><td>2.0</td><td>2.5</td><td>3.0</td><td>3.5</td><td>12.0</td></tr>
-                  <tr><td>xAI</td><td>AI</td><td>1.0</td><td>1.5</td><td>2.0</td><td>2.0</td><td>2.0</td><td>8.5</td></tr>
-                  <tr class="is-highlight"><td>Terrestrial Data Centres</td><td>AI</td><td>55.0</td><td>350.0</td><td>150.0</td><td>100.0</td><td>80.0</td><td>735.0</td></tr>
-                  <tr><td>Orbital Data Centres</td><td>AI</td><td>0.5</td><td>2.0</td><td>8.0</td><td>15.0</td><td>22.0</td><td>47.5</td></tr>
-                  <tr><td>X Platform</td><td>AI</td><td>0.3</td><td>0.3</td><td>0.3</td><td>0.3</td><td>0.3</td><td>1.5</td></tr>
-                  <tr><td>Terafab</td><td>AI</td><td>2.0</td><td>10.0</td><td>20.0</td><td>25.0</td><td>35.0</td><td>92.0</td></tr>
-                  <tr><td>Deep Space Optionality</td><td>Space</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>2.0</td><td>3.0</td></tr>
-                  <tr class="is-total"><td>Total planned capex</td><td>—</td><td>69.8</td><td>383.8</td><td>205.8</td><td>174.3</td><td>178.8</td><td>1,012.5</td></tr>
-                </tbody>
-              </table>
-              <p class="data-table-note">Five-year total $1,012.5B. 2030 is $178.8B so the year row foots to the exhibit total.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="page" id="tesla-merger">
-      <div class="page-inner">
-        <div class="page-kicker reveal">Page 06</div>
-        <h2 class="reveal">The SpaceX–Tesla Merger: Strategic Positioning</h2>
-        <article class="copy-panel reveal">
-          <p>A merger with Tesla seems obvious at this point, pending regulatory approval. The strategic reasons in favour of the merger are listed in order of importance;</p>
-          <ol class="rationale-list">
-            <li>Elon’s control and focus: we discuss Elon’s relative ownership and voting control in greater depth below. But it is clear that Elon’s ownership of Tesla is a sensitive point that could be partially rectified by a merger at the right relative valuation. Also, having most of his assets under one roof will allow for the best focused output, something the world has still not seen.</li>
-            <li>If AI + Robotics will dominate the world, the physical synergies across Connectivity (SpaceX) + Robotics (Tesla) + AI (SpaceX + Tesla) accelerated by Terafab (joint venture) are very compelling. The new Tesla Roadster that apparently will have cold propulsion technology from SpaceX collab is the first example of literally dozens of engineering synergies between the companies that will take us into the future.</li>
-            <li>Current crossover between the companies: Terafab is designed around AI5-class FSD silicon and AI6-class Optimus inference chips; Colossus trains the models that Tesla's fleet and robots will run at the edge; Starlink D2C provides the connectivity layer for a global robotics fleet; that means Optimus and the FSD automotive fleet; and both companies draw on the same energy, manufacturing, and talent stack. We have excluded the merger from our valuation and every dollar of it is upside to the numbers in this memo. We’ve seen many instances over the years where the SpaceX engineering team is used by Elon like a SEAL Team-6 to go in and solve intractable challenges in unimaginably short periods of time. The consolidation and proliferation of this corporate culture of ‘a shocking zone of competence’ should not be understated.</li>
-          </ol>
-          <h3 class="detail-heading">Voting control across relative valuations</h3>
-          <p>Elon holds 83.5% of SpaceX voting power through super-voting Class B shares against 19.9% of Tesla's single-class votes. We take as axiomatic and believe the board does too and that Musk should not emerge from any combination with less than 56-58% of voting control: enough to be unassailable through the AGI build-out and the coming decade of capital raises, Terafab's $119B full buildout, ongoing compensation awards), with buffer above a bare majority. The table below computes Musk's post-merger voting power across relative valuations of the two companies under the two candidate structures: SpaceX acquiring Tesla in an all-stock exchange (new SPCX Class A issued to Tesla holders; Class B super-voting intact), versus any single-class combination, which includes every structure in which Tesla is the acquirer.</p>
-        </article>
-        <div class="table-block reveal">
-          <div class="data-table-wrap">
-            <div class="data-table-panel">
-              <div class="data-table-title">Musk post-merger voting power by relative valuation and deal structure</div>
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>Relative valuation (SpaceX : Tesla)</th>
-                    <th>Implied Tesla equity value</th>
-                    <th>New SPCX Class A issued (B sh)</th>
-                    <th>Tesla holders’ % of combined</th>
-                    <th>Musk voting — SpaceX acquires (dual-class)</th>
-                    <th>Musk voting — single-class / Tesla-led</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>75 : 25</td><td>$600B</td><td>4.5</td><td>25%</td><td>78.0%</td><td>36.5%</td></tr>
-                  <tr><td>70 : 30</td><td>$771B</td><td>5.7</td><td>30%</td><td>76.6%</td><td>35.4%</td></tr>
-                  <tr><td>65 : 35</td><td>$969B</td><td>7.2</td><td>35%</td><td>75.0%</td><td>34.3%</td></tr>
-                  <tr class="is-highlight"><td>61 : 39 (market)</td><td>$1,151B</td><td>8.6</td><td>39%</td><td>73.7%</td><td>33.4%</td></tr>
-                  <tr><td>55 : 45</td><td>$1,473B</td><td>11.0</td><td>45%</td><td>71.5%</td><td>32.1%</td></tr>
-                  <tr><td>50 : 50</td><td>$1,800B</td><td>13.4</td><td>50%</td><td>69.4%</td><td>31.0%</td></tr>
-                  <tr><td>45 : 55</td><td>$2,200B</td><td>16.4</td><td>55%</td><td>67.1%</td><td>29.8%</td></tr>
-                  <tr><td>40 : 60</td><td>$2,700B</td><td>20.1</td><td>60%</td><td>64.5%</td><td>28.7%</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <article class="copy-panel reveal">
-          <p>Under a SpaceX-led dual-class exchange, Musk lands between 64.5% and 78.0% across every plausible ratio, the 56-58% floor is cleared everywhere and would bind only if Tesla commanded roughly 70% of the combined entity which seems categorically impossible given the execution and value creation of SpaceX. However, we do note that the Roadster demo, Robotaxi roll-out or Optimus robots beginning sales could inflect TSLA upwards and there may be volatility in the ratio. Under any single-class structure, Musk lands between 28.7% and 36.5% at every ratio: the floor is not merely missed, it is unreachable at any price.</p>
-          <p>Prediction markets agree on the direction and disagree only on the clock: Polymarket currently prices a 5% probability of consummation by September 30, 2026 and 18% by year-end with a curve whose mass sits in 2027, consistent with the natural sequencing of lockup expiry, initial index inclusion, and a re-rated SPCX currency.</p>
-          <p>We would forecast that a merger is likely in the second half of 2027.</p>
-          <p>Drawbacks to a potential merger are that the market is unlikely to understand this incredibly complex mega-conglomerate and investors are unlikely to see a premium on the combined assets for some time. Also that  the regulator ire will also be more focused and likely increased, especially if there is a change in US leadership. And Musk’s remuneration will likely need to be reworked and may have a dilutive impact for shareholders (acceptable).</p>
-          <p>An interesting thought experiment emerges from the merger analysis and if long term investors are optimizing for Elon’s rightful control (and thus focus, etc.), doesn’t it make sense to roll in The Boring Co. and/or Neuralink over time? Elon holds approximately 80% of The Boring Co. and an estimated 50% of Neuralink, which would make both transactions accretive for him and the enterprising investor that holds exposure to both assets, which we do and are very high conviction on. We estimate that a split across the 4 organizations of 80% SPCX, 15% TSLA, 3% Boring and 2% Neuralink could be a prudent approach to gain accretive upside in a full roll-up which pairing for relative risks and risk-adjusted potential of each related company.</p>
-        </article>
       </div>
     </section>
 
     <section class="page" id="risks">
       <div class="page-inner">
-        <div class="page-kicker reveal">Page 07</div>
-        <h2 class="reveal">Risks &amp; Key Considerations</h2>
+        <div class="page-kicker reveal">Page 06</div>
+        <h2 class="reveal">Risks &amp; Considerations</h2>
+        <p class="lede reveal">The primary risks are execution timing, key-person exposure, regulatory concentration, competition, balance-sheet intensity, and potential Elon Premium compression.</p>
         <div class="risk-list reveal" id="riskList" aria-label="Expandable risks"></div>
       </div>
     </section>
 
     <section class="page" id="conclusion">
       <div class="page-inner">
-        <div class="page-kicker reveal">Page 08</div>
+        <div class="page-kicker reveal">Page 07</div>
         <h2 class="reveal">Conclusion</h2>
         <article class="copy-panel reveal">
-          <p>As Peter Diamandis aptly puts it, it is the most exciting time in history to be alive and this is the most exciting organization in history. The initial Q2 report served to substantiate our pre-IPO analysis: 92% revenue growth, a company-wide EBITDA inflection, doubling subscribers, tripling compute, and $100.0B of gross liquidity set against an external financing requirement of roughly $238.3B through 2029. We reiterate a blended fair value of $311/share, a Monte Carlo P50 of $314/share. We find it interesting that the market isn’t pricing the convergence of SpaceX’s advantages against its peers.</p>
-          <p>At today’s levels one is acquiring a leading AI compute business in TDCs plus a profitable launch business and connectivity network, all of the inspiring possibilities that the moon and mars bring; in addition to the only fully vertically integrated AI stack and robotics (with Tesla) are included for free.</p>
-          <p>We reiterate and upsize our accumulation plan and yielding plan accordingly asserting that the fair valuation can be achieved over 2-3 years and maintain a projected 10T+ enterprise valuation by the early 2030s.</p>
+          <p>When we look up towards the stars we are reminded of the infinite possibilities of space and the inspiring Sci-Fi future that mankind will chart as a multi-planetary species. SpaceX is uniquely positioned as the most consequential private company of the 21st century, potentially in the history of capitalism. The flywheel of vertical integration across these businesses is compounding in ways that no competitor can replicate. At 43.5x 26E Revenues ($56.2B) and our DCF blended fair value of $179/share ($2.418T), we reiterate our conviction on the accumulation plan set herein. The opportune issuance of SPCX may be remembered as the most extraordinary gift to America on the eve of her 250th Anniversary. At current levels the investor buys the current business across launch, connectivity, AI and digital. The Moon, Mars and potentially many other celestial bodies are free, as is the impact of a maximally truth-seeking generalized intelligence as recursive self-improvement takes hold.</p>
           <div class="model-output-box disclaimer-box">
             <p><strong>Disclaimer:</strong> Dialectic is an investor in SpaceX, Tesla and related entities discussed herein. This document is not financial advice or a recommendation or solicitation for investment and the financial modelling herein may represent projections or biases based on our own interpretation of current and potential events using public sources and may be incorrect. Dialectic makes no representations of any kind. This is purely for informational purposes.</p>
           </div>
@@ -2165,15 +1813,16 @@
 
     <section class="page" id="annexes">
       <div class="page-inner">
-        <div class="page-kicker reveal">Page 09 / Annexes A-G</div>
+        <div class="page-kicker reveal">Page 08 / Annexes A-G</div>
         <h2 class="reveal">Data Room</h2>
+        <p class="lede reveal">The model detail, scenario tables, comparables, sensitivities, and business-unit build are kept here as expandable evidence.</p>
         <div class="annex-grid reveal" id="annexGrid" aria-label="Expandable annexes A through G"></div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div>Dialectic Group / Perpetual Fund / August 2026 / Confidential Research <span aria-hidden="true">·</span> <a href="./pre-ipo.html">Pre-IPO edition</a></div>
+    <div>Dialectic Group / Perpetual / June 2026 / Pre-IPO</div>
     <p class="footer-credit">Background photos attributed (CC BY 2.0) to <a href="https://www.flickr.com/photos/jurvetson/" target="_blank" rel="noopener noreferrer">Jurvetson</a>, with gratitude.</p>
   </footer>
 
@@ -2183,7 +1832,6 @@
       "investment-thesis",
       "companies",
       "valuation-analysis",
-      "tesla-merger",
       "risks",
       "conclusion",
       "annexes"
@@ -2197,28 +1845,35 @@
     const pillars = [
       {
             "title": "Space — Network Effects & Moat in Access to Orbit",
+            "summary": "",
             "paragraphs": [
-                  "SpaceX has fundamentally repriced access to orbit and is extending its lead due to advantages of scale. H1 2026 delivered 78 launches and 1,041 tonnes to orbit (~13.4t per Falcon 9), an annualized cadence near 156. All in this relates to 7400/kg which is the number to watch over time. Starship V3 completed Flights 12 and 13 including precision landing, in-space Raptor relight, and deployment of production V3 Starlink satellites. Whoever owns the route to the frontier collects the toll on every emerging business that depends on it; SpaceX owns the route and is its own largest customer. Our model now prices this business on tonnage: mass to orbit scales from ~2,400t in 2026 to ~14,400t by 2030 and ~118,000t by 2040 as Starship lifts ~100t per flight at a cost per kilogram falling ~99% versus the historical average. Note the Jevons Paradox that governs this line: every collapse in $/kg shrinks revenue per tonne but expands addressable tonnage super-linearly, deflation is the moat, not the risk."
+                  "SpaceX has fundamentally repriced access to orbit, reducing commercial launch costs by over 90% since Falcon 9's introduction. With 140-145 Falcon 9 launches expected in 2026 and Starship approaching commercial readiness in the later part of the year, SpaceX holds an incredibly advantageous competitive position and accounts for a significant majority of all launches globally by count and by weight-to-orbit. No competitor can match SpaceX on cadence, reliability, and price as Starship's sheer scale drops the cost-to-orbit below $100/kg, driving under $10/kg by 2030. We are witnessing the SpaceX transcend Wright's Law and push us towards a Space Age version of Moore's Law. A fully operational Starship opens a $150B+ cargo-as-a-service near-term TAM."
             ]
       },
       {
             "title": "Connectivity — Starlink as a Global Telecom & Internet Infra + D2C",
+            "summary": "",
             "paragraphs": [
-                  "Given the number of times the statement has been repeated, when we hear “Starlink may provide a very significant percentage of all of the traffic of the internet, which will be much larger with AI and robotics.” We understand the path forward may inflect massively for Starlink. At 12.0M subscribers across 167 countries — doubling year-over-year — in which Starlink generated $7.5B of revenue in H1 2026 (+49%) at a ~61% Connectivity Adjusted EBITDA margin, a Rule-of-40 score above 100. Expectations are that the Enterprise and Maritime/Airline revenues will surpass the consumer segment in the coming years. The unit economics remain structurally unmatched: a cell tower is a fixed bet on one patch of map, while a constellation amortizes one fleet across the entire planet and every incremental user amortizes the global CAPEX. We read the ARPU print ($66, flat sequentially, down from $85 a year ago) not as weakness but as strategy: Starlink is running the launch playbook in telecom, pricing below terrestrial marginal cost in thin geographies while its own unit costs fall faster. Enterprise & Government revenue grew 63% sequentially on airline wins (American, Southwest, Virgin Atlantic, Iberia, Aer Lingus) and carrier D2C partnerships (T-Mobile, SoftBank, NTT Docomo, Spark NZ). Direct-to-Cell extends the franchise toward the ~$400B global cellular profit pool; our model now carries D2C inside the Connectivity subscriber build rather than as a separate line, making the standalone D2C carve-out pure upside optionality, even though we have confidence that this strategy plays out."
+                  "Starlink is not just a satellite internet company. It is a global telecommunications network that will pass terrestrial communications infrastructure in cost, reliability and eventually latency/performance. It is an internet infrastructure business with recurring subscription-based revenue, low marginal cost per additional subscriber, and structural advantages over every terrestrial and geostationary competitor. At 12+ million subscribers across 164 countries and growing over 100% annual CAGR, Starlink generates $11.4 billion of annual revenue with a 63% EBITDA margin. Direct-to-Cell extends the Starlink franchise to mobile devices globally and should capture some of the approximately $400 billion in cellular telecom annual profits."
             ]
       },
       {
-            "title": "Maximally Truth-seeking AI — The AI Infrastructure Stack",
+            "title": "Maximally Truth-Seeking AI — The AI Infrastructure Stack",
+            "summary": "",
             "paragraphs": [
-                  "The Q2 announcement should serve to awaken investors that a bulk of the near-term revenue of SpaceX will be based on its unparalleled execution in Terrestrial Data Centres TDCs (eventually giving way to ODCs). Q2 marked the segment's economic inflection: AI revenue of $2.6B (+247%) and the first quarter of positive AI Adjusted EBITDA (+$1.1B), one quarter after a $609M loss.",
-                  "Colossus now carries $27.8B/yr of contracted tenancy run-rate (Anthropic ~$15B, Google ~$11B, Reflection ~$1.8B) plus the $14.1B of new Cloud Services Agreements signed in Q2 alone. Elon provided guidance of 5-10GW by YE2027 and we think that 7-8GW is prudent and conservative. The strategic point is under-appreciated: SpaceX's AI landlord business is being funded by its AI competitors, exactly as its launch business was funded by rival constellations. Compute is the second toll road, and Orbital Data Centers are the planned extension of it.",
-                  "Now that the Cursor merger is finalized we note near-term upside with Grok, Cursor Build and Grok Bot, all of which are gaining ground on the competition. Grok Bot, a Clawdbot competitor with enhanced UI/UX, may be remembered as SpaceXAI’s first breakout product."
+                  "The winner in AI Foundation Models - which we often refer to within Dialectic as \"the Sport of Kings\" (Bill Gurley, 2024) for its extraordinary capex vs TAM dynamic - will be decided on 3 fronts: 1- Data, 2- Compute, and 3- Algorithmic innovations. The 2025 merger with xAI created a unique vertically integrated AI company: the only entity that simultaneously trains frontier AI models (Grok), operates its own GPU cluster at unprecedented scale and speed of execution (Colossus), distributes models to 600+ million users (X.com) which generates exclusive proprietary training data and financial transactions (Xmoney), while building orbital compute infrastructure supported by fabrication of semiconductor chips for both terrestrial edge-nodes and orbital training, all connected via its own global communications network.",
+                  {
+                        "text": "An important but misunderstood advantage of Grok/xAI is the principle to develope a maximally truth-seeking AI -- this allows Grok to learn and develop at a different pace than models that have an ideological throttle placed on them. A maximally truth-seeking AI also builds deep trust with users and will ultimately deliver superior performance in recursive learning environments.",
+                        "className": "dialectic-emphasis"
+                  },
+                  "Colossus I recently closed $26 billion in agreements with Anthropic and Google demonstrating significant growth potential of Colossus in the short term, while SpaceX prepares for the future of Orbital Data Centers."
             ]
       },
       {
             "title": "The Convergence Flywheel",
+            "summary": "",
             "paragraphs": [
-                  "It will become more obvious over time that the true value of SpaceX is not merely the sum of its parts, it is their synergistic intersection and resultant growth. SpaceX manufactures satellites, launches them on its own rockets, and produces the full global connectivity stack that could be the rails of the global internet accelerated by AI and robotics. X's 600M+ users generate exclusive training data for Grok, a maximally truth-seeking AI. XMoney,  launched April 2026 with Visa integration across 41 US states, monetizes those interactions with embedded fintech. Starshield and Golden Dome leverage the same orbital expertise built for Starlink has over $6B of multi-year U.S. government awards in Q2 alone, as the defining 'defense neo-prime' in a time of significant geopolitical uncertainty. The flywheel is now visible in the reported numbers: 84% of H1 tonnage to orbit was internal payload building the Connectivity and AI segments, in which capex on the income statement, compounding asset value in economic substance. Every business unit strengthens and is unified under a singularly ambitious mission and common culture often referred to “as a zone of shocking competence” (Marc Andreessen, 2026)."
+                  "It will become more obvious over time that the true value of SpaceX is not merely the sum of its parts -- it is their synergistic intersection and resultant growth. SpaceX manufactures satellites, launches them on its own rockets, and produces the full global connectivity stack, connecting with its own manufactured edge-nodes with Tesla robots and potential internally developed edge-node devices. X's 600M+ users generate exclusive training data for Grok, a maximally truth-seeking AI. XMoney (launched April 2026 with Visa integration across 41 US states) monetizes those interactions with embedded fintech. Starshield and Golden Dome contracts ($6.45 billion awarded in 2026 alone) leverage the same orbital expertise built for Starlink as the defining 'defense neo-prime' in a time of significant geopolitical uncertainty. ODCs present medium-term advantages with respect to energy, cooling, networking, and permitting. These businesses support off-planet resource extraction, manufacturing and eventually interplanetary colonization. We often ask ourselves, 'what is the TAM of the boundless potential of space?'. Every business unit strengthens every other and is unified under a singularly ambitious mission and common culture often referred to \"as a zone of shocking competence\" (Marc Andreesen, 2026), where the pace of work and growth is unmatched globally."
             ]
       }
 ];
@@ -2226,159 +1881,145 @@
     const companies = [
       {
             "name": "Launch Services",
+            "short_blurb": "",
+            "summary": "",
             "paragraphs": [
-                  "The Space segment generated $962M of revenue in Q2 2026 (+29% YoY) on 38 launches but reported revenue radically understates the economics: 28 of those launches deployed internal payloads for Connectivity and AI at ~$0 of recognized revenue. Our model therefore prices the launch business on its physical output, mass to orbit, monetized at effective market rates: H1 delivered 1,041 tonnes (13.35t per Falcon 9 flight), annualizing near 156 launches, and we anchor 2026 at 140/156/170 Falcon 9 launches (Bear/Base/Bull) plus 4/6/8 Starship flights, rising on Starship's ~100t-per-flight capacity to ~14,400 tonnes to orbit by 2030 and ~118,000 tonnes by 2040. Effective $/kg decays ~21%/yr on Starship through 2030, the 99% cost-to-orbit reduction management reiterated in the Q2 release, while tonnage compounds faster than price declines (the Jevons dynamic). This produces a 2026 base of ~$12.4B of economic launch revenue scaling to ~$61B by 2030 (probability-weighted), with EBITDA margins converging toward 40-50% as the ~$2B/quarter Starship R&D drag rolls off. Starship V3 completed Flights 12 and 13 in the past 90 days, including production V3 satellite deployment and in-space Raptor relight.",
-                  "We have consolidated Crewed launches into launch services due to a lack of clarity on differentiated revenues for ‘human meat weight to orbit’. NASA crewed missions account for $700M-$900M of annual revenue inside of this decade, supplemented by Polaris and Axiom private-astronaut missions; our base case carries ~$2.0B of 2026 crewed revenue scaling to ~$6.0B by 2030 (probability-weighted). There are distinct but distant plans for private spaceflight, both interplanetary and global point-to-point in less than 45 minutes via Starport infrastructure. Other space services from satellite servicing, orbital tug operations, and rocketry IP licensing, interstellar missions remain modeled conservatively (~$0.6B by 2030) but this category is capable of opening entirely new business lines."
+                  "The Orbital launch segment generated $4.086 billion of revenue in FY2025 at roughly $653 million of adjusted EBITDA — a ~16% margin that has been depressed during the Starship development cycle. SpaceX accounts for roughly 85% of all global satellite launches, having repriced access to orbit; we expect 140-150 Falcon 9 launches this year at roughly $74 million per launch. Our model update revises the 2026 base revenue to $11.5 billion. The bull case requires some Starship commercial revenue to materialize in 2026-2027. Given competitor challenges in recent months, this seems. We accounted for lower EBITDA margins in the near term by Starship R&D (~$15B). As Starship becomes operational and the development drag rolls off, margins should converge toward 40-50%. Our scenarios apply revenue CAGRs of roughly 15% / 25% / 45% (Bear / Base / Bull), and S-1 calibration lifted our base-case revenue anchor from ~$6.8B to ~$13.5B as the HLS Artemis lunar-lander and Starship cadence ramp."
             ]
       },
       {
-            "name": "Starlink Connectivity (and D2C)",
+            "name": "Crewed Spaceflight",
+            "short_blurb": "",
+            "summary": "",
             "paragraphs": [
-                  "Starlink is the fastest-growing telecom franchise ever and global telecom companies are or should be incredibly worried as SpaceX has repeatedly communicated its goal to service a “significant percentage of global communications (internet + cellular). 12.0M subscribers (doubled YoY, +1.7M sequentially), H1 2026 Connectivity revenue of $7.5B (+49%), Q2 income from operations up 79%, and Connectivity adjusted EBITDA of $2.6B in the quarter (~61% margin). ARPU printed $66 flat sequentially (down from $85 a year ago), a deliberate land-grab price point we now model as strategy rather than erosion, with blended pricing growing just 3%/yr on mix (enterprise, aviation, maritime) rather than the 10% we previously carried. The Q2 subscriber trajectory (~15.4M exiting 2026) matches our 15M base anchor, and we now carry subscriber growth of 65/110/125%/yr (Bear/Base/Bull) through 2030, a continuation of the observed 100% YoY pace via D2C mobile, enterprise wholesale, aviation (American, Southwest, Virgin Atlantic, Iberia, Aer Lingus signed in Q2) and maritime implying roughly 300M subscribers in the 2030 base case and $454B of probability-weighted 2030 revenue. Enterprise & Government revenue inside Connectivity grew 63% sequentially in Q2, the fastest-compounding line in the disclosed P&L. We note with enthusiasm the guidance that enterprise will eclipse consumers and aero-maritime has the most growth potential with airlines lining up to add Starlink for free for customers. As hyper travelers we see this movement as relieving after years of shoddy internet on flights.",
-                  "Direct-to-cell DTC represents an entirely new revenue stream, monetized initially through carrier licensing (T-Mobile, KDDI, Optus, Rogers, and added in Q2 SoftBank, NTT Docomo and Spark NZ). Rumours are swirling of a T-Mobile acquisition, which would be welcomed by long-term investors at the right valuation and likely by concerned T-Mobile investors too. Following the Q2 model rebuild we fold D2C monetization into the Connectivity subscriber build (the roam/mobile line) rather than carrying it as a separate unit the standalone D2C line in our SOTP is therefore carried at $0, making every dollar of future carrier-deal disclosure pure upside to the printed valuation. The technical demonstration is complete; outcomes hinge on spectrum, handsets (there are rumours of a major deal with Apple). With V3 satellites offering terabit-class downlink, Starlink can migrate from back-up connectivity to progressively denser geographies and use-cases. The valid argument that AI + robots will make up more than half of a massively larger internet communications structure is all upside against our model inputs."
+                  "NASA CCP/CRS and deposits received for manned private spaceflight make up current revenues. NASA crewed missions account for $700M-$900M of annual revenue inside of this decade, supplemented by Polaris and Axiom private-astronaut missions. There are distinct plans for private spaceflight, both interplanetary and globally (global point-to-point in less than 45 minutes via Starport infrastructure) that could be significant as well. Other space services — satellite servicing, orbit-to-orbit transport (orbital tug), and rocketry IP licensing or manufacture for sale — are a smaller line modeled conservatively but capable of opening entirely new business lines. These segments are also where SpaceX's Mars ambitions begin to monetize: as the cadence and payload economics improve, the path toward a self-sustaining off-planet presence underwrites optionality that the comps cannot capture. Elon has referenced a space hotel in a recent JP Morgan roadshow appearance. Overall, we have these segments as relatively benign in the scenario weighting, but we maintain them as a placeholder as there is outlier potential for these segments over time, particularly as the core mission of SpaceX (and Elon's compensation) are centered around a threshold of inhabitants on Mars."
+            ]
+      },
+      {
+            "name": "Other Space Services",
+            "short_blurb": "",
+            "summary": "",
+            "paragraphs": [
+                  "NASA CCP/CRS and deposits received for manned private spaceflight make up current revenues. NASA crewed missions account for $700M-$900M of annual revenue inside of this decade, supplemented by Polaris and Axiom private-astronaut missions. There are distinct plans for private spaceflight, both interplanetary and globally (global point-to-point in less than 45 minutes via Starport infrastructure) that could be significant as well. Other space services — satellite servicing, orbit-to-orbit transport (orbital tug), and rocketry IP licensing or manufacture for sale — are a smaller line modeled conservatively but capable of opening entirely new business lines. These segments are also where SpaceX's Mars ambitions begin to monetize: as the cadence and payload economics improve, the path toward a self-sustaining off-planet presence underwrites optionality that the comps cannot capture. Elon has referenced a space hotel in a recent JP Morgan roadshow appearance. Overall, we have these segments as relatively benign in the scenario weighting, but we maintain them as a placeholder as there is outlier potential for these segments over time, particularly as the core mission of SpaceX (and Elon's compensation) are centered around a threshold of inhabitants on Mars."
+            ]
+      },
+      {
+            "name": "Starlink Connectivity",
+            "short_blurb": "",
+            "summary": "",
+            "paragraphs": [
+                  "Starlink is SpaceX's cash cow: $11.39B revenue and roughly $7.17B of adjusted EBITDA in 2025, a 63% margin that expanded from ~50% as the constellation scaled and fixed costs leveraged. 12M+ subscribers across 164 countries. ARPU compressed from $86 to $66 as Starlink expanded into lower-income geographies, but the May 2026 price increase signals a deliberate shift from land-grab toward monetizing the existing base. Aviation and maritime adoption are rapidly accelerating and carries materially higher ARPU than the consumer tier. S-1 calibration lifted our base-case revenue anchor from ~$9.8B to ~$18B, and our scenarios apply revenue CAGRs of roughly 15% / 35% / 55% (Bear / Base / Bull) with margins trending toward the mid-60s."
+            ]
+      },
+      {
+            "name": "Starlink Direct-to-Cell",
+            "short_blurb": "",
+            "summary": "",
+            "paragraphs": [
+                  "DTC represents an entirely new revenue stream, monetized initially through carrier licensing fees from T-Mobile, KDDI, Optus, Rogers and others. The addressable opportunity is large — global cellular profits run ~$400B/yr, and the directly serviceable supplemental-coverage market is on the order of $40-100B — of which Starlink should be able to capture a significant component. Crucially, Direct-to-cell rides on the Gen2 constellation, which is already launching, so the marginal cost of per additional client is relatively low. Bilateral spectrum agreements now exist in dozens of countries. This is the most binary segment in the model on a 5-year basis: outcomes hinge on spectrum, handset compatibility, regulatory/political questions, and carrier deal-structure rather than on technical feasibility - which is now demonstrated. With the new generation of Starlink satellites offering superior speeds, we could very well see massive adoption growth in home and businesses as Starlink goes from internet back-up or remote use-cases to core home and business internet connection."
             ]
       },
       {
             "name": "Starshield & Golden Dome",
+            "short_blurb": "",
+            "summary": "",
             "paragraphs": [
-                  "SpaceX is the leading defense neo-prime contractor in an era of considerable geopolitical uncertainty, and Q2 added over $6B of multi-year U.S. government awards for Starshield, bringing the total to $8B. This represents more than 1/3 of the Space Force & DoW’s spend on the Golden Dome. The SDN Backbone at $2.29B, AMTI satellites at $4.16B, an NRO $1.8B classified contract, and a Space Force PLEO IDIQ has ceiling of $13B. In aggregate SpaceX's recent defense awards exceed the combined awards of all other companies in the segment. Our updated base case carries ~$4.5B of 2026 revenue scaling to ~$14.7B by 2030 (probability-weighted), with Golden Dome's $175B/decade program representing the bull-case ceiling (~$20B/yr as the de facto milspace backbone)."
+                  "SpaceX is the best-positioned defense neo-prime contractor in an era of considerable geopolitical uncertainty. $6.45B in new Golden Dome contracts in 2026: the SDN Backbone at $2.29B (with an end-2027 prototype milestone) plus AMTI satellites at $4.16B. Additional awards: an NRO $1.8B classified satellite contract and a Space Force PLEO IDIQ ceiling of $13B. In aggregate, SpaceX's recent defense awards exceed the combined awards of all other companies in the segment, underscoring its leading neo-prime status. These contracts are multi-year, so initial revenues are conservatively projected with lower weighting; our scenarios run a base case near $2.3B scaling toward a bull case of roughly $6.5B as Golden Dome and Starshield production ramp."
             ]
       },
       {
-            "name": "xAI (Grok + Cursor)",
+            "name": "xAI Software (Grok + API)",
+            "short_blurb": "",
+            "summary": "",
             "paragraphs": [
-                  "The AI segment printed its inflection quarter: revenue of $2.6B in Q2 (+247% YoY) and the first quarter of positive AI Adjusted EBITDA (+$1.1B, from $(609)M in Q1). Grok 4.5 released July 2026, trained alongside Cursor with the 1.5T-parameter lineage anchoring the model franchise, and the $60B Cursor acquisition closes in Q3, bringing the leading AI coding surface in-house. We raise our Cursor base/bull ARR anchors to $4.5B/$5.5B accordingly given the anecdotal feedback on Grok Bot, SpaceXAI’s cleaner, better designed Clawdbot-like agent. Monetization runs across SuperGrok, enterprise API, and rapidly growing DoD contracts, with X distribution (600M+ users) providing a low-CAC funnel. Our SpaceXAI software line carries ~$6.6B of 2026 revenue (probability-weighted) scaling to ~$20B by 2030 is deliberately conservative given the segment's optionality in an era of recursive self-improvement. We note that this acquisition will likely go down as a generational opportunity in the same light as Youtube or Instagram. Because of the valuation difference in the share trade at the time of clearing (about 1 week after the IPO when SPCX was above 200/share), the transaction may effectively look like a <20B purchase of one of the few teams that bring both the pace and ‘shocking zone of competence’ that is expected within SpaceX. We are seeing early signs of this as Cursor and Grok Bot eat meaningful engineering and corporate AI build budgets."
+                  "Grok + API $3.201B of revenue in FY2025 against an operating loss of roughly $(6.355B) — the heavy training-and-talent investment that funds Grok's position among the top two-to-three frontier models. The application layer is inflecting fast: Cursor went from $1B in ARR in November to $2B+ in ARR in March, and we assume the ~$60B acquisition is likely to consummate shortly after the IPO. Monetization runs across SuperGrok, enterprise API, and rapidly growing DoD / Department-of-War contracts, with X distribution (600M+ users) providing a low-cost-CAC funnel. AI Foundation models, or \"the Sport of Kings\" is an incredibly competitive and capital-intensive industry and thus the AI business is currently unprofitable. We expect inflection to profitability by late 2026 into early 2027 as inference costs fall and enterprise/API revenue scales against a largely fixed base. Also, Macrohard could prove very compelling and Grok Build is rapidly scaling, entering an era of recursive self-improvement and asymptotic intelligence."
             ]
       },
       {
-            "name": "Terrestrial Data Centres (TDCs)",
+            "name": "Colossus Data Centers",
+            "short_blurb": "",
+            "summary": "",
             "paragraphs": [
-                  "Colossus and its siblings are now disclosed in total gigawatts, and we model it that way: nameplate compute reached 1.4 GW in Q2 (0.4 GW a year ago; 1.0 GW in Q1), on its way to ~2 GW exiting 2026, and we underwrite 10/20/30 GW (Bear/Base/Bull) of installed compute by 2030 at $9-14B of revenue per GW-year — the market-clearing rate implied by $27.8B/yr of contracted tenancy (Anthropic ~$15B, Google ~$11B, Reflection ~$1.8B) against ~2 GW of exit-2026 capacity. Q2 validated both sides of the build: $14.1B of new Cloud Services Agreements signed in the quarter against $15.8B of AI capex, pre-leasing nearly one-for-one with construction. The structural insight remains under-priced: SpaceX's compute landlord business is funded by its AI rivals, converting the most feared line in the bear case (AI capex) into contracted, tenant-financed infrastructure. Our probability-weighted build reaches ~$305B of Colossus revenue by 2030 at 65% base-case EBITDA margins. Colossus II is training Grok's frontier models today and serves as the terrestrial bridge to the Orbital Data Center roadmap."
+                  "The 300MW, 220,000 NVIDIA GPU-equivalent cluster in Memphis — stood up in a now-famous 122-day build that demonstrated SpaceX/xAI's shocking speed advantage in deploying compute. The $15 billion Anthropic and $11 billion Google agreements validate the market-clearing price for frontier GPU-hours and their resultant tokens, and these contrasts de-risk the buildout by underwriting third-party demand alongside xAI's own training needs. SpaceX targets roughly 1 million GPU-equivalent additions per year, a commitment it intends to sustain across a multi-year horizon. Colossus II is now operational, training novel Grok models, Macrohard, and it serves as the terrestrial bridge to the Orbital Data Center roadmap."
             ]
       },
       {
             "name": "X Platform & XMoney",
+            "short_blurb": "",
+            "summary": "",
             "paragraphs": [
-                  "550-600M MAU and roughly 245-250M DAU. The Q2 print lacked clarity and coverage on X.com and the recent launch of Xmoney. Advertising revenue of $367M declined 14% year-over-year (~$1.5B annualized), well below the pre-IPO recovery narrative. We accordingly cut the X Platform standalone build to ~$2.2B of 2026 base revenue (advertising $1.5B, subscriptions, data licensing), the platform's strategic value increasingly flows through other lines: exclusive Grok training data, zero-CAC distribution for SuperGrok, and XMoney (launched April 2026 with Visa integration across 41 US states, 6% APY on deposits). We carry the super-app/XMoney upside qualitatively rather than in specific predictions; but a WeChat-style transition would drive non-linear revenue per user that the current line does not assume. Given the lack of mention of X.com and XMoney it would not be unreasonable for observers to assume these businesses could be spun out of the group over time. However, given the uncommon synergies and connective tissue that social commentary and payments offer, we think this would likely be a mistake and shouldn’t be done prematurely."
+                  "550-600M MAU and roughly 245-250M DAU, with $3.5B of FY2025 revenue of which ~70-75% is advertising — a base that has recovered strongly from the ~$2.7B 2023 trough. XMoney launched April 2026 with Visa integration, P2P payments across 41 US states, >100M DAU on the payments surface, and 6% APY on deposits. Our model raises X Platform's 2026 base revenue to $7B, reflecting XMoney, creator monetization, AI-targeted advertising powered by Grok, and an expanding app scope toward the WeChat-style super-app model — a transition that, if it lands, drives non-linear revenue per user rather than the linear ad-load economics the current multiple assumes."
             ]
       },
       {
             "name": "Orbital Data Centers",
+            "short_blurb": "",
+            "summary": "",
             "paragraphs": [
-                  "In-space compute offers distinct advantages – low levelized cost of energy with high capacity-factor solar arrays, improved cooling through highly engineered radiators, faster networking via lasers through the vacuum of space, but most importantly the elimination of the NIMBY/permitting constraint (holding up more than 50% of planned US data centers with very concerning movements from states including Ohio and Texas). Q2 strengthened the two upstream prerequisites: Starship V3 flew twice, and terrestrial compute demand was contractually validated at massive premiums $13-14B/GW-yr. This line remains classified speculative with first commercial operation modeled in 2031 (~$8.6B) scaling to ~$68B by 2035; the transformational case is cost-per-FLOP parity with terrestrial compute, at which point the structural advantages convert a niche into a platform shift in where large-scale AI training is done, a market SpaceX is uniquely positioned to serve given its launch, satellite, tenancy, and chip-fabrication stack. Execution before the 2030s would be considered upside."
-            ]
-      },
-      {
-            "name": "Terafab",
-            "paragraphs": [
-                  "The vertically integrated semiconductor fabrication project announced in March 2026 building a custom space-optimized ASICs for training on ODCs, high-performance compute for TDCs, and edge-node inference chips for Tesla robots and cars alongside a potential telecom-integrated edge device. Terafab consolidates chip design, lithography, HBM memory, advanced packaging, and test under a single gigantic roof of a mind-bending 100 million square feet in Grimes, Texas. Somewhat ironically, Elon enters Grimes again. Terafab is also consolidating a series of steps that today are fragmented across TSMC, ASML, SK Hynix and others. From supplying AI5-class FSD silicon, AI6-class Optimus inference, and D3-class space-hardened training chips. Target capacity exceeds 1 terawatt of AI compute per year; first phase ~$55B (co-wide capex of $18.4B in Q2 partly funds the Grimes County build), full buildout up to $119B. Revenue is modeled beginning 2031 (~$4.5B base). While this is among the longest dated and considered more speculative and thus discounted, we note the potentially incredible upside potential herein given the considerable ambition of Terafab. It is worth noting that little was said about Terafab as SpaceX was more explicit about its exclusive partnership with Nvidia. It would not be unreasonable for one to imagine that there is space in Terafab for a novel AI edge-node device, and we wouldn’t be surprised to see a device akin to the Omni in Wondla come out of the Tesla engineering team."
+                  "In-space compute with distinct advantage – lowered levelized cost of energy with high capacity-factor solar arrays, improved cooling through highly engineered radiators, faster networking via lasers through the vacuum of space, and the elimination of the NIMBY/permitting constraint (holding up nearly 50% of planned US data centers). This business line is conservatively classified as speculative; estimated first commercial operation in 2030, noting that there is a reasonable chance that ODCs come online before that and have significant upside similar to Colossus or are potentially delayed in achieving scale. The transformational case is cost-per-FLOP parity with terrestrial compute: once orbital launch and on-orbit assembly costs fall far enough that a watt of space-based compute is competitive with a watt on the ground, the structural advantages above (energy, cooling, networking, no permitting) convert a niche into a potential platform shift in where large-scale AI training is done — a market SpaceX is uniquely positioned to serve given its launch, satellite, and chip-fabrication stack."
             ]
       },
       {
             "name": "Deep Space Optionality",
+            "short_blurb": "",
+            "summary": "",
             "paragraphs": [
-                  "Deep Space Optionality includes a range of far-reaching businesses on the roadmap with economic models that are not yet well understood from Lunar then Mars colonization, resource extraction on celestial bodies, orbit-to-orbit transport, and exploratory R&D. The February 2026 lunar focus which was accelerated by NASA a self-growing Moon city inside 10 years, with a launch window every 10 days versus Mars's 26-month cycle compresses the iteration loop on everything in this bucket and brings the sci-fi future Elon envisions closer. Ambitious targets sustain a narrative premium and attract the best talent in aerospace. Our model treats this as a small probability-weighted deeply discounted DCF contribution so it does not double-count optionality recognized elsewhere."
+                  "Deep Space Optionality includes a range of far-reaching businesses that are on the roadmap, but possess economic models that are not as well understood — Lunar then Mars colonization, resource extraction on other planets and asteroids, orbit-to-orbit transport, and exploratory R&D. We note that ambitious targets, such as 2028 lunar missions, sustain a narrative premium and attracts the best talent in aerospace. Our model treats this as a small probability-weighted DCF contribution that we treat as a deep-DCF, so it does not double-count optionality recognized elsewhere."
+            ]
+      },
+      {
+            "name": "Terafab — Semiconductor Mfg",
+            "short_blurb": "",
+            "summary": "",
+            "paragraphs": [
+                  "The vertically integrated semiconductor fabrication project announced in March 2026 building 1- custom space-optimized ASICs for training in space, 2- high-performance compute for Colussus, and 3- specific edge-node inference chips both for Tesla robots and cars alongside a potential edge- node device with telecommunications (think, the next generation of the smart phone) that SpaceX is uniquely positioned to offer. The world's largest chip-manufacturing facility under one roof, and the most vertically integrated: Terafab is designed to consolidate chip design, lithography, HBM memory, advanced packaging, and test under a single roof — the steps that today are fragmented across TSMC, ASML, SK Hynix and others. It would supply SpaceX's own roadmap (AI5-class FSD silicon, AI6-class Optimus inference, and D3-class space-hardened training chips) rather than depend on the merchant market. Target capacity is over 1 terawatt of AI compute per year. First phase is ~$55B, with full buildout up to $119B. Revenue is modeled beginning 2031 to account for the unknown unknowns in chip design and foundry development, making this the longest-dated and most heavily discounted line in the SOTP."
             ]
       }
 ];
 
-    const ANNEX_G_YEARS = ["2026","2027","2028","2029","2030","2031","2032","2033","2034","2035"];
-    const ANNEX_G_UNITS = [
-      {n:"Launch Services", tier:"ANCHOR", ev:"$205B", key:"launch", blurb:"Falcon + Starship + HLS + crewed spaceflight + other space services. Probability-weighted. CAGR 2026–2035: ~27%.",
-       r:["$14.5B","$23.0B","$31.8B","$43.9B","$61.0B","$72.8B","$87.2B","$105.0B","$127.0B","$154.5B"],
-       e:["$6.8B","$11.0B","$15.3B","$21.4B","$30.1B","$36.1B","$43.5B","$52.7B","$64.1B","$78.5B"],
-       m:["46.7%","47.5%","48.1%","48.7%","49.3%","49.6%","49.9%","50.2%","50.5%","50.8%"],
-       f:["$254M","$681M","$3.3B","$8.9B","$15.4B","$7.7B","$9.5B","$11.8B","$14.6B","$18.3B"]},
-      {n:"Starlink", tier:"ANCHOR", ev:"$3,058B", key:"starlink", blurb:"Residential + business + aviation + maritime + mobile (D2C folded in). Probability-weighted. CAGR 2026–2035: ~53%.",
-       r:["$18.0B","$39.0B","$88.3B","$200.1B","$453.6B","$511.9B","$577.8B","$652.2B","$736.3B","$831.1B"],
-       e:["$11.3B","$24.6B","$55.7B","$126.0B","$285.2B","$322.1B","$363.8B","$410.9B","$464.1B","$524.2B"],
-       m:["62.7%","63.1%","63.1%","63.0%","62.9%","62.9%","63.0%","63.0%","63.0%","63.1%"],
-       f:["$3.4B","$11.0B","$31.5B","$84.1B","$206.8B","$160.8B","$181.8B","$205.5B","$232.4B","$262.7B"]},
-      {n:"Starshield", tier:"ANCHOR", ev:"$107B", key:"starshield", blurb:"Defense contract pipeline — Starshield (Golden Dome backbone). Probability-weighted. CAGR 2026–2035: ~32%.",
-       r:["$3.0B","$6.4B","$8.4B","$11.1B","$14.8B","$17.6B","$21.2B","$25.5B","$30.9B","$37.6B"],
-       e:["$1.3B","$2.7B","$3.6B","$4.9B","$6.6B","$8.0B","$9.7B","$11.9B","$14.6B","$17.9B"],
-       m:["41.7%","42.4%","43.2%","44.0%","44.8%","45.4%","46.0%","46.6%","47.2%","47.8%"],
-       f:["$38M","$566M","$810M","$1.7B","$2.9B","$4.2B","$5.3B","$6.6B","$8.2B","$10.1B"]},
-      {n:"xAI", tier:"ANCHOR", ev:"$229B", key:"xai", blurb:"Grok + API / software. Probability-weighted. CAGR 2026–2035: ~23%.",
-       r:["$22.1B","$29.0B","$37.8B","$49.5B","$64.8B","$75.2B","$87.4B","$101.7B","$118.4B","$138.0B"],
-       e:["$10.9B","$14.5B","$19.2B","$25.4B","$33.7B","$39.4B","$46.1B","$54.1B","$63.4B","$74.3B"],
-       m:["49.4%","50.1%","50.8%","51.4%","52.0%","52.4%","52.8%","53.2%","53.5%","53.9%"],
-       f:["$7.6B","$10.0B","$13.2B","$18.1B","$24.7B","$8.8B","$10.3B","$12.1B","$14.2B","$16.8B"]},
-      {n:"Terrestrial Data Centres", tier:"ANCHOR", ev:"$894B", key:"terrestrialDc", blurb:"Terrestrial / Colossus data centres. Probability-weighted. Large 2027 UFCF draw from GW build. CAGR 2026–2035: ~52%.",
-       r:["$23.1B","$105.1B","$149.9B","$213.9B","$305.3B","$387.9B","$493.3B","$628.0B","$800.0B","$1,019.9B"],
-       e:["$15.8B","$72.6B","$103.7B","$148.3B","$211.9B","$270.0B","$344.4B","$439.5B","$561.3B","$717.4B"],
-       m:["68.5%","69.1%","69.2%","69.3%","69.4%","69.6%","69.8%","70.0%","70.2%","70.3%"],
-       f:["−$37.5B","−$263.0B","−$62.1B","$20.8B","$90.0B","$38.3B","$50.3B","$65.9B","$86.3B","$112.9B"]},
-      {n:"X Platform", tier:"PLAUSIBLE", ev:"$4B", key:"xPlatform", blurb:"X advertising + XMoney optionality. Probability-weighted. CAGR 2026–2035: ~11%.",
-       r:["$1.5B","$1.7B","$1.9B","$2.2B","$2.5B","$2.7B","$2.9B","$3.2B","$3.5B","$3.9B"],
-       e:["$273M","$314M","$364M","$423M","$495M","$547M","$605M","$672M","$747M","$834M"],
-       m:["18.2%","18.7%","19.1%","19.6%","20.1%","20.3%","20.6%","20.9%","21.2%","21.5%"],
-       f:["−$39M","−$7M","$32M","$79M","$136M","$204M","$259M","$303M","$348M","$394M"]},
-      {n:"Orbital Data Centres", tier:"SPECULATIVE", ev:"−$3B", key:"orbitalDc", blurb:"In-space compute. First commercial revenue 2031. Negative 10-year SOTP because early capex precedes cash generation.",
-       r:["—","—","—","—","—","$8.6B","$14.3B","$23.9B","$40.3B","$68.3B"],
-       e:["—","—","—","—","—","$4.5B","$7.7B","$13.0B","$22.2B","$38.1B"],
-       m:["—","—","—","—","—","52.7%","53.5%","54.3%","55.1%","55.8%"],
-       f:["−$400M","−$1.6B","−$6.4B","−$10.3B","−$13.7B","−$8.0B","−$3.8B","$18M","$1.2B","$2.8B"]},
-      {n:"Deep Space Optionality", tier:"SPECULATIVE", ev:"−$0.7B", key:"deepSpace", blurb:"Moon-first cadence, asteroid extraction, P2P transport. Narrative premium. Treated as near-zero in the 10-year SOTP.",
-       r:["—","—","—","—","—","$24M","$27M","$32M","$38M","$46M"],
-       e:["—","—","—","—","—","$11M","$13M","$15M","$19M","$23M"],
-       m:["—","—","—","—","—","44.8%","46.3%","47.8%","49.2%","50.7%"],
-       f:["—","—","—","-$90M","-$180M","-$145M","-$120M","-$98M","-$79M","-$61M"]},
-      {n:"Terafab", tier:"PLAUSIBLE", ev:"−$6B", key:"terafab", blurb:"Semiconductor manufacturing. Revenue modelled from 2031. Negative 10-year SOTP on pre-revenue capex.",
-       r:["—","—","—","—","—","$4.5B","$7.4B","$12.5B","$21.1B","$36.0B"],
-       e:["—","—","—","—","—","$2.0B","$3.3B","$5.7B","$9.9B","$17.3B"],
-       m:["—","—","—","—","—","43.8%","44.9%","45.9%","47.0%","47.9%"],
-       f:["−$1.5B","−$7.5B","−$12.2B","−$13.1B","−$13.9B","−$10.2B","−$7.4B","−$4.0B","$574M","$5.0B"]}
-    ];
-    const annexGTables = ANNEX_G_UNITS.map((u, i) => ({
-      title: `G${i + 1}  ·  ${u.n}  ·  ${u.tier}  ·  Base EV ${u.ev}`,
-      head: ["Metric"].concat(ANNEX_G_YEARS),
-      rows: [
-        ["Revenue"].concat(u.r),
-        ["EBITDA"].concat(u.e),
-        ["EBITDA Margin"].concat(u.m),
-        ["UFCF"].concat(u.f)
-      ],
-      note: u.blurb
-    }));
-
     const risks = [
       {
             "title": "Execution & Technology Risk",
+            "summary": "",
             "paragraphs": [
                   "Starship's commercial timeline is a risk, as is the timeline of direct-to-cell, Terafab and to a lesser extent Colossus, and Starshield. Numerous projects, in particular Terafab, represent enormous capital commitments with binary outcomes. If the $55 billion Terafab Capex does not produce cost-competitive chips for AI training, it could be written down."
             ]
       },
       {
             "title": "Key-Man Risk",
+            "summary": "",
             "paragraphs": [
-                  "All of the businesses are dependent on Elon Musk for design direction and important cultural leadership. Any event that reduces Musk's involvement, including legal, political, or personal, and would likely cause rapid multiple compression, even if the risk event doesn’t affect business fundamentals or competitive positioning."
+                  "All of the businesses are dependent on Elon Musk for design direction and important cultural leadership. Any event that reduces Musk's involvement -- legal, political, or personal -- would likely cause rapid multiple compression, even if the risk event doesn't affect business fundamentals or competitive positioning."
             ]
       },
       {
             "title": "Regulatory & Political Concentration Risk",
+            "summary": "",
             "paragraphs": [
                   "SpaceX's Starshield and Golden Dome revenues are politically concentrated in the current administration. Particularly, an antagonistic Democrat-controlled branch of government could hold back the business in different ways. A change in administration could materially slow or cancel government programs. Other countries and companies could decide not to work with SpaceX for geopolitical reasons, thereby propping up the competition and digesting some market potential over time. Regulatory risk is also the primary concern with respect to a potential merger with Tesla."
             ]
       },
       {
             "title": "Competition & Market Structure",
+            "summary": "",
             "paragraphs": [
-                  "Our analysis concluded that the most significant competition across the business units of SpaceX comes primarily from China today, both from state-sponsored projects as well as private enterprises such as i-Space and LandSpace. It would be unwise to underestimate the Chinese in their ability to develop, manufacture, and push the boundaries of exploration. Space pure-play competitors in America do exist and are growing with formidable backing of Amazon’s Blue Origin, Rocket Lab ($RKLB), and Eric Schmidt’s Relativity are all relevant, even amidst some technical setbacks and scale limitations therein.",
-                  "Note: We observe with opportunistic excitement the flowering of an array of ‘SpaceX Cubs’ or ‘SpaceX Mafia’ offspring led by former SpaceX team members that are building compelling technologies. Impulse, Starcloud, Verda, Apex, Firefly and others may present new opportunities for acquisition and these different experiments may prove positive.",
-                  "Finally, but very importantly, the cost of serving intelligence in AI is rapidly decreasing, which could have profound impacts on society and industry. The nature of AI may fundamentally change to primarily edge-computing, open-source. We think it could be plausible for Grok to convert to open source or potentially a 2-tier structure offering an off-frontier open source at dramatically lower cost and thus lower margins in SpaceXAI and TDCs. Recursive self improvement or RSI, could result in totally unforeseen solutions to the compute dearth and change the supply-demand dynamic for tokens in unforeseen ways. There are many ways AI could commodify quickly, rendering massive previous capital expenditure as sunk cost."
+                  "Our analysis concluded that the most significant competition across the business units of SpaceX comes primarily from China today, both from state-sponsored projects as well as private enterprises such as i-Space and LandSpace. It would be unwise to underestimate the Chinese in their ability to develop, manufacture, and push the boundaries of exploration. Space pure-play competitors in America do exist and are growing with formidable backing – Amazon's Blue Origin, Rocket Lab ($RKLB), and Eric Schmidt's Relativity are all relevant, even amidst some technical setbacks and scale limitations therein.",
+                  "Note: We observe with opportunistic excitement the flowering of an array of 'SpaceX Cubs' or 'SpaceX Mafia' – offspring led by former SpaceX team members that are building compelling technologies. Impulse, Verda, Apex, Firefly and others may present new opportunities for acquisition and these different experiments may prove positive.",
+                  "Finally, but very importantly, the cost of serving intelligence in AI is rapidly decreasing, which could have profound impacts on society and industry. The nature of AI may fundamentally change to primarily edge-computing, open-source. Recursive learning could result in totally unforeseen solutions to the compute dirth. There are many ways AI could commodify quickly, rendering massive previous capital expenditure as sunk cost."
             ]
       },
       {
             "title": "Financial & Balance Sheet Risk",
+            "summary": "",
             "paragraphs": [
-                  "The IPO transformed the balance sheet: $100.0B of cash and marketable securities against roughly $39.5B of debt and finance leases including the inaugural $25B investment-grade issue at a 5.855% weighted-average coupon, net cash of $60.5B at 30 June 2026, versus net debt of $13.2B pre-IPO. The risk has not fully migrated from financing to deployment; on our own model it remains both. Charging the full capital programme through unlevered free cash flow, the base case consumes cash in every year to 2028: $23.2B in 2026, -$248.4B in 2027 and -$27.2B in 2028, turning positive at +$117.1B in 2029 and cumulatively positive in 2030. The cumulative deficit peaks at $298.8B in 2028 against $100.0B of gross liquidity and $60.5B of net cash, implying an external financing requirement of approximately $238.3B, which at our 35% leverage target splits roughly $83.4B of debt and $154.9B of equity. Three segments, the Terrestrial Data Centres, Orbital Data Centres and Terafab, carry negative unlevered free cash flow until 2031 (Annex G). We regard this as a financeable requirement rather than a solvency question, given the backlog, the degree of pre-leasing and the composition of the register; but it is a requirement, and any deterioration in credit conditions or in the pace of CSA signings before 2028 bears directly on it. H1 capex of $28.5B ($15.8B of AI capex in Q2 alone) annualizes near $60B, and the build is increasingly pre-leased ($14.1B of CSAs signed in Q2; $47.5B backlog) but concentrated the largest Colossus tenants (Anthropic, Google) are also xAI's direct competitors, and could in-source or cut contracts that are out-of-the-money on a 90 day timeline, yet another reminder that Frontier Models are truly the Sport of Kings. Related-party interest ($327M in Q2) and the coming lockup expiry could theoretically be additional watch items, but we would argue that if you look down the cap table, the vast majority of the owners are deeply convicted supporters of SpaceX or Sovereigns (Saudi) and Endowments (Harvard) that possess an extremely long-term strategy. Sustained negative net income also defers the index-inclusion catalyst, which could impact the Tesla merger and other financing benefits."
+                  "Total long-term debt of $29.1 billion against cash of $15.9 billion produces net debt of $13.2 billion. Q1 2026 burned $8.9 billion in cash (R&D and xAI integration costs). The $75 billion IPO raise is indeed necessary for short term growth. Further dilutive fundraising could drag down return profile in the short and medium term."
             ]
       },
       {
             "title": "The Elon Premium",
+            "summary": "",
             "paragraphs": [
-                  "Prior to the IPO we underwrote that at $1.5T the Elon Premium comes for free; the market has now delivered better than that. At current levels the buyer pays a median-lab multiple for the fastest-growing trillion-dollar company on record and receives the launch monopoly, the defense franchise, Terafab, ODCs, and Deep Space optionality for free."
+                  "The Elon Premium is real, measurable, and -- in our view -- historically justified. SpaceX at 43x 2026E Revenue requires the market to continue believing in the full convergence flywheel and for multiple business units to have successful outcomes. Note that at $1.5 trillion ($112/share), the Elon Premium comes for free."
             ]
       }
 ];
@@ -2387,205 +2028,88 @@
       {
             "letter": "A",
             "title": "Annex A: Probability-Weighted Valuation Summary",
-            "summary": "Blended EV, equity value, and per-share across 5yr, 10yr, and 20yr horizons. WACC 9.0%, terminal g 4.0%. All tables and figures are the Q3 2026 v5 model. Blended fair value $4.27T / $310.90 per share.",
-            "paragraphs": [],
-            "tables": [
-              {
-                title: "Probability-weighted valuation by horizon",
-                head: ["Horizon","Years","EV ($B)","Net Cash ($B)","Equity ($B)","Per Share ($)"],
-                rows: [
-                  ["5-Year","2026–2030","$3,031","$60.5","$3,092","$225.04"],
-                  ["10-Year","2026–2035","$4,995","$60.5","$5,056","$367.97"],
-                  ["20-Year","2026–2045","$7,955","$60.5","$8,015","$583.37"],
-                  {className:"is-total", cells:["Blended (55/35/10)","—","$4,211","$60.5","$4,272","$310.90"]}
-                ],
-                note: "Blended weights: 5yr 55%, 10yr 35%, 20yr 10%. Equity = EV + $60.5B net cash at 30 June 2026, on 13,740.0M fully diluted shares."
-              },
-              {
-                title: "Monte Carlo distribution — 4,632 valid trials of 5,000",
-                head: ["Percentile","Equity ($B)","Per Share ($)","Interpretation"],
-                rows: [
-                  ["P10 — Downside","$1,504","$109.49","Stressed WACC, bear scenarios dominate"],
-                  {className:"is-highlight", cells:["P50 — Median","$4,319","$314.36","Probability-weighted central outcome"]},
-                  ["P90 — Upside","$8,641","$628.86","Bull scenarios + low WACC"],
-                  ["Mean","$4,847","$352.73","Right-skewed; 368 trials rejected (WACC−g too tight)"]
-                ]
-              }
+            "summary": "",
+            "paragraphs": [
+                  "- 5-Year Horizon (2026-2030): $61.73/share",
+                  "- 10-Year Horizon (2026-2035): $199.46/share",
+                  "- 20-Year Horizon (2026-2045): $759.57/share",
+                  "- Blended valuation range: $166-$258/share"
             ]
       },
       {
             "letter": "B",
             "title": "Annex B: Sum-of-the-Parts Valuation",
-            "summary": "Per-segment PV of 10-year UFCF plus Gordon Growth terminal value. WACC 9.0%, terminal g 4.0%.",
+            "summary": "",
             "paragraphs": [
-                  "Figure B1: Cumulative SOTP enterprise value as business units are added, Bear / Base / Bull. Starlink (68.2%) and Terrestrial Data Centres (19.9%) dominate the base case. Terafab, Orbital Data Centres and Deep Space Optionality carry negative base-case contribution, reflecting pre-2031 capex with no offsetting revenue inside the 10-year horizon; the total is $4,497B of positive contribution less $9.9B of negative. The base-case total restates from $4,672B to $4,487B; that $185B reduction reflects the model recut rather than the removal of the three folded lines, which were carried at zero throughout. Percentages may not sum to 100 due to rounding."
-            ],
-            "tables": [
-              {
-                title: "SOTP enterprise value by segment ($B)",
-                head: ["#","Tier","Business Unit","PV UFCF","PV TV","Bear EV","Base EV","% Total","Bull EV"],
-                rows: [
-                  ["1","ANCHOR","Launch Services","$49.8","$156","$55","$205","4.6%","$452"],
-                  ["2","ANCHOR","Starlink","$747","$2,311","$1,201","$3,058","68.2%","$4,722"],
-                  ["3","ANCHOR","Starshield","$21.0","$85.6","$29","$107","2.4%","$235"],
-                  ["4","ANCHOR","xAI","$85.1","$144","$48","$229","5.1%","$503"],
-                  ["5","ANCHOR","Terrestrial Data Centres","−$59.6","$953","$185","$894","19.9%","$1,966"],
-                  ["6","PLAUSIBLE","X Platform","$0.9","$3.4","$1","$4","0.1%","$9"],
-                  ["7","PLAUSIBLE","Terafab","−$45.2","$38.8","−$12","−$6","−0.1%","$1"],
-                  ["8","SPECULATIVE","Orbital Data Centres","−$28.0","$25.2","−$5","−$3","−0.1%","$1"],
-                  ["9","SPECULATIVE","Deep Space Optionality","−$0.4","−$0.2","−$1","−$1","0.0%","$0.1"],
-                  {className:"is-total", cells:["—","TOTAL","Enterprise Value (10-Year SOTP)","$770","$3,716","$1,502","$4,487","100%","$7,889"]}
-                ],
-                note: "WACC 9.0% | Terminal g 4.0% | PV UFCF = SUMPRODUCT of 10yr UFCF with discount factors | PV TV = Gordon Growth on year-10 UFCF."
-              }
+                  "- 12 business segments valued separately",
+                  "- Launch Services: $324B base case",
+                  "- Starlink Connectivity: $745B base case",
+                  "- Starshield & Golden Dome: $190B base case",
+                  "- xAI Software: $86B base case",
+                  "- Colossus Data Centers: $329B base case",
+                  "- Crewed Spaceflight: $63B base case",
+                  "- Starlink Direct-to-Cell: $380B base case",
+                  "- Other Space Services: $6B base case",
+                  "- X Platform & XMoney: $53B base case",
+                  "- Terafab Semiconductor: $54B base case",
+                  "- Orbital Data Centers: $27B base case",
+                  "- Deep Space Optionality: $0.02B base case",
+                  "Total Enterprise Value (10-Year): $2,257B"
             ]
       },
       {
             "letter": "C",
-            "title": "Annex C: Consolidated Revenue & UFCF Projections",
-            "summary": "Probability-weighted consolidated P&L by business unit, 2026–2035. All figures in $M.",
-            "paragraphs": [],
-            "tables": [
-              {
-                title: "Consolidated revenue by business line ($M)",
-                head: ["Business Line","2026E","2027E","2028E","2029E","2030E","2032E","2035E"],
-                rows: [
-                  ["Launch Services","14,546","23,050","31,754","43,935","61,042","87,206","154,512"],
-                  ["Starlink","18,000","38,997","88,335","200,145","453,590","577,841","831,141"],
-                  ["Starshield","3,001","6,363","8,359","11,066","14,767","21,151","37,560"],
-                  ["xAI","22,099","29,033","37,845","49,456","64,782","87,432","137,952"],
-                  ["Terrestrial Data Centres","23,069","105,060","149,885","213,883","305,276","493,336","1,019,890"],
-                  ["Orbital Data Centres","—","—","—","—","—","14,300","68,341"],
-                  ["X Platform","1,500","1,684","1,901","2,159","2,466","2,934","3,880"],
-                  ["Terafab","—","—","—","—","—","7,444","36,021"],
-                  ["Deep Space Optionality","—","—","—","—","—","27","46"],
-                  {className:"is-total", cells:["Total Revenue ($M)","82,214","204,187","318,079","520,645","901,924","1,291,672","2,289,343"]},
-                  ["Group EBITDA Margin","56.3%","61.6%","62.2%","62.7%","63.0%","63.4%","64.2%"],
-                  {className:"is-total", cells:["Total UFCF ($M)","(23,209)","(248,407)","(27,185)","117,112","323,454","271,831","472,987"]}
-                ],
-                note: "Revenue CAGR 2026–2035: ~45%."
-              },
-              {
-                title: "DCF Build by Horizon",
-                head: ["Horizon","Years","PV of UFCFs ($B)","PV of Terminal Value ($B)","Enterprise Value ($B)"],
-                rows: [
-                  ["5-Year","2026–2030","$278","$2,664","$2,943"],
-                  ["10-Year","2026–2035","$1,105","$4,006","$5,111"],
-                  ["20-Year","2026–2045","$3,304","$5,171","$8,475"]
-                ],
-                note: ""
-              }
+            "title": "Annex C: Consolidated Revenue & UFCF Projections (2026-2035)",
+            "summary": "",
+            "paragraphs": [
+                  "- FY2026E Revenue (Forecast): $56.2B",
+                  "- 2035E Total Revenue: $1.05T",
+                  "- Revenue CAGR 2026-2035: ~34%",
+                  "- UFCF CAGR: ~37%"
             ]
       },
       {
             "letter": "D",
             "title": "Annex D: Comparable Companies Analysis",
-            "summary": "Trading multiples. SpaceX 2026E (Q3 2026 v5): revenue $82.2B, EBITDA $46.3B.",
-            "paragraphs": [],
-            "tables": [
-              {
-                title: "Trading comparables and SpaceX implied multiples",
-                head: ["Company","Bucket","Mkt Cap ($B)","EV ($B)","Rev LTM ($B)","EBITDA ($B)","EV/Rev","EV/EBITDA"],
-                rows: [
-                  {className:"is-group", cells:["AI / High-Growth Hardware","","","","","","",""]},
-                  ["NVIDIA","AI compute","$4,250","$4,200","$195.5","$132.0","21.5x","31.8x"],
-                  ["Tesla","Mobility/energy","$1,150","$1,130","$98.0","$14.7","11.5x","76.9x"],
-                  ["Peer Median","—","—","—","—","—","16.5x","54.3x"],
-                  {className:"is-group", cells:["Defence Primes & Neo-Primes","","","","","","",""]},
-                  ["Lockheed Martin","Defence prime","$108.5","$127","$71.8","$8.7","1.8x","14.6x"],
-                  ["Palantir","AI/Defence","$355","$350","$7.5","$3.5","46.7x","100.0x"],
-                  ["Anduril","AI defence","$61","$61","$2.2","n/m","27.7x","n/m"],
-                  ["Northrop Grumman","Defence prime","$72","$88.4","$41.95","$5.98","2.1x","14.8x"],
-                  ["Peer Median","—","—","—","—","—","2.1x","14.8x"],
-                  {className:"is-group", cells:["AI Labs (Private)","","","","","","",""]},
-                  ["OpenAI","AI lab","$852","$852","$30.0","n/m","28.4x","n/m"],
-                  ["Anthropic","AI lab","$965","$965","$47.0","n/m","20.5x","n/m"],
-                  ["Peer Median","—","—","—","—","—","24.5x","n/m"],
-                  {className:"is-group", cells:["SpaceX — Implied Multiples","","","","","","",""]},
-                  ["DCF Conclusion","Hybrid","$3,856","$3,870","$71.7","$41.1","54.0x","94.2x"],
-                  {className:"is-highlight", cells:["Market ($134.13, $1.80T)","Hybrid","$1,797","$1,810","$71.7","$41.1","25.2x","44.0x"]},
-                  ["Market on 2027E","Hybrid","$1,797","$1,810","$169.5","$104.9","10.7x","17.3x"]
-                ]
-              }
+            "summary": "",
+            "paragraphs": [
+                  "- Defense Primes: 1.8x-2.1x EV/Revenue",
+                  "- AI Labs (OpenAI, Anthropic): 20.5x-28.4x EV/Revenue",
+                  "- Palantir (closest comparable): 46.7x EV/Revenue",
+                  "- SpaceX DCF Valuation: 43.5x EV/Revenue"
             ]
       },
       {
             "letter": "E",
             "title": "Annex E: Elon Premium & Implied Valuation Methods",
-            "summary": "Peer-multiple implied valuations applied to SpaceX 2026E financials ($82.2B revenue, $46.3B EBITDA), compared against the current $134.13 share price.",
-            "paragraphs": [],
-            "tables": [
-              {
-                title: "Implied valuation by method",
-                head: ["Valuation Method","Type","Multiple","Implied EV ($B)","Implied Equity ($B)","$/Share","vs IPO Mid"],
-                rows: [
-                  ["Defence median EV/Revenue","EV/Rev","2.1x","$151","$137","$10.24","−92%"],
-                  ["Defence median EV/EBITDA","EV/EBITDA","14.8x","$608","$595","$44.40","−67%"],
-                  ["AI/Growth median EV/Revenue","EV/Rev","16.5x","$1,183","$1,170","$87.29","−35%"],
-                  ["AI/Growth median EV/EBITDA","EV/EBITDA","54.3x","$2,232","$2,218","$165.55","+23%"],
-                  ["Satellite median EV/Revenue","EV/Rev","41.5x","$2,976","$2,962","$221.06","+65%"],
-                  ["70/30 Defence/AI EBITDA blend","Blend","26.7x","$1,097","$1,084","$80.90","−40%"],
-                  ["Median across methods","—","—","$1,140","$1,127","$84.09","−37%"],
-                  {className:"is-total", cells:["DCF Central Conclusion","DCF","—","$3,870","$3,856","$287.80","+115%"]}
-                ],
-                note: ""
-              }
+            "summary": "",
+            "paragraphs": [
+                  "- Defense median valuation: $104B-$440B",
+                  "- AI/Growth median valuation: $904B-$1,652B",
+                  "- Satellite median valuation: $2,291B",
+                  "- DCF Central Conclusion: $2,408B"
             ]
       },
       {
             "letter": "F",
             "title": "Annex F: Sensitivity & Scenario Analysis",
-            "summary": "Blended WACC × terminal growth grids (55/35/10 horizon mix) and sensitivity tornado. Base: WACC 9.0%, g 4.0%, blended EV $4,211B, blended equity $4,272B ($310.90/share). Equity value = enterprise value plus reported net cash of $60.5B at 30 June 2026, on 13,740.0M fully diluted shares.",
-            "paragraphs": [],
-            "tables": [
-              {
-                title: "Table F1 — Enterprise Value ($B), 10-Year Horizon: WACC × Terminal Growth Rate",
-                head: ["WACC / g","g = 3.0%","g = 3.5%","g = 4.0% *","g = 4.5%","g = 5.0%"],
-                rows: [
-                  ["7.0%","$6,289","$6,951","$7,801","$8,935","$10,522"],
-                  ["8.0%","$5,214","$5,662","$6,216","$6,918","$7,836"],
-                  ["9.0% *","$4,415","$4,733",{value:"$5,116 *",className:"cell-base"},"$5,583","$6,167"],
-                  ["10.0%","$3,800","$4,034","$4,309","$4,636","$5,032"],
-                  ["11.0%","$3,313","$3,490","$3,694","$3,932","$4,214"]
-                ]
-              },
-              {
-                title: "Table F2 — Value per Share ($): WACC × Terminal Growth Rate",
-                head: ["WACC / g","g = 3.0%","g = 3.5%","g = 4.0% *","g = 4.5%","g = 5.0%"],
-                rows: [
-                  ["7.0%","$468","$518","$581","$666","$784"],
-                  ["8.0%","$388","$422","$463","$515","$584"],
-                  ["9.0% *","$328","$352",{value:"$381 *",className:"cell-base"},"$416","$459"],
-                  ["10.0%","$283","$300","$321","$345","$375"],
-                  ["11.0%","$246","$259","$275","$292","$313"]
-                ]
-              },
-              {
-                title: "Table F3 — Sensitivity tornado",
-                head: ["Driver","Downside","Upside","Downside ($B)","Upside ($B)","Range ($B)"],
-                rows: [
-                  ["WACC ±150bps","WACC = 10.5%","WACC = 7.5%","−$1,230","+$2,330","$3,560"],
-                  ["Terminal g ±100bps","g = 3.0%","g = 5.0%","−$339","+$932","$1,271"],
-                  ["Governance discount","20% discount","0% discount","−$854","$0","$854"],
-                  ["Colossus DCs demand","−40% (AI capex slowdown)","+30% (demand acceleration)","−$357","+$268","$625"],
-                  ["Starship 24-month slip","24-mo slip, cost decay delayed","Ahead of plan (cost down 30%)","−$347","+$184","$531"],
-                  ["NOL / NWC assumptions","NOL = $0; NWC 5%","NOL = $40B; NWC 1%","−$25","+$35","$60"],
-                  ["Starlink D2C","−50% (one carrier, slow ramp)","+20% (multi-carrier)","−$2","+$1","$3"],
-                  ["Speculative bucket","All zeroed (legal/physics fail)","Bull (3× current weighting)","+$4","+$4","$1"]
-                ],
-                note: "Drivers sorted by range. WACC and governance discount remain the dominant risks. Speculative bucket is near-zero in the 10-year SOTP."
-              }
+            "summary": "",
+            "paragraphs": [
+                  "- WACC sensitivity: 7.5% to 10.5%",
+                  "- Terminal growth sensitivity: 3.0% to 5.0%",
+                  "- Base case sensitivity range: $1.5T to $3.9T",
+                  "- Key drivers: WACC ($751B downside, $1.467T upside), Terminal g ($185B downside, $509B upside)"
             ]
       },
       {
             "letter": "G",
-            "title": "Annex G: Business Unit Detail — Revenue, EBITDA & FCF",
-            "summary": "Probability-weighted revenue, EBITDA, and UFCF for each of the nine business units, 2026–2035.",
-            "paragraphs": [],
-            "tables": annexGTables
+            "title": "Annex G: Business Unit Detail",
+            "summary": "",
+            "paragraphs": [
+                  "Detailed 10-year revenue, EBITDA, and UFCF projections for all 12 business segments with specific margin assumptions and growth rates."
+            ]
       }
 ];
-
 
     function escapeHtml(value){
       return String(value).replace(/[&<>"']/g, function(char){
@@ -2609,55 +2133,48 @@
     // raw-canvas path instead of the runtime <img>-swap, which was unreliable.
     const CHART_SPECS = {
       launch_cost_learning_curve:{caption:"Launch Cost Learning Curve: Cost / Price per kg to Low Earth Orbit",source:"Hover any point for vehicle, year, and cost/price per kg basis. Competitor points use public launch-price or reported revenue-per-launch benchmarks divided by published LEO capacity. Y-axis is logarithmic.",panels:[{key:"launchCost",title:"Launch Cost Learning Curve: Cost / Price per kg to Low Earth Orbit",height:360}]},
-      q3_horizon:{caption:"Figure A1: Enterprise value by horizon. Blended (55/35/10 weighted) = $4,211B.",source:"",panels:[{key:"q3EvByHorizon",title:"Enterprise Value by Horizon",height:280}]},
-      q3_monte:{caption:"Figure A2: Monte Carlo equity distribution, 5,000 trials.",source:"",panels:[{key:"q3MonteCarlo",title:"Monte Carlo Distribution",height:280}]},
-      q3_sotp:{caption:"SOTP enterprise value by segment",source:"",panels:[{key:"q3Sotp",title:"SOTP — Segment EV ($B) by Scenario",height:360}]},
-      q3_sotp_cum:{caption:"Figure B1: Cumulative SOTP enterprise value as business units are added, Bear / Base / Bull. Starlink (68.2%) and Terrestrial Data Centres (19.9%) dominate the base case. Terafab, Orbital Data Centres and Deep Space Optionality carry negative base-case contribution, reflecting pre-2031 capex with no offsetting revenue inside the 10-year horizon; the total is $4,497B of positive contribution less $9.9B of negative. The base-case total restates from $4,672B to $4,487B; that $185B reduction reflects the model recut rather than the removal of the three folded lines, which were carried at zero throughout. Percentages may not sum to 100 due to rounding.",source:"",panels:[{key:"q3SotpCumulative",title:"SOTP Cumulative Build",height:340}]},
-      q3_rev_segment:{caption:"Figure C1: Consolidated revenue by business unit, stacked 2026–2035.",source:"",panels:[{key:"q3RevenueBySegment",title:"Expected revenue by segment ($B)",height:320}]},
-      q3_ufcf_rev:{caption:"Figure C2: UFCF (red, left axis) and total revenue (dark, right axis) 2026–2045.",source:"",panels:[{key:"q3UfcfVsRevenue",title:"Adjusted UFCF vs Total Revenue ($Bn)",height:320}]},
-      q3_adj_ufcf:{caption:"Adjusted unlevered free cash flow",source:"",panels:[{key:"q3AdjustedUfcf",title:"Adjusted UFCF — 2026 to 2045",height:280}]},
-      q3_comps:{caption:"Figure D1: EV/Revenue multiples. SpaceX at market (~21.2x EV/2026E revenue) vs our DCF conclusion (51.2x EV/2026E revenue).",source:"",panels:[{key:"q3Comps",title:"EV / Revenue Multiple Comparison",height:300}]},
-      q3_sens_share:{caption:"Figure F1: Equity value sensitivity fan. Base case (WACC 9.0%, g 4.0%) = $310.90 per share.",source:"",panels:[{key:"q3PerShareSensitivity",title:"Blended Value per Share — WACC × Terminal Growth",height:300}]},
-      q3_tornado:{caption:"Figure F2: Sensitivity tornado. Drivers sorted by range.",source:"",panels:[{key:"q3Tornado",title:"Sensitivity Tornado: Key Equity Value Drivers",height:340}]},
-      q3_launches:{caption:"Launches per Year — Falcon 9 + Starship",source:"",panels:[{key:"q3Launches",title:"Launches per Year — Falcon 9 + Starship",height:330}]},
-      q3_mass:{caption:"Mass to Orbit (metric tons)",source:"",panels:[{key:"q3MassToOrbitChart",title:"Mass to Orbit (metric tons)",height:280}]},
-      q3_starlink_subs:{caption:"Starlink subscribers",source:"",panels:[{key:"q3StarlinkSubsChart",title:"Starlink Subscribers (M)",height:280}]},
-      q3_colossus_gw:{caption:"Colossus installed compute",source:"",panels:[{key:"q3ColossusCompute",title:"Colossus Installed Compute (GW)",height:280}]},
-      q3_rev_launch:{caption:"Launch Services revenue",source:"",panels:[{key:"q3RevLaunch",title:"Launch Services Revenue ($B)",height:260}]},
-      q3_rev_starshield:{caption:"Starshield revenue",source:"",panels:[{key:"q3RevStarshield",title:"Starshield Revenue ($B)",height:260}]},
-      q3_rev_xai:{caption:"xAI revenue",source:"",panels:[{key:"q3RevXai",title:"xAI Revenue ($B)",height:260}]},
-      q3_rev_orbital:{caption:"Orbital Data Centres revenue",source:"",panels:[{key:"q3RevOrbitalDc",title:"Orbital Data Centres Revenue ($B)",height:260}]},
-      q3_rev_x:{caption:"X Platform revenue",source:"",panels:[{key:"q3RevXPlatform",title:"X Platform Revenue ($B)",height:260}]},
-      q3_rev_terafab:{caption:"Terafab revenue",source:"",panels:[{key:"q3RevTerafab",title:"Terafab Revenue ($B)",height:260}]},
-      q3_scen_starlink:{caption:"Starlink revenue by scenario",source:"",panels:[{key:"q3ScenarioPath",title:"Starlink Revenue Paths",height:280,scenarioKey:"starlink"}]},
-      q3_scen_starshield:{caption:"Starshield revenue by scenario",source:"",panels:[{key:"q3ScenarioPath",title:"Starshield Revenue Paths",height:280,scenarioKey:"starshield"}]},
-      q3_scen_colossus:{caption:"Colossus revenue by scenario",source:"",panels:[{key:"q3ScenarioPath",title:"Colossus Revenue Paths",height:280,scenarioKey:"colossus"}]}
+      global_launch_activity:{caption:"Global Orbital Launch Activity - 2022 to 2026E",source:"2026E bars use diagonal hatching to indicate projected estimates. Hover stacks for category-level counts and tonnage.",panels:[{key:"launchCount",title:"Annual Launches to Orbit - Count",height:330},{key:"launchMass",title:"Annual Mass Delivered to Orbit - Weight",height:330}]},
+      starlink_market_growth:{caption:"Starlink Connectivity Projections & Global Broadband Market",source:"Starlink Connectivity (Consumer + Av/Mar): revenue, EBITDA, and margin from Dialectic model P&L_Consolidated, probability-weighted, 2026-2035. All years are model projections. Broadband market panel: Starlink series from the model; market revenue/EBITDA extrapolated from memo data (~8% CAGR decaying to ~6%, not a model output).",panels:[{key:"starlinkConnectivity",title:"Starlink Connectivity - Revenue, EBITDA & Margin (Model, 2026-2035)",height:380},{key:"broadbandMarket",title:"Global Broadband Market vs Starlink Penetration (2026-2035)",height:380}]},
+      starlink_penetration_v5:{caption:"Global Mobile / Cellular Market vs Starlink Direct-to-Cell",source:"Global mobile market and Starlink DTC penetration from the supplied memo chart data. D2C economics panel from Dialectic model Starlink_D2C sheet, probability-weighted, 2026-2035; revenue/EBITDA on logarithmic left axis.",panels:[{key:"mobileMarket",title:"Global Mobile / Cellular Market vs Starlink Direct-to-Cell",height:380},{key:"starlinkMetrics",title:"Starlink Direct-to-Cell - Revenue, EBITDA & Margin (Model, 2026-2035)",height:380}]},
+      starlink_dtc:{caption:"Starlink Direct-to-Cell - Revenue, EBITDA & Margin",source:"Starlink Direct-to-Cell economics from Dialectic model, Starlink_D2C sheet, probability-weighted, 2026-2035; revenue/EBITDA on logarithmic left axis, blended EBITDA margin on right axis.",panels:[{key:"starlinkMetrics",title:"Starlink Direct-to-Cell - Revenue, EBITDA & Margin (Model, 2026-2035)",height:380}]},
+      chart_01_horizon:{caption:"Enterprise value by horizon",source:"Dialectic SOTP-DCF model, 10-year horizon. WACC 9.0%, terminal growth 4.0%. Bear/Base/Bull scenario weighting via central Scenario Engine.",panels:[{key:"horizon",title:"Enterprise Value by Horizon",height:280}]},
+      chart_02_montecarlo:{caption:"Monte Carlo equity-value distribution",source:"Dialectic Monte Carlo engine - 5,000 trials drawing on WACC, terminal growth, and per-segment scenario outcomes.",panels:[{key:"monteCarlo",title:"Monte Carlo Distribution - 5,000 Trials",height:280}]},
+      chart_03_sotp:{caption:"SOTP enterprise value by segment",source:"Dialectic SOTP model - PV of 10-year UFCF plus Gordon-Growth terminal value, per business unit.",panels:[{key:"sotp",title:"SOTP - Segment EV ($B) by Scenario",height:360}]},
+      chart_09_sotp_cumulative:{caption:"Cumulative SOTP enterprise value",source:"Same SOTP segment values as above, stacked cumulatively from largest to smallest Base EV contribution.",panels:[{key:"sotpCumulative",title:"SOTP Cumulative Build - How Segments Stack to Total EV",height:340}]},
+      chart_04_revenue:{caption:"Consolidated revenue projections",source:"Dialectic consolidated P&L - probability-weighted segment revenue, anchored to SpaceX S-1 FY2025 revenue.",panels:[{key:"revenue",title:"Total Revenue by Business Unit - 2026 to 2035",height:320}]},
+      chart_05_ufcf:{caption:"Revenue and UFCF projection profile",source:"Dialectic DCF model - scenario-weighted unlevered free cash flow build across the twelve business units.",panels:[{key:"ufcf",title:"Unlevered Free Cash Flow Growth - 2026 to 2035",height:280}]},
+      chart_06_comps:{caption:"Comparable-company EV/revenue reference set",source:"Dialectic comparables set - company filings and street consensus; EV/Revenue multiples vs SpaceX at DCF conclusion.",panels:[{key:"comps",title:"EV / Revenue Multiple Comparison",height:300}]},
+      chart_07_sensitivity:{caption:"WACC and terminal-growth sensitivity",source:"Dialectic sensitivity table (Sensitivities sheet, Table 1) - blended ENTERPRISE value across WACC and terminal growth assumptions. Base cell (WACC 9.0% / g 4.0%) = $2,424B.",table:"sensitivity"},
+      chart_08_tornado:{caption:"Key valuation sensitivity drivers",source:"Dialectic single-variable sensitivity analysis - swings around base equity value of $2,408B (Sensitivities sheet, Table 4).",panels:[{key:"tornado",title:"Sensitivity Tornado: Key Equity Value Drivers",height:340}]},
+      chart_10_hyperliquid:{caption:"Hyperliquid implied enterprise value signal",source:"Hyperliquid pre-IPO perpetual market - trailing 30-day implied valuation, illustrative.",panels:[{key:"hyperliquid",title:"Hyperliquid - SPCX Perpetual",height:240}]},
+      chart_11_polymarket:{caption:"Polymarket valuation probability distribution",source:"Polymarket SpaceX valuation prediction markets - trailing 30-day, illustrative.",panels:[{key:"polymarket",title:"Polymarket - SpaceX IPO Valuation",height:240}]}
     };
-    const Q3_SEG_PANELS = {launch:"Launch Services",starlink:"Starlink",starshield:"Starshield",xai:"xAI",terrestrialDc:"Terrestrial Data Centres",orbitalDc:"Orbital Data Centres",xPlatform:"X Platform",terafab:"Terafab",deepSpace:"Deep Space Optionality"};
-    Object.keys(Q3_SEG_PANELS).forEach((key) => {
-      CHART_SPECS["q3_seg_" + key] = {
-        caption: Q3_SEG_PANELS[key] + " — revenue, EBITDA, UFCF",
-        source: "",
-        panels: [{key:"q3SegmentPanel", title: Q3_SEG_PANELS[key] + " — Revenue & EBITDA (left), UFCF (right), $Bn", height:400, segmentKey:key}]
+    for(let i = 1; i <= 12; i += 1){
+      CHART_SPECS["bu_" + String(i).padStart(2, "0")] = {
+        caption:"Business-unit model output",
+        source:"Dialectic SOTP-DCF model - scenario-weighted Bear/Base/Bull projections at 9.0% WACC / 4.0% terminal growth, anchored to SpaceX S-1 FY2025 segment disclosures where available.",
+        panels:[
+          {key:"buRevenueEbitda",title:"Revenue & EBITDA ($M)",height:230,buIndex:i},
+          {key:"buUfcf",title:"Unlevered Free Cash Flow ($M)",height:230,buIndex:i}
+        ]
       };
-    });
+    }
 
     function ixPanelMarkup(panel){
       const attrs = [
         `data-chart-key="${escapeHtml(panel.key)}"`,
-        panel.segmentKey ? `data-segment-key="${escapeHtml(panel.segmentKey)}"` : "",
-        panel.scenarioKey ? `data-scenario-key="${escapeHtml(panel.scenarioKey)}"` : "",
+        panel.buIndex ? `data-bu-index="${panel.buIndex}"` : "",
         `aria-label="${escapeHtml(panel.title)}"`
       ].filter(Boolean).join(" ");
       return `<div class="interactive-chart-panel"><div class="interactive-chart-title">${escapeHtml(panel.title)}</div><div class="interactive-chart-stage" style="--chart-height:${Number(panel.height || 320)}px"><canvas ${attrs}></canvas></div></div>`;
     }
     function ixSensitivityTable(){
       const rows = [
-        ["7.5%", ["$5,216","up-1"], ["$5,796","up-2"], ["$6,541","up-3"], ["$7,535","up-4"], ["$8,926","up-4"]],
-        ["8.3%", ["$4,282","up-1"], ["$4,677","up-1"], ["$5,166","up-1"], ["$5,784","up-2"], ["$6,593","up-3"]],
-        ["9.0%", ["$3,590","down-1"], ["$3,872","down-1"], ["$4,211","base-cell"], ["$4,626","up-1"], ["$5,143","up-2"]],
-        ["9.8%", ["$3,058","down-2"], ["$3,267","down-1"], ["$3,513","down-1"], ["$3,805","down-1"], ["$4,159","down-1"]],
-        ["10.5%", ["$2,638","down-3"], ["$2,797","down-2"], ["$2,981","down-2"], ["$3,196","down-1"], ["$3,450","down-1"]]
+        ["7.5%", ["$3,126","up-1"], ["$3,461","up-2"], ["$3,891","up-3"], ["$4,465","up-4"], ["$5,268","up-4"]],
+        ["8.25%", ["$2,524","up-1"], ["$2,746","up-1"], ["$3,020","up-1"], ["$3,367","up-2"], ["$3,821","up-3"]],
+        ["9.0%", ["$2,085","down-1"], ["$2,239","down-1"], ["$2,424","base-cell"], ["$2,650","up-1"], ["$2,933","up-2"]],
+        ["9.75%", ["$1,753","down-2"], ["$1,864","down-1"], ["$1,995","down-1"], ["$2,150","down-1"], ["$2,339","down-1"]],
+        ["10.5%", ["$1,495","down-3"], ["$1,578","down-2"], ["$1,673","down-2"], ["$1,784","down-1"], ["$1,916","down-1"]]
       ];
       return `<div class="interactive-table-wrap"><div class="interactive-table-panel"><div class="interactive-table-title">Blended Enterprise Value ($B): WACC x Terminal Growth</div><table class="sensitivity-table"><thead><tr><th>WACC / g</th><th>3.0%</th><th>3.5%</th><th>4.0%</th><th>4.5%</th><th>5.0%</th></tr></thead><tbody>${rows.map((row) => `<tr><td>${row[0]}</td>${row.slice(1).map(([value, className]) => `<td class="${className}">${value}</td>`).join("")}</tr>`).join("")}</tbody></table></div></div>`;
     }
@@ -2666,8 +2183,9 @@
       const panels = spec.panels || [];
       const grid = panels.length ? `<div class="interactive-chart-grid" data-panel-count="${panels.length}">${panels.map(ixPanelMarkup).join("")}</div>` : "";
       const table = spec.table === "sensitivity" ? ixSensitivityTable() : "";
-      const source = spec.source ? `<div class="interactive-chart-source">${escapeHtml(spec.source)}</div>` : "";
-      return `<figure class="detail-chart-card is-interactive-chart" data-interactive-ready="true">${grid}${table}${source}</figure>`;
+      const source = `<div class="interactive-chart-source">${escapeHtml(spec.source || "")}</div>`;
+      const cap = `<figcaption class="detail-chart-caption">${escapeHtml(caption || spec.caption || "")}</figcaption>`;
+      return `<figure class="detail-chart-card is-interactive-chart" data-interactive-ready="true">${grid}${table}${source}${cap}</figure>`;
     }
     function specForSrc(src){
       return CHART_SPECS[String(src || "").replace(/\.(png|svg|jpe?g|webp)$/i, "")];
@@ -2681,43 +2199,83 @@
     });
     const pillarCharts = {
       "Space — Network Effects & Moat in Access to Orbit": [
-        {src:"q3_mass.png", caption:"Mass to Orbit (metric tons)"},
-        {src:"launch_cost_learning_curve.png", caption:"Launch Cost Learning Curve: Cost / Price per kg to Low Earth Orbit"}
+        {src:"global_launch_activity.png", caption:"Global orbital launch activity and mass delivered to orbit"},
+        {src:"launch_cost_learning_curve.png", caption:"Launch cost learning curve and SpaceX cost advantage"}
       ],
       "Connectivity — Starlink as a Global Telecom & Internet Infra + D2C": [
-        {src:"q3_starlink_subs.png", caption:"Starlink subscribers (M)"}
+        {src:"starlink_market_growth.png", caption:"Starlink market growth and broadband opportunity"},
+        {src:"starlink_dtc.png", caption:"Starlink Direct-to-Cell revenue, EBITDA & margin"}
       ],
-      "Maximally Truth-seeking AI — The AI Infrastructure Stack": [
-        {src:"q3_colossus_gw.png", caption:"Colossus installed compute (GW)"},
-        {src:"q3_rev_xai.png", caption:"xAI revenue ($B)"}
+      "Maximally Truth-Seeking AI — The AI Infrastructure Stack": [
+        {src:"bu_07.png", caption:"xAI software revenue, EBITDA, and UFCF profile"},
+        {src:"bu_08.png", caption:"Colossus data center revenue, EBITDA, and UFCF profile"},
+        {src:"bu_12.png", caption:"Terafab semiconductor manufacturing profile"}
       ],
       "The Convergence Flywheel": [
-        {src:"q3_rev_segment.png", caption:"Expected revenue by segment ($B)"}
+        {src:"chart_03_sotp.png", caption:"SOTP enterprise value by business segment"},
+        {src:"chart_04_revenue.png", caption:"Consolidated revenue build across major segments"}
       ]
+    };
+    const companyCharts = {
+      "Launch Services": [
+        {src:"bu_01.png", caption:"Launch Services model output"},
+        {src:"launch_cost_learning_curve.png", caption:"Launch cost learning curve"}
+      ],
+      "Crewed Spaceflight": [{src:"bu_02.png", caption:"Crewed Spaceflight model output"}],
+      "Other Space Services": [{src:"bu_03.png", caption:"Other Space Services model output"}],
+      "Starlink Connectivity": [
+        {src:"bu_04.png", caption:"Starlink Connectivity model output"},
+        {src:"starlink_market_growth.png", caption:"Starlink market growth"}
+      ],
+      "Starlink Direct-to-Cell": [
+        {src:"bu_05.png", caption:"Starlink Direct-to-Cell model output"},
+        {src:"starlink_dtc.png", caption:"Starlink Direct-to-Cell revenue, EBITDA & margin"}
+      ],
+      "Starshield & Golden Dome": [{src:"bu_06.png", caption:"Starshield & Golden Dome model output"}],
+      "xAI Software (Grok + API)": [{src:"bu_07.png", caption:"xAI Software model output"}],
+      "Colossus Data Centers": [{src:"bu_08.png", caption:"Colossus Data Centers model output"}],
+      "X Platform & XMoney": [{src:"bu_09.png", caption:"X Platform & XMoney model output"}],
+      "Orbital Data Centers": [{src:"bu_10.png", caption:"Orbital Data Centers model output"}],
+      "Deep Space Optionality": [{src:"bu_11.png", caption:"Deep Space Optionality model output"}],
+      "Terafab — Semiconductor Mfg": [{src:"bu_12.png", caption:"Terafab semiconductor manufacturing model output"}]
     };
     const annexCharts = {
       A: [
-        {src:"q3_horizon.png", caption:"Figure A1: Enterprise value by horizon. Blended (55/35/10 weighted) = $4,211B."},
-        {src:"q3_monte.png", caption:"Figure A2: Monte Carlo equity distribution, 5,000 trials."}
+        {src:"chart_01_horizon.png", caption:"Enterprise value by horizon"},
+        {src:"chart_02_montecarlo.png", caption:"Monte Carlo equity-value distribution"}
       ],
       B: [
-        {src:"q3_sotp_cum.png", caption:"Figure B1: Cumulative SOTP enterprise value as business units are added, Bear / Base / Bull. Starlink (68.2%) and Terrestrial Data Centres (19.9%) dominate the base case. Terafab, Orbital Data Centres and Deep Space Optionality carry negative base-case contribution, reflecting pre-2031 capex with no offsetting revenue inside the 10-year horizon; the total is $4,497B of positive contribution less $9.9B of negative. The base-case total restates from $4,672B to $4,487B; that $185B reduction reflects the model recut rather than the removal of the three folded lines, which were carried at zero throughout. Percentages may not sum to 100 due to rounding."}
+        {src:"chart_03_sotp.png", caption:"SOTP enterprise value by segment"},
+        {src:"chart_09_sotp_cumulative.png", caption:"Cumulative SOTP enterprise value by segment"}
       ],
       C: [
-        {src:"q3_rev_segment.png", caption:"Figure C1: Consolidated revenue by business unit, stacked 2026–2035."},
-        {src:"q3_ufcf_rev.png", caption:"Figure C2: UFCF (red, left axis) and total revenue (dark, right axis) 2026–2045."}
+        {src:"chart_04_revenue.png", caption:"Consolidated revenue projections"},
+        {src:"chart_05_ufcf.png", caption:"UFCF and revenue projection profile"}
       ],
       D: [
-        {src:"q3_comps.png", caption:"Figure D1: EV/Revenue multiples. SpaceX at market (~21.2x EV/2026E revenue) vs our DCF conclusion (51.2x EV/2026E revenue)."}
+        {src:"chart_06_comps.png", caption:"Comparable-company EV/revenue reference set"},
+        {src:"chart_10_hyperliquid.png", caption:"Hyperliquid implied enterprise value signal"},
+        {src:"chart_11_polymarket.png", caption:"Polymarket valuation probability distribution"}
       ],
+      E: [{src:"chart_06_comps.png", caption:"Elon Premium and implied valuation reference set"}],
       F: [
-        {src:"q3_sens_share.png", caption:"Figure F1: Equity value sensitivity fan. Base case (WACC 9.0%, g 4.0%) = $310.90 per share."},
-        {src:"q3_tornado.png", caption:"Figure F2: Sensitivity tornado. Drivers sorted by range."}
+        {src:"chart_07_sensitivity.png", caption:"WACC and terminal-growth sensitivity"},
+        {src:"chart_08_tornado.png", caption:"Key valuation sensitivity drivers"}
       ],
-      G: ANNEX_G_UNITS.map((u, i) => ({
-        src: "q3_seg_" + u.key + ".png",
-        caption: "Figure G" + (i + 1) + ": Revenue & EBITDA (left), UFCF (right), 2026–2045."
-      }))
+      G: [
+        {src:"bu_01.png", caption:"Launch Services business-unit detail"},
+        {src:"bu_02.png", caption:"Crewed Spaceflight business-unit detail"},
+        {src:"bu_03.png", caption:"Other Space Services business-unit detail"},
+        {src:"bu_04.png", caption:"Starlink Connectivity business-unit detail"},
+        {src:"bu_05.png", caption:"Starlink Direct-to-Cell business-unit detail"},
+        {src:"bu_06.png", caption:"Starshield & Golden Dome business-unit detail"},
+        {src:"bu_07.png", caption:"xAI Software business-unit detail"},
+        {src:"bu_08.png", caption:"Colossus Data Centers business-unit detail"},
+        {src:"bu_09.png", caption:"X Platform & XMoney business-unit detail"},
+        {src:"bu_10.png", caption:"Orbital Data Centers business-unit detail"},
+        {src:"bu_11.png", caption:"Deep Space Optionality business-unit detail"},
+        {src:"bu_12.png", caption:"Terafab business-unit detail"}
+      ]
     };
 
     function renderCharts(charts){
@@ -2747,31 +2305,9 @@
 
     function chartsForItem(item, type){
       if(type === "pillar") return pillarCharts[item.title] || [];
+      if(type === "company") return companyCharts[item.name] || [];
       if(type === "annex") return annexCharts[item.letter] || [];
       return [];
-    }
-
-    function renderTableCell(cell){
-      if(cell && typeof cell === "object"){
-        const cls = cell.className ? ` class="${escapeHtml(cell.className)}"` : "";
-        return `<td${cls}>${escapeHtml(cell.value)}</td>`;
-      }
-      return `<td>${escapeHtml(cell)}</td>`;
-    }
-    function renderTableRow(row){
-      const cells = Array.isArray(row) ? row : (row.cells || []);
-      const cls = (!Array.isArray(row) && row.className) ? ` class="${escapeHtml(row.className)}"` : "";
-      return `<tr${cls}>${cells.map(renderTableCell).join("")}</tr>`;
-    }
-    function renderDataTables(tables){
-      if(!Array.isArray(tables) || !tables.length) return "";
-      return `<div class="annex-tables">${tables.map((table) => {
-        const title = table.title ? `<div class="data-table-title">${escapeHtml(table.title)}</div>` : "";
-        const head = (table.head || []).map((cell) => `<th>${escapeHtml(cell)}</th>`).join("");
-        const body = (table.rows || []).map(renderTableRow).join("");
-        const note = table.note ? `<p class="data-table-note">${escapeHtml(table.note)}</p>` : "";
-        return `<div class="data-table-wrap"><div class="data-table-panel">${title}<table class="data-table"><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>${note}</div></div>`;
-      }).join("")}</div>`;
     }
 
     function renderParagraph(paragraph){
@@ -2812,36 +2348,7 @@
       if(Array.isArray(item.paragraphs)){
         parts.push(item.paragraphs.map(renderParagraph).join(""));
       }
-      // DOCX Business Unit Analysis is prose only — no figures or tables.
-      if(type !== "company"){
-      const charts = chartsForItem(item, type);
-      const tables = item.tables || [];
-      if(type === "annex" && item.letter === "A"){
-        if(tables[0]) parts.push(renderDataTables([tables[0]]));
-        if(charts[0]) parts.push(renderCharts([charts[0]]));
-        if(tables[1]) parts.push(renderDataTables([tables[1]]));
-        if(charts[1]) parts.push(renderCharts([charts[1]]));
-      } else if(type === "annex" && item.letter === "C"){
-        if(tables[0]) parts.push(renderDataTables([tables[0]]));
-        if(charts[0]) parts.push(renderCharts([charts[0]]));
-        if(charts[1]) parts.push(renderCharts([charts[1]]));
-        if(tables[1]) parts.push(renderDataTables([tables[1]]));
-      } else if(type === "annex" && item.letter === "F"){
-        parts.push(renderDataTables(tables.slice(0, 2)));
-        if(charts[0]) parts.push(renderCharts([charts[0]]));
-        if(tables[2]) parts.push(renderDataTables([tables[2]]));
-        if(charts[1]) parts.push(renderCharts([charts[1]]));
-      } else if(type === "annex" && item.letter === "G"){
-        const n = Math.max(charts.length, tables.length);
-        for(let i = 0; i < n; i++){
-          if(charts[i]) parts.push(renderCharts([charts[i]]));
-          if(tables[i]) parts.push(renderDataTables([tables[i]]));
-        }
-      } else {
-        parts.push(renderDataTables(tables));
-        parts.push(renderCharts(charts));
-      }
-      }
+      parts.push(renderCharts(chartsForItem(item, type)));
       if(Array.isArray(item.bullets) && item.bullets.length){
         parts.push(`<span class="detail-label">Investment thesis</span><ul>${item.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("")}</ul>`);
       }
@@ -2971,9 +2478,6 @@
       card.classList.add("is-open");
       button.setAttribute("aria-expanded","true");
       body.setAttribute("aria-hidden","false");
-      if(window.SpaceXDashboardCharts && typeof window.SpaceXDashboardCharts.initVisibleCharts === "function"){
-        window.SpaceXDashboardCharts.initVisibleCharts(card);
-      }
       body.style.height = body.scrollHeight + "px";
       body.addEventListener("transitionend", function onEnd(){
         if(card.classList.contains("is-open")) body.style.height = "auto";
@@ -3103,7 +2607,7 @@
     }, {passive:true});
   </script>
   <script src="./assets/chart.umd.js"></script>
-  <script src="./assets/charts-interactive.js?v=2026.08.26-7"></script>
+  <script src="./assets/charts-interactive.js"></script>
   <script src="./assets/html2canvas.min.js"></script>
   <script src="./assets/jspdf.umd.min.js"></script>
   <script src="./assets/dashboard-controls.js"></script>
