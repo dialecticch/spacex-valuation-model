@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Placeholder launch footage poster">
+  <defs>
+    <radialGradient id="redGlow" cx="22%" cy="74%" r="48%">
+      <stop offset="0" stop-color="#e92c2c" stop-opacity=".74"/>
+      <stop offset=".32" stop-color="#e92c2c" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#050507" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbitGlow" cx="70%" cy="42%" r="34%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".16"/>
+      <stop offset=".42" stop-color="#e92c2c" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#050507" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="stars" width="140" height="140" patternUnits="userSpaceOnUse">
+      <circle cx="22" cy="31" r="1.4" fill="#fff" opacity=".55"/>
+      <circle cx="104" cy="88" r="1" fill="#fff" opacity=".35"/>
+      <circle cx="63" cy="119" r="1.2" fill="#fff" opacity=".42"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="#050507"/>
+  <rect width="1600" height="900" fill="url(#stars)" opacity=".55"/>
+  <rect width="1600" height="900" fill="url(#redGlow)"/>
+  <rect width="1600" height="900" fill="url(#orbitGlow)"/>
+  <circle cx="1110" cy="410" r="138" fill="#e92c2c" opacity=".82"/>
+  <circle cx="1110" cy="410" r="242" fill="none" stroke="#fff" stroke-opacity=".08"/>
+  <circle cx="1110" cy="410" r="356" fill="none" stroke="#fff" stroke-opacity=".05"/>
+  <text x="80" y="830" fill="#ffffff" fill-opacity=".42" font-family="Arial, sans-serif" font-size="24" letter-spacing="8">PLACEHOLDER VIDEO POSTER - SWAP FOOTAGE 1:1</text>
+</svg>
