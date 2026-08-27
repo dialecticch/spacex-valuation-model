@@ -20,7 +20,7 @@
 (function () {
   "use strict";
 
-  const CHART_ENGINE_BUILD = "2026.08.26-7";
+  const CHART_ENGINE_BUILD = "2026.08.27-286";
 
   // ===== YEAR AXES =====
   const Q3_YEARS_15 = [2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040];  // Metrics_Charts!C4:Q4 — 2026-2040
@@ -30,7 +30,7 @@
   // ===== SUMMARY: EV BY HORIZON (Summary!G7:G10, $B native) =====
   const q3EvHorizonLabels = ["5-year", "10-year", "20-year", "Blended Fair Value "];
   // Summary!G7:G10 — implied EV, $B
-  const q3EvHorizonData = [3031.484117, 4995.393636, 7954.979774, 4211.202014];  // n=4
+  const q3EvHorizonData = [3031.484117, 4995.393636, 7954.979774, 3866.831756];  // n=4
 
   // ===== METRICS_CHARTS: PHYSICAL METRICS (native units) =====
   // Metrics_Charts!C5:Q5 — Falcon 9 launches (#)
@@ -164,22 +164,22 @@
   // ===== SENSITIVITIES: tornado (I50:K57, already $Bn) =====
   const q3TornadoLabels = ["WACC \u00b1150bps", "Terminal g \u00b1100bps", "Governance discount (dual class)", "Colossus DCs (xAI demand)", "Starship programme (24-mo slip)", "NOL stock (NWC + D&A assumptions)", "Starlink D2C materialisation", "Speculative bucket success"];
   // Sensitivities!J50:J57 — Downside impact ($Bn)
-  const q3TornadoDown = [-1229.937406, -339.054653, -854.339803, -357.4251, -346.884512, -25, -2.130718, 3.50284];  // n=8
+  const q3TornadoDown = [-1116.811713, -325.362298, -785.465751, -357.4251, -346.884512, -25, -2.130718, 3.50284];  // n=8
   // Sensitivities!K50:K57 — Upside impact ($Bn)
-  const q3TornadoUp = [2329.976137, 932.16212, 0, 268.068825, 183.714001, 35, 0.852287, 4.203408];  // n=8
+  const q3TornadoUp = [2108.792754, 894.517764, 0, 268.068825, 183.714001, 35, 0.852287, 4.203408];  // n=8
 
   // ===== SENSITIVITIES: per-share WACC x terminal g (B18:G22, $/share) =====
   const q3SensWacc = [0.075038, 0.082538, 0.090038, 0.097537, 0.105038];  // Sensitivities!B18:B22 — WACC rows
   // Sensitivities!C18:C22 — g = 0.03
-  const q3SensG0 = [383.989413, 316.040837, 265.652367, 226.937803, 196.367128];  // n=5
+  const q3SensG0 = [348.280403, 287.545003, 242.416109, 207.670906, 180.176379];  // n=5
   // Sensitivities!D18:D22 — g = 0.035
-  const q3SensG1 = [426.20587, 344.816781, 286.218658, 242.175157, 207.980739];  // n=5
+  const q3SensG1 = [388.111248, 314.931646, 262.151853, 222.408277, 191.493171];  // n=5
   // Sensitivities!E18:E22 — g = 0.04
-  const q3SensG2 = [480.471263, 380.357567, 310.895125, 260.060757, 221.38003];  // n=5
+  const q3SensG2 = [439.310154, 348.756525, 285.831787, 239.706999, 204.550003];  // n=5
   // Sensitivities!F18:F22 — g = 0.045
-  const q3SensG3 = [552.802537, 425.366427, 341.050685, 281.350708, 237.01114];  // n=5
+  const q3SensG3 = [507.554055, 391.592359, 314.769548, 260.298363, 219.781615];  // n=5
   // Sensitivities!G18:G22 — g = 0.05
-  const q3SensG4 = [654.022988, 484.208206, 378.738074, 307.119217, 255.482334];  // n=5
+  const q3SensG4 = [603.054632, 447.593261, 350.934972, 285.221331, 237.780724];  // n=5
   const q3SensGrowth = [0.03, 0.035, 0.04, 0.045, 0.05];  // Sensitivities!C16:G16 — terminal g columns
 
   // ===== MONTE CARLO: histogram (E20:E60 labels, G20:G60 counts) =====
@@ -190,7 +190,7 @@
   // ===== COMPS: implied equity by method (M44:N55, already $Bn) =====
   const q3CompsLabels = ["Defence EV/Rev implied", "Defence EV/EBITDA implied", "70/30 Defence/AI blend", "AI EV/Rev implied", "AI EV/EBITDA implied", "Satellite EV/Rev implied", "IPO low ($1.75T)", "IPO mid ($1.875T)", "IPO bull ($2.75T)", "Our DCF central", "MC P50", "MC P90"];
   // Comps!N44:N55 — implied equity ($Bn)
-  const q3CompsData = [233.744802, 744.944975, 1294.469752, 1417.608187, 2576.694232, 3470.219453, 1750, 1875, 2750, 4271.699014, 4258.831065, 8580.068141];  // n=12
+  const q3CompsData = [137, 595, 1084, 1170, 2218, 2962, 1750, 1875, 2750, 3927.328756, 4319, 8641];  // n=12
 
   /* ==========================================================================
    * DESIGN SYSTEM — palette. Do not introduce colours outside this set.
@@ -677,7 +677,7 @@
       ]}, options:{responsive:true, maintainAspectRatio:false, interaction:{mode:"nearest",intersect:true}, plugins:{legend:{position:"top"}, tooltip:{callbacks:{label(ctx){const raw=ctx.raw;const visibleLabel=raw.tooltipLabel||raw.label;const base=ctx.dataset.label+": "+(visibleLabel?visibleLabel.replace(/\n/g," - ")+" / ":"")+raw.x+" / "+formatCost(raw.y);return raw.detail?[base,raw.detail]:base;}}}, exhibitAnnotationPlugin:{eraBands:[{from:2010,to:2023.5,color:"rgba(233,44,44,.08)",label:"FALCON 9 ERA",labelColor:"rgba(233,44,44,.55)"},{from:2023.5,to:2032,color:"rgba(38,37,43,.06)",label:"STARSHIP ERA",labelColor:"rgba(38,37,43,.48)"}],callouts:[{x:2017,y:850,text:"SpaceX: ~98% cost\nreduction 2010-2026",dx:0,dy:-20}]}}, scales:{x:{type:"linear",min:1963,max:2032,title:{display:true,text:"Year"},ticks:{stepSize:10},grid:{color:"#f2f2f2"}}, y:{type:"logarithmic",min:5,max:200000,title:{display:true,text:"Cost / price per kg to LEO (log scale)"},ticks:{callback:formatCost},grid:{color:"#eee"}}}}});
     },
 
-    // Summary!G7:G10 — EV by horizon plus the 55/35/10 blended fair value.
+    // Summary!G7:G10 — EV by horizon plus the 65/30/5 blended fair value.
     q3EvByHorizon(canvas) {
       const isBlend = q3EvHorizonLabels.map(function (l) { return /blend/i.test(l); });
       return buildChart(canvas, {
@@ -701,7 +701,7 @@
             tooltip: withSlickTooltip({
               label: function (ctx) { return " Implied EV ($B)  " + q3Amount(ctx.parsed.y); },
               afterLabel: function (ctx) {
-                return isBlend[ctx.dataIndex] ? "55% / 35% / 10% horizon blend" : "";
+                return isBlend[ctx.dataIndex] ? "65% / 30% / 5% horizon blend" : "";
               }
             })
           },
