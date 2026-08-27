@@ -127,6 +127,30 @@
       z-index:45;
       flex:0 0 auto;
     }
+    /* --- Edition switcher (Pre-IPO <-> Post-Q2 2026) --- */
+    .nav-edition{
+      appearance:none;
+      display:inline-flex;
+      align-items:center;
+      height:23px;
+      padding:0 10px;
+      border-radius:999px;
+      border:1px solid rgba(233,44,44,.42);
+      background:rgba(233,44,44,.14);
+      color:#fff;
+      font-family:var(--font-display);
+      font-size:8px;
+      line-height:1;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+      white-space:nowrap;
+      cursor:pointer;
+      transition:background .18s ease,border-color .18s ease,transform .18s ease;
+    }
+    .nav-edition:hover{background:rgba(233,44,44,.28);border-color:rgba(233,44,44,.72);transform:translateY(-1px)}
+    @media(max-width:1180px){
+      .nav-edition{height:21px;padding:0 8px;font-size:7.5px;letter-spacing:.06em}
+    }
     /* Language switcher temporarily disabled (per-language pages not present in this build). */
     .language-switcher{position:relative;display:none}
     .language-trigger{
@@ -1614,7 +1638,7 @@
       <a href="#annexes" data-nav>Annexes</a>
     </div>
     <div class="nav-actions">
-      <a href="/index.html" data-nav>Open the current Post-Q2 2026 valuation</a>
+      <a class="nav-edition" href="/index.html" data-nav aria-label="Open the current Post-Q2 2026 valuation">Post-Q2 2026 Update</a>
       <div class="language-switcher" data-language-switcher>
         <button class="language-trigger" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Select language" data-language-trigger>
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
