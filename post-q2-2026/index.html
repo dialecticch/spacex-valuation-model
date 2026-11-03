@@ -7,6 +7,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <link rel="preload" as="image" href="../assets/hero/orbit-reentry.jpg">
   <link rel="stylesheet" href="../assets/dashboard.css">
+  <link rel="stylesheet" href="../assets/edition-switcher.css">
+  <script src="../assets/edition-switcher.js" defer></script>
 </head>
 <body>
   <div class="page-transition" aria-hidden="true"></div>
@@ -23,6 +25,13 @@
       <a href="#annexes" data-nav>Annexes</a>
     </div>
     <div class="nav-actions">
+      <details class="edition-switcher">
+        <summary class="nav-edition">Editions</summary>
+        <div class="edition-menu">
+          <a href="../">Post-Q3 2026</a>
+          <a href="../pre-ipo/">Pre-IPO</a>
+        </div>
+      </details>
       <div class="language-switcher" data-language-switcher>
         <button class="language-trigger" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Select language" data-language-trigger>
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">

@@ -10,38 +10,6 @@
 
 .skip-link:focus { transform: none; }
 
-.edition-switcher { position: relative; }
-.edition-switcher summary::-webkit-details-marker { display: none; }
-.edition-switcher summary::after {
-  content: "";
-  width: 5px;
-  height: 5px;
-  margin: -2px 0 0 7px;
-  border: solid currentColor;
-  border-width: 0 1px 1px 0;
-  transform: rotate(45deg);
-}
-.edition-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  min-width: 154px;
-  padding: 5px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--panel);
-  box-shadow: var(--shadow);
-}
-.edition-menu a {
-  display: block;
-  padding: 9px 12px;
-  border-radius: 5px;
-  color: var(--ink);
-  font-size: 13px;
-  white-space: nowrap;
-}
-.edition-menu a:hover, .edition-menu a:focus-visible { background: var(--red-soft); }
-
 .copy-panel { grid-template-columns: minmax(0, 1fr); }
 .copy-panel :is(h3, li)[id], #investment-thesis { scroll-margin-top: 120px; }
 .copy-panel ul { margin: 0; padding-left: 1.3em; }
