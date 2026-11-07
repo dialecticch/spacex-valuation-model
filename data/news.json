@@ -1,0 +1,9 @@
+{
+  "note": "Live posts load through X's official timeline widget (platform.twitter.com/widgets.js). No API key and no token ship with the page. Add status URLs under posts to pin specific posts above the timeline.",
+  "timeline": {
+    "handle": "SpaceX",
+    "href": "https://x.com/SpaceX",
+    "height": 560
+  },
+  "posts": []
+}
