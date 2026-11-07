@@ -154,6 +154,18 @@
       z-index:45;
       flex:0 0 auto;
     }
+    .model-link{
+      font-family:var(--font-display);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#fff;
+      border:1px solid rgba(233,44,44,.75);
+      border-radius:999px;
+      padding:8px 12px;
+      white-space:nowrap;
+    }
+    .model-link:hover{background:var(--red);color:#fff}
     /* Language switcher temporarily disabled (per-language pages not present in this build). */
     .language-switcher{position:relative;display:none}
     .language-trigger{
@@ -1815,6 +1827,7 @@
       <a href="#annexes" data-nav>Annexes</a>
     </div>
     <div class="nav-actions">
+      <a class="model-link" href="./model.html">Live model</a>
       <div class="language-switcher" data-language-switcher>
         <button class="language-trigger" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Select language" data-language-trigger>
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1947,6 +1960,7 @@
         <article class="copy-panel valuation-copy reveal">
           <h3 class="detail-heading">Methodology</h3>
           <p>We primarily employed a bottoms-up, probability-weighted sum-of-the-parts (SOTP) DCF across nine business units, each modeled with three scenarios (Bear / Base / Bull) and a materialization probability, with strong overweighting of near-term cash flows. Post-Q2, every major segment build is driven off its physical unit of production.</p>
+          <p><a href="./model.html">Open the live physical-input model</a>. Bear, base and bull presets load the November 2026 v11 case. Moving an input recalculates fair value in the browser. The published baseline itself changes only with <code>data/baseline.json</code>.</p>
           <h3 class="detail-heading">Comparables Analysis</h3>
           <p>We treat trading comparables as a cross-check and a downside bound, not as the primary basis for value. SpaceX has no clean peer and it is so obviously positioned to be the largest most important company on the planet that we find ourselves in full-throated belly laughs when talking with traders who short this asset. A blended whole-company multiple is therefore directional at best, which is why our central value rests on the sum-of-the-parts DCF.</p>
           <p>Viewed across the relevant peer sets, the comparables span an extremely wide band. Defense primes trade at roughly 2x revenue and anchor low; high-growth space names (Rocket Lab, AST SpaceMobile) anchor high; the AI cohort sits between OpenAI ~28x revenue, Anthropic ~21x, Palantir ~47x, NVIDIA ~22x. The arithmetic has now inverted in the buyer's favour: at $134.13 the market values SpaceX at ~$1.80T of roughly 25x our 2026E economic revenue of $71.7B and only ~11x our 2027E of $169.5B, against an AI-lab median of ~24.5x. On reported GAAP (which excludes internal-payload economics), the annualized Q2 run-rate of ~$31B implies ~57x and the spread between the two multiples is itself the mispricing: the market is paying GAAP multiples for a company whose economic output is more than twice its reported revenue.</p>

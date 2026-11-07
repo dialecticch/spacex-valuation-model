@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpaceX physical-input model — Dialectic</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
+  <link rel="stylesheet" href="./assets/model/dashboard.css">
+</head>
+<body>
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="./index.html">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>SpaceX</span>
+      <span class="brand-dialectic">Dialectic</span>
+    </a>
+    <div class="nav-links">
+      <a href="./index.html">Memorandum</a>
+      <a href="./model.html" aria-current="page">Live model</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <header class="hero">
+      <p class="kicker">Dialectic · physical-driver valuation</p>
+      <h1>SpaceX physical inputs</h1>
+      <p class="sub">Sum of the parts by segment, unlevered DCF, per share. Presets are the v11 bear, base and bull cases. Edits recalculate in the browser. The published baseline changes only when <code>data/baseline.json</code> changes.</p>
+      <div class="baseline-badge" id="badge">Loading baseline…</div>
+      <div class="result-bar">
+        <div class="fv-card">
+          <div class="fv-label" id="fv-label">Base fair value</div>
+          <div class="fv" id="fv">—<small>/sh</small></div>
+          <div class="fv-meta" id="fv-meta"></div>
+          <div class="presets" role="group" aria-label="Scenario presets">
+            <button type="button" data-case="bear">Bear</button>
+            <button type="button" data-case="base" aria-pressed="true">Base</button>
+            <button type="button" data-case="bull">Bull</button>
+            <button type="button" class="text-btn" id="reset">Reset case</button>
+          </div>
+        </div>
+        <div class="side-card">
+          <div class="metrics" id="metrics"></div>
+          <div class="weights" id="weights"></div>
+        </div>
+      </div>
+      <div id="warnings"></div>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="Input groups" id="tabs"></div>
+    <section class="panel" id="inputs" aria-live="polite"></section>
+
+    <section class="chart-grid" id="charts" aria-label="Physical inputs"></section>
+
+    <div class="split">
+      <section class="panel">
+        <h2>Segment enterprise value</h2>
+        <p class="hint">Blended 5 / 10 / 20 year value for the selected case. Cash sits outside the segments.</p>
+        <div id="segments"></div>
+      </section>
+      <section class="panel">
+        <h2>Sensitivity</h2>
+        <p class="hint">Fair value of the selected case if one assumption moves, holding the rest at the current inputs.</p>
+        <div id="tornado"></div>
+      </section>
+    </div>
+
+    <section class="panel">
+      <h2>Scenario comparison</h2>
+      <p class="hint">Live cases against the baseline file loaded with this page. The baseline does not change from news inside the browser.</p>
+      <div id="compare"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Financing memo</h2>
+      <p class="hint">Interest is shown at the sourced cost of debt. It is not deducted from fair value. The 10% WACC already prices the cost of capital.</p>
+      <div id="finance"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Recent baseline changes</h2>
+      <ol class="changes" id="changes"></ol>
+    </section>
+
+    <section class="panel">
+      <h2>SpaceX video</h2>
+      <p class="hint">Official webcasts. Playback starts when you open a clip. Edit the list in <code>data/videos.json</code>.</p>
+      <div class="videos" id="videos"></div>
+    </section>
+
+    <section class="panel">
+      <h2>X posts</h2>
+      <p class="hint">Loaded with X’s embed widget. No API key in this page. Handles and pinned posts live in <code>data/news.json</code>.</p>
+      <div id="news"></div>
+    </section>
+
+    <footer class="footer" id="notes"></footer>
+  </main>
+
+  <script src="./assets/chart.umd.js"></script>
+  <script src="./assets/model/engine.js"></script>
+  <script src="./assets/model/dashboard.js"></script>
+</body>
+</html>
